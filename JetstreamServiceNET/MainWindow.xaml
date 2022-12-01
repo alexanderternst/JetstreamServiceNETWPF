@@ -7,8 +7,10 @@
         xmlns:res="clr-namespace:JetstreamServiceNET.Resources"
         mc:Ignorable="d"
         Title="{x:Static res:MyResources.window_title}"
-        Height="450"
-        Width="800">
+        Height="500"
+        Width="800"
+        ResizeMode="CanResizeWithGrip"
+        >
     <Grid>
         <DockPanel>
             <Border DockPanel.Dock="Left"

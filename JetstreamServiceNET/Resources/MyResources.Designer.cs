@@ -61,6 +61,15 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete data.
+        /// </summary>
+        public static string btn_delete {
+            get {
+                return ResourceManager.GetString("btn_delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Creation.
         /// </summary>
         public static string btn_erstellung {
@@ -75,6 +84,24 @@ namespace JetstreamServiceNET.Resources {
         public static string btn_Home {
             get {
                 return ResourceManager.GetString("btn_Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modify data.
+        /// </summary>
+        public static string btn_modify {
+            get {
+                return ResourceManager.GetString("btn_modify", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read data.
+        /// </summary>
+        public static string btn_read {
+            get {
+                return ResourceManager.GetString("btn_read", resourceCulture);
             }
         }
         

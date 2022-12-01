@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:JetstreamServiceNET.Views"
              xmlns:vm="clr-namespace:JetstreamServiceNET.ViewModels"
              xmlns:res="clr-namespace:JetstreamServiceNET.Resources"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d"
+             d:DesignHeight="500" d:DesignWidth="800">
     <UserControl.DataContext>
         <vm:VerwaltungModel />
     </UserControl.DataContext>
@@ -26,7 +26,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -76,14 +76,19 @@
 
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
-                <Button Command="{Binding CmdRead}">
-                    <Image Source="../Print_11009.png" />
+                <Button Command="{Binding CmdRead}"
+                        ToolTip="{x:Static res:MyResources.btn_read}">
+                    <Image Source="../pictures/read.png"
+                           Height="16"/>
                 </Button>
-                <Button Command="{Binding CmdDelete}">
-                    <Image Source="../Print_11009.png" />
+                <Button Command="{Binding CmdDelete}"
+                        ToolTip="{x:Static res:MyResources.btn_delete}">
+                    <Image Source="../pictures/delete.png" Height="16"/>
                 </Button>
-                <Button Command="{Binding CmdModify}">
-                    <Image Source="../Print_11009.png" />
+                <Button Command="{Binding CmdModify}"
+                        ToolTip="{x:Static res:MyResources.btn_modify}">
+                    <Image Source="../pictures/modify.png"
+                           Height="16" />
                 </Button>
             </ToolBar>
         </ToolBarTray>

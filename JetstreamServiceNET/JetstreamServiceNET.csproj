@@ -8,6 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="pictures\delete.png" />
+    <None Remove="pictures\modify.png" />
+    <None Remove="pictures\read.png" />
     <None Remove="Print_11009.png" />
   </ItemGroup>
 
@@ -16,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="pictures\delete.png" />
+    <Resource Include="pictures\modify.png" />
+    <Resource Include="pictures\read.png" />
     <Resource Include="Print_11009.png" />
   </ItemGroup>
 

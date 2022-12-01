@@ -11,25 +11,25 @@ namespace JetstreamServiceNET.ViewModels
 {
 
     public class VerwaltungModel
-	{
+    {
         private RelayCommand _cmdRead;
         private RelayCommand _cmdDelete;
         private RelayCommand _cmdModify;
 
         public ObservableCollection<User> Mitarbeiter { get; set; }
 
-		public VerwaltungModel()
-		{
+        public VerwaltungModel()
+        {
             _cmdRead = new RelayCommand(param => Execute_Read());
             _cmdDelete = new RelayCommand(_cmdSaveparam => Execute_Delete());
             _cmdModify = new RelayCommand(_cmdSaveparam => Execute_Modify());
 
 
             Mitarbeiter = new ObservableCollection<User>
-			{
-				new User() { 
-                    Id = 1, 
-                    Name = "John Doe", 
+            {
+                new User() {
+                    Id = 1,
+                    Name = "John Doe",
                     Email = "john.doe@gmx.com",
                     Telefon = "077 463 35 93",
                     AuftragDatum = new DateTime(1971, 7, 23),
@@ -38,8 +38,18 @@ namespace JetstreamServiceNET.ViewModels
                     Prioritaet = "Express",
                     Bemerkung = "Bitte vorsicht mit Ski"
                     },
-				new User() { Id = 2, Name = "Jane Doe", AuftragDatum = new DateTime(1974, 1, 17) },
-				new User() { Id = 3, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new User() {
+                    Id = 2,
+                    Name = "Jane Doe",
+                    Email = "jane.doe@gmx.com",
+                    Telefon = "077 828 82 73",
+                    AuftragDatum = new DateTime(2000, 10, 11),
+                    Service = "Heisswachsen",
+                    Status= "Offen",
+                    Prioritaet = "Express",
+                    Bemerkung = "keine Bemerkungen"
+                    },
+                new User() { Id = 3, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
                 new User() { Id = 4, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
                 new User() { Id = 5, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
                 new User() { Id = 6, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
@@ -52,7 +62,7 @@ namespace JetstreamServiceNET.ViewModels
                 new User() { Id = 13, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
 
             };
-		}
+        }
 
         public RelayCommand CmdRead
         {
@@ -74,17 +84,17 @@ namespace JetstreamServiceNET.ViewModels
 
         private void Execute_Read()
         {
-            MessageBox.Show("Reading Data", "Read");
+            MessageBox.Show("Reading data", "Read");
         }
 
         private void Execute_Delete()
         {
-            MessageBox.Show("Deleting Data", "Deleting");
+            MessageBox.Show("Deleting data", "Deleting");
         }
 
         private void Execute_Modify()
         {
-            MessageBox.Show("Modify Data", "Modify");
+            MessageBox.Show("Modify data", "Modify");
         }
     }
 
