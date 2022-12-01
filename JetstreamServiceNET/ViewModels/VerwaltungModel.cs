@@ -94,7 +94,9 @@ namespace JetstreamServiceNET.ViewModels
 
         private void Execute_Modify()
         {
-            MessageBox.Show("Modify data", "Modify");
+            //MessageBox.Show("Modify data", "Modify");
+            Modifizierung win1 = new Modifizierung("Modifizierung von Daten\nText von ViewModel erstellt/hinzugefügt");
+            win1.ShowDialog();
         }
     }
 
