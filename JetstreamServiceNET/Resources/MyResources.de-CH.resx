@@ -117,7 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btn_erstellung" xml:space="preserve">
+    <value>Erstellung</value>
+  </data>
+  <data name="btn_Home" xml:space="preserve">
+    <value>Allgemeines</value>
+  </data>
+  <data name="btn_send" xml:space="preserve">
+    <value>Senden</value>
+  </data>
+  <data name="btn_verwaltung" xml:space="preserve">
+    <value>Verwaltung</value>
+  </data>
+  <data name="input_date" xml:space="preserve">
+    <value>Auftrags-Datum:</value>
+  </data>
+  <data name="input_email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="input_name" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="input_priority" xml:space="preserve">
+    <value>Priorität:</value>
+  </data>
+  <data name="input_remark" xml:space="preserve">
+    <value>Bemerkung:</value>
+  </data>
+  <data name="input_service" xml:space="preserve">
+    <value>Service:</value>
+  </data>
+  <data name="input_status" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="input_tel" xml:space="preserve">
+    <value>Telefon:</value>
+  </data>
   <data name="window_title" xml:space="preserve">
-    <value>Mein Fenster</value>
+    <value>Auftragsverwaltung</value>
   </data>
 </root>

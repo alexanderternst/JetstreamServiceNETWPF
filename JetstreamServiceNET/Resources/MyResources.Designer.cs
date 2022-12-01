@@ -61,7 +61,115 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My Window.
+        ///   Looks up a localized string similar to Creation.
+        /// </summary>
+        public static string btn_erstellung {
+            get {
+                return ResourceManager.GetString("btn_erstellung", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string btn_Home {
+            get {
+                return ResourceManager.GetString("btn_Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send.
+        /// </summary>
+        public static string btn_send {
+            get {
+                return ResourceManager.GetString("btn_send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Management.
+        /// </summary>
+        public static string btn_verwaltung {
+            get {
+                return ResourceManager.GetString("btn_verwaltung", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order-Date:.
+        /// </summary>
+        public static string input_date {
+            get {
+                return ResourceManager.GetString("input_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email:.
+        /// </summary>
+        public static string input_email {
+            get {
+                return ResourceManager.GetString("input_email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name:.
+        /// </summary>
+        public static string input_name {
+            get {
+                return ResourceManager.GetString("input_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Priority:.
+        /// </summary>
+        public static string input_priority {
+            get {
+                return ResourceManager.GetString("input_priority", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remark:.
+        /// </summary>
+        public static string input_remark {
+            get {
+                return ResourceManager.GetString("input_remark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Service:.
+        /// </summary>
+        public static string input_service {
+            get {
+                return ResourceManager.GetString("input_service", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status:.
+        /// </summary>
+        public static string input_status {
+            get {
+                return ResourceManager.GetString("input_status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone:.
+        /// </summary>
+        public static string input_tel {
+            get {
+                return ResourceManager.GetString("input_tel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ordermanagement.
         /// </summary>
         public static string window_title {
             get {

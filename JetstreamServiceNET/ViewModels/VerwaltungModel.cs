@@ -27,19 +27,29 @@ namespace JetstreamServiceNET.ViewModels
 
             Mitarbeiter = new ObservableCollection<User>
 			{
-				new User() { Id = 1, Name = "John Doe", Birthday = new DateTime(1971, 7, 23) },
-				new User() { Id = 2, Name = "Jane Doe", Birthday = new DateTime(1974, 1, 17) },
-				new User() { Id = 3, Name = "Sammy Doe", Birthday = new DateTime(1991, 9, 2) },
-                new User() { Id = 4, Name = "Sammy Doe", Birthday = new DateTime(1991, 9, 2) },
-                new User() { Id = 5, Name = "Sammy Doe", Birthday = new DateTime(1991, 9, 2) },
-                new User() { Id = 6, Name = "Sammy Doe", Birthday = new DateTime(1991, 9, 2) },
-                new User() { Id = 7, Name = "Sammy Doe", Birthday = new DateTime(1991, 9, 2) },
-                new User() { Id = 8, Name = "Sammy Doe", Birthday = new DateTime(1991, 9, 2) },
-                new User() { Id = 9, Name = "Sammy Doe", Birthday = new DateTime(1991, 9, 2) },
-                new User() { Id = 10, Name = "Sammy Doe", Birthday = new DateTime(1991, 9, 2) },
-                new User() { Id = 11, Name = "Sammy Doe", Birthday = new DateTime(1991, 9, 2) },
-                new User() { Id = 12, Name = "Sammy Doe", Birthday = new DateTime(1991, 9, 2) },
-                new User() { Id = 13, Name = "Sammy Doe", Birthday = new DateTime(1991, 9, 2) },
+				new User() { 
+                    Id = 1, 
+                    Name = "John Doe", 
+                    Email = "john.doe@gmx.com",
+                    Telefon = "077 463 35 93",
+                    AuftragDatum = new DateTime(1971, 7, 23),
+                    Service = "Heisswachsen",
+                    Status= "Offen",
+                    Prioritaet = "Express",
+                    Bemerkung = "Bitte vorsicht mit Ski"
+                    },
+				new User() { Id = 2, Name = "Jane Doe", AuftragDatum = new DateTime(1974, 1, 17) },
+				new User() { Id = 3, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new User() { Id = 4, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new User() { Id = 5, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new User() { Id = 6, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new User() { Id = 7, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new User() { Id = 8, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new User() { Id = 9, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new User() { Id = 10, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new User() { Id = 11, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new User() { Id = 12, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new User() { Id = 13, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
 
             };
 		}

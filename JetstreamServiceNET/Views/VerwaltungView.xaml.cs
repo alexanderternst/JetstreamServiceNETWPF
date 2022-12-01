@@ -21,12 +21,10 @@ namespace JetstreamServiceNET.Views
     /// </summary>
     public partial class VerwaltungView : UserControl
     {
-        //private VerwaltungModel _model = new VerwaltungModel();
 
         public VerwaltungView()
         {
             InitializeComponent();
-            //DataContext = _model;
         }
     }
 }

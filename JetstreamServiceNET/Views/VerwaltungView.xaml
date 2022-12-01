@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JetstreamServiceNET.Views"
              xmlns:vm="clr-namespace:JetstreamServiceNET.ViewModels"
+             xmlns:res="clr-namespace:JetstreamServiceNET.Resources"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
@@ -29,9 +30,11 @@
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-
-        <DataGrid Grid.Row="2"
-                  Margin="10"
+        <GroupBox
+            Header="Data:"
+            Grid.Row="2"
+            Margin="10">
+            <DataGrid Grid.Row="2"
                   Name="dgRegistrations"
                   AutoGenerateColumns="False"
                   CanUserResizeColumns="True"
@@ -40,18 +43,35 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id"
                                     Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Name"
+                    <DataGridTextColumn Header="{x:Static res:MyResources.input_name}"
                                     Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="{x:Static res:MyResources.input_email}"
+                                    Binding="{Binding Email}" />
+                    <DataGridTextColumn Header="{x:Static res:MyResources.input_tel}"
+                                    Binding="{Binding Telefon}" />
 
-                <DataGridTemplateColumn Header="Birthday">
+                    <DataGridTemplateColumn Header="{x:Static res:MyResources.input_date}" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <DatePicker SelectedDate="{Binding Birthday}" />
+                            <DatePicker SelectedDate="{Binding AuftragDatum}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="{x:Static res:MyResources.input_service}"
+                                    Binding="{Binding Service}" />
+
+                    <DataGridTextColumn Header="{x:Static res:MyResources.input_status}"
+                                    Binding="{Binding Status}" />
+
+                    <DataGridTextColumn Header="{x:Static res:MyResources.input_priority}"
+                                    Binding="{Binding Prioritaet}" />
+
+                    <DataGridTextColumn Header="{x:Static res:MyResources.input_remark}"
+                                    Binding="{Binding Bemerkung}" />
             </DataGrid.Columns>
         </DataGrid>
+        </GroupBox>
 
 
         <ToolBarTray DockPanel.Dock="Top">
@@ -72,7 +92,8 @@
             Grid.Row="1"
             Margin="10"
             VerticalContentAlignment="Center"
-            IsReadOnly="True">
+            IsReadOnly="True"
+           Text="Errors and HTTP Responses">
             
         </TextBox>
     </Grid>

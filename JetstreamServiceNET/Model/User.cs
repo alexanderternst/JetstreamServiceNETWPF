@@ -28,7 +28,7 @@ namespace JetstreamServiceNET.Model
                 if (_Id != value)
                 {
                     _Id = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("Age"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Id"));
                 }
             }
         }
@@ -42,20 +42,105 @@ namespace JetstreamServiceNET.Model
                 if (_Name != value)
                 {
                     _Name = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("City"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Name"));
                 }
             }
         }
-        private DateTime _birthday;
-        public DateTime Birthday
+
+        private string _Email;
+        public string Email
         {
-            get { return _birthday; }
+            get { return _Email; }
             set
             {
-                if (_birthday != value)
+                if (_Email != value)
                 {
-                    _birthday = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("City"));
+                    _Email = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Name"));
+                }
+            }
+        }
+
+        private string _Telefon;
+        public string Telefon
+        {
+            get { return _Telefon; }
+            set
+            {
+                if (_Telefon != value)
+                {
+                    _Telefon = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Telefon"));
+                }
+            }
+        }
+
+        private DateTime _AuftragDatum;
+        public DateTime AuftragDatum
+        {
+            get { return _AuftragDatum; }
+            set
+            {
+                if (_AuftragDatum != value)
+                {
+                    _AuftragDatum = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("AuftragsDatum"));
+                }
+            }
+        }
+
+        private string _Service;
+        public string Service
+        {
+            get { return _Service; }
+            set
+            {
+                if (_Service != value)
+                {
+                    _Service = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Service"));
+                }
+            }
+        }
+
+        private string _Status;
+        public string Status
+        {
+            get { return _Status; }
+            set
+            {
+                if (_Status != value)
+                {
+                    _Status = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Status"));
+                }
+            }
+        }
+
+        private string _Prioritaet;
+        public string Prioritaet
+        {
+            get { return _Prioritaet; }
+            set
+            {
+                if (_Prioritaet != value)
+                {
+                    _Prioritaet = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Prioritaet"));
+                }
+            }
+        }
+
+        private string _Bemerkung;
+        public string Bemerkung
+        {
+            get { return _Bemerkung; }
+            set
+            {
+                if (_Bemerkung != value)
+                {
+                    _Bemerkung = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Bemerkung"));
                 }
             }
         }
