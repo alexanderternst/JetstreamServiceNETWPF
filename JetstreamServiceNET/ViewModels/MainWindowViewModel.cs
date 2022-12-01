@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading;
+using RestSharp;
+using RestSharp.Authenticators;
 
 namespace JetstreamServiceNET.ViewModels
 {
-	public class MainWindowViewModel
+    public class MainWindowViewModel
 	{
 		public ObservableCollection<User> Mitarbeiter { get; set; }
 

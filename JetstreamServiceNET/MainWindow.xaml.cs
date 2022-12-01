@@ -1,4 +1,5 @@
 ﻿using JetstreamServiceNET.ViewModels;
+using JetstreamServiceNET.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,11 +25,28 @@ namespace JetstreamServiceNET
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainWindowViewModel _model = new MainWindowViewModel();
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = _model;
+            ContentArea.Content = new HomeView();
+        }
+
+        private void btnHome_Click(object sender, RoutedEventArgs e)
+        {
+            HomeView home = new HomeView();
+            ContentArea.Content = home;
+        }
+
+        private void btnErstellung_Click(object sender, RoutedEventArgs e)
+        {
+            ErstellungView erstellung = new ErstellungView();
+            ContentArea.Content = erstellung;
+        }
+
+        private void btnVerwaltung_Click(object sender, RoutedEventArgs e)
+        {
+            VerwaltungView verwaltung = new VerwaltungView();
+            ContentArea.Content = verwaltung;
         }
     }
 }

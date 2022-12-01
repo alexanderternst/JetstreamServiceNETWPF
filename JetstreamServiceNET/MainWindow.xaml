@@ -10,132 +10,34 @@
         Height="450"
         Width="800">
     <Grid>
-        <TabControl TabStripPlacement="Left">
-            <TabItem Header="Authentifikation">
-                <Grid Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Abrufen/Löschen">
-                <Grid Background="#FFE5E5E5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="100" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="2*" />
-                    </Grid.ColumnDefinitions>
-                    <GroupBox Header="General">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="1*" />
-                                <RowDefinition Height="1*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="1*" />
-                            </Grid.ColumnDefinitions>
+        <DockPanel>
+            <Border DockPanel.Dock="Left"
+                    BorderBrush="Black"
+                    BorderThickness="0,0,1,0">
+                <StackPanel Orientation="Vertical"
+                            Margin="5">
+                    <Button x:Name="btnHome"
+                            Content="Home"
+                            Height="30"
+                            Width="80"
+                            Margin="5"
+                            Click="btnHome_Click" />
+                    <Button x:Name="btnErstellung"
+                            Content="Erstellung"
+                            Height="30"
+                            Width="80"
+                            Margin="5"
+                            Click="btnErstellung_Click" />
+                    <Button x:Name="btnVerwaltung"
+                            Content="Verwaltung"
+                            Height="30"
+                            Width="80"
+                            Margin="5"
+                            Click="btnVerwaltung_Click" />
+                </StackPanel>
+            </Border>
 
-                            <Label VerticalContentAlignment="Center"
-                                   Margin="5"
-                                   Grid.Row="1"
-                                   Content="Status/ID:">
-                            </Label>
-
-                            <TextBox Grid.Row="1"
-                                     Grid.Column="1"
-                                     Margin="5"
-                                     VerticalContentAlignment="Center"></TextBox>
-                        </Grid>
-                    </GroupBox>
-
-                    <GroupBox Grid.Column="1"
-                              Header="Authentifikation">
-                        <Grid>
-
-                        </Grid>
-                    </GroupBox>
-
-                    <GroupBox Grid.Row="1"
-                              Grid.ColumnSpan="2"
-                              Header="Output">
-                        <Grid>
-                            <!--<DataGrid x:Name="dgItems"
-                                      d:ItemsSource="{d:SampleData ItemCount=10}">
-                                
-                            </DataGrid>-->
-                            <DataGrid Name="dgUsers"
-                                      AutoGenerateColumns="False"
-                                      CanUserResizeColumns="True"
-                                      ItemsSource="{Binding Mitarbeiter}">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Id"
-                                                        Binding="{Binding Id}" />
-                                    <DataGridTextColumn Header="Name"
-                                                        Binding="{Binding Name}" />
-
-                                    <!--<DataGridTemplateColumn Header="Birthday">
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <DatePicker SelectedDate="{Binding Birthday}"
-                                                            BorderThickness="0" />
-                                            </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>-->
-                                </DataGrid.Columns>
-                            </DataGrid>
-
-                        </Grid>
-                    </GroupBox>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Erstellen/Modifizieren">
-                <Grid Background="#FFE5E5E5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="100" />
-                        <RowDefinition Height="150" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="2*" />
-                    </Grid.ColumnDefinitions>
-                    <GroupBox Header="General">
-                        <Grid>
-
-                        </Grid>
-                    </GroupBox>
-
-                    <GroupBox Grid.Column="0"
-                              Grid.Row="1"
-                              Header="Authentifikation">
-                        <Grid>
-
-                        </Grid>
-                    </GroupBox>
-
-                    <GroupBox Grid.Column="1"
-                              Grid.Row="0"
-                              Grid.RowSpan="2"
-                              Header="Daten">
-                        <Grid>
-
-                        </Grid>
-                    </GroupBox>
-
-                    <GroupBox Grid.Row="2"
-                              Grid.ColumnSpan="2"
-                              Header="Output">
-                        <Grid>
-
-                        </Grid>
-                    </GroupBox>
-                </Grid>
-            </TabItem>
-        </TabControl>
-
+            <ContentControl x:Name="ContentArea" />
+        </DockPanel>
     </Grid>
 </Window>
