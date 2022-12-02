@@ -35,16 +35,14 @@
             Grid.Row="1"
             Margin="10">
             <DataGrid Grid.Row="2"
-                  Name="dgRegistrations"
-                  AutoGenerateColumns="False"
-                  CanUserResizeColumns="True"
-                  ItemsSource="{Binding Mitarbeiter}"
-                  IsReadOnly="True"
-                  SelectedItem="{Binding selectedOrder, Mode=TwoWay}">
-                <!--Für Selektiertes Item abzurufen SelectedItem zu Objekt von User Binden
-                Siehe Simon Stauffer :  Microsoft Teams Chat-->
-                
-            <DataGrid.Columns>
+                      Name="dgRegistrations"
+                      AutoGenerateColumns="False"
+                      CanUserResizeColumns="True"
+                      ItemsSource="{Binding Mitarbeiter}"
+                      IsReadOnly="True"
+                      SelectedItem="{Binding selectedOrder, Mode=TwoWay}">
+
+                <DataGrid.Columns>
                 <DataGridTextColumn Header="Id"
                                     Binding="{Binding Id}" />
                     <DataGridTextColumn Header="{x:Static res:MyResources.input_name}"

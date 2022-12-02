@@ -13,17 +13,17 @@ namespace JetstreamServiceNET.ViewModels
 
     public class VerwaltungViewModel : ViewModelBase
     {
-        private User _selectedOrder = new User();
+        private Order _selectedOrder = new Order();
 
         // Breakpoint bei User Klasse setzen
-        public User selectedOrder
+        public Order selectedOrder
         {
             get { return _selectedOrder; }
             set
             {
                 if (value != _selectedOrder)
                 {
-                    SetProperty<User>(ref _selectedOrder, value);
+                    SetProperty<Order>(ref _selectedOrder, value);
                 }
             }
         }
@@ -33,7 +33,7 @@ namespace JetstreamServiceNET.ViewModels
         private RelayCommand _cmdDelete;
         private RelayCommand _cmdModify;
 
-        public ObservableCollection<User> Mitarbeiter { get; set; }
+        public ObservableCollection<Order> Mitarbeiter { get; set; }
 
         public VerwaltungViewModel()
         {
@@ -42,9 +42,9 @@ namespace JetstreamServiceNET.ViewModels
             _cmdModify = new RelayCommand(_cmdSaveparam => Execute_Modify());
 
 
-            Mitarbeiter = new ObservableCollection<User>
+            Mitarbeiter = new ObservableCollection<Order>
             {
-                new User() {
+                new Order() {
                     Id = 1,
                     Name = "John Doe",
                     Email = "john.doe@gmx.com",
@@ -55,7 +55,7 @@ namespace JetstreamServiceNET.ViewModels
                     Prioritaet = "Express",
                     Bemerkung = "Bitte vorsicht mit Ski"
                     },
-                new User() {
+                new Order() {
                     Id = 2,
                     Name = "Jane Doe",
                     Email = "jane.doe@gmx.com",
@@ -66,17 +66,17 @@ namespace JetstreamServiceNET.ViewModels
                     Prioritaet = "Express",
                     Bemerkung = "keine Bemerkungen"
                     },
-                new User() { Id = 3, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new User() { Id = 4, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new User() { Id = 5, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new User() { Id = 6, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new User() { Id = 7, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new User() { Id = 8, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new User() { Id = 9, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new User() { Id = 10, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new User() { Id = 11, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new User() { Id = 12, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new User() { Id = 13, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new Order() { Id = 3, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new Order() { Id = 4, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new Order() { Id = 5, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new Order() { Id = 6, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new Order() { Id = 7, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new Order() { Id = 8, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new Order() { Id = 9, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new Order() { Id = 10, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new Order() { Id = 11, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new Order() { Id = 12, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
+                new Order() { Id = 13, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
 
             };
         }

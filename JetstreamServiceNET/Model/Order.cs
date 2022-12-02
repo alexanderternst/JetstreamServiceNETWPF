@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace JetstreamServiceNET.Model
 {
-    public class User : ViewModelBase
+    public class Order : ViewModelBase
     {
 
         private int? _Id;

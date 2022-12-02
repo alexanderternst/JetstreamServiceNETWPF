@@ -21,7 +21,6 @@ namespace JetstreamServiceNET.Views
     /// </summary>
     public partial class VerwaltungView : UserControl
     {
-
         public VerwaltungView()
         {
             InitializeComponent();

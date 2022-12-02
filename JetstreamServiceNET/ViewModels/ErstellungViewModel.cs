@@ -14,17 +14,17 @@ namespace JetstreamServiceNET.ViewModels
 {
     public class ErstellungViewModel : ViewModelBase
     {
-        private User _order = new User();
+        private Order _order = new Order();
 
         // Breakpoint bei User Klasse setzen
-        public User order
+        public Order order
         {
             get { return _order; }
             set
             {
                 if (value != _order)
                 {
-                    SetProperty<User>(ref _order, value);
+                    SetProperty<Order>(ref _order, value);
                 }
             }
         }

@@ -11,8 +11,8 @@ namespace JetstreamServiceNET.ViewModels
 {
     public class ModifizierungViewModel : ViewModelBase
     {
-        private User _order;
-        public ModifizierungViewModel(User order)
+        private Order _order;
+        public ModifizierungViewModel(Order order)
         {
             _order = order;
             MessageBox.Show(_order.Name);

@@ -20,8 +20,8 @@ namespace JetstreamServiceNET
     /// </summary>
     public partial class Modifizierung : Window
     {
-        private User _order;
-        public Modifizierung(User order)
+        private Order _order;
+        public Modifizierung(Order order)
         {
             InitializeComponent();
             _order = order;
