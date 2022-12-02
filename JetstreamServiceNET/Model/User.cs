@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JetstreamServiceNET.ViewModels;
+using JetstreamServiceNET.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,16 +10,8 @@ using System.Threading.Tasks;
 
 namespace JetstreamServiceNET.Model
 {
-    public class User : INotifyPropertyChanged
+    public class User : ViewModelBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged(PropertyChangedEventArgs e)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, e);
-            }
-        }
 
         private int? _Id;
         public int? Id
@@ -27,8 +21,7 @@ namespace JetstreamServiceNET.Model
             {
                 if (_Id != value)
                 {
-                    _Id = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("Id"));
+                    SetProperty(ref _Id, value);
                 }
             }
         }
@@ -41,8 +34,8 @@ namespace JetstreamServiceNET.Model
             {
                 if (_Name != value)
                 {
-                    _Name = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("Name"));
+                    //_Name = value;
+                    SetProperty(ref _Name, value);
                 }
             }
         }
@@ -55,8 +48,7 @@ namespace JetstreamServiceNET.Model
             {
                 if (_Email != value)
                 {
-                    _Email = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("Name"));
+                    SetProperty(ref _Email, value);
                 }
             }
         }
@@ -69,8 +61,7 @@ namespace JetstreamServiceNET.Model
             {
                 if (_Telefon != value)
                 {
-                    _Telefon = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("Telefon"));
+                    SetProperty(ref _Telefon, value);
                 }
             }
         }
@@ -83,8 +74,7 @@ namespace JetstreamServiceNET.Model
             {
                 if (_AuftragDatum != value)
                 {
-                    _AuftragDatum = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("AuftragsDatum"));
+                    SetProperty(ref _AuftragDatum, value);
                 }
             }
         }
@@ -97,8 +87,7 @@ namespace JetstreamServiceNET.Model
             {
                 if (_Service != value)
                 {
-                    _Service = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("Service"));
+                    SetProperty(ref _Service, value);
                 }
             }
         }
@@ -111,8 +100,7 @@ namespace JetstreamServiceNET.Model
             {
                 if (_Status != value)
                 {
-                    _Status = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("Status"));
+                    SetProperty(ref _Status, value);
                 }
             }
         }
@@ -125,8 +113,7 @@ namespace JetstreamServiceNET.Model
             {
                 if (_Prioritaet != value)
                 {
-                    _Prioritaet = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("Prioritaet"));
+                    SetProperty(ref _Prioritaet, value);
                 }
             }
         }
@@ -139,18 +126,9 @@ namespace JetstreamServiceNET.Model
             {
                 if (_Bemerkung != value)
                 {
-                    _Bemerkung = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("Bemerkung"));
+                    SetProperty(ref _Bemerkung, value);
                 }
             }
-        }
-
-
-        public virtual void SetProperty<T>(ref T storage, T value, [CallerMemberName] string property = null)
-        {
-            storage = value;
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
     }
 }

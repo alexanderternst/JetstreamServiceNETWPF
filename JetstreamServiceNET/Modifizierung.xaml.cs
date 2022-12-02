@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JetstreamServiceNET.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,10 +20,14 @@ namespace JetstreamServiceNET
     /// </summary>
     public partial class Modifizierung : Window
     {
-        public Modifizierung(string text)
+        private User _order;
+        public Modifizierung(User order)
         {
             InitializeComponent();
-            lblTest.Content = text;
+            _order = order;
+            DataContext = _order;
+
+            lblTest.Content = _order.Name;
         }
     }
 }

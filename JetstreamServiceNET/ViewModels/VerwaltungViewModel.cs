@@ -4,21 +4,38 @@ using System.Threading;
 using System.Windows;
 using JetstreamServiceNET.Model;
 using JetstreamServiceNET.Utility;
+using JetstreamServiceNET.Views;
 using RestSharp;
 using RestSharp.Authenticators;
 
 namespace JetstreamServiceNET.ViewModels
 {
 
-    public class VerwaltungModel
+    public class VerwaltungViewModel : ViewModelBase
     {
+        private User _selectedOrder = new User();
+
+        // Breakpoint bei User Klasse setzen
+        public User selectedOrder
+        {
+            get { return _selectedOrder; }
+            set
+            {
+                if (value != _selectedOrder)
+                {
+                    SetProperty<User>(ref _selectedOrder, value);
+                }
+            }
+        }
+
+
         private RelayCommand _cmdRead;
         private RelayCommand _cmdDelete;
         private RelayCommand _cmdModify;
 
         public ObservableCollection<User> Mitarbeiter { get; set; }
 
-        public VerwaltungModel()
+        public VerwaltungViewModel()
         {
             _cmdRead = new RelayCommand(param => Execute_Read());
             _cmdDelete = new RelayCommand(_cmdSaveparam => Execute_Delete());
@@ -94,8 +111,10 @@ namespace JetstreamServiceNET.ViewModels
 
         private void Execute_Modify()
         {
-            //MessageBox.Show("Modify data", "Modify");
-            Modifizierung win1 = new Modifizierung("Modifizierung von Daten\nText von ViewModel erstellt/hinzugefügt");
+            //MessageBox.Show($"{selectedOrder.Id}", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            //ModifizierungViewModel vwm = new ModifizierungViewModel(selectedOrder);
+            Modifizierung win1 = new Modifizierung(selectedOrder);
             win1.ShowDialog();
         }
     }
