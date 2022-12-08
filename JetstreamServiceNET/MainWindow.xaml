@@ -5,32 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JetstreamServiceNET"
         xmlns:res="clr-namespace:JetstreamServiceNET.Resources"
+        xmlns:vm="clr-namespace:JetstreamServiceNET.ViewModels"
         mc:Ignorable="d"
         Title="{x:Static res:MyResources.window_title}"
         Height="500"
         Width="800"
-        ResizeMode="CanResizeWithGrip">
+        ResizeMode="CanResizeWithGrip"
+        Icon="pictures/logo.ico"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
     <Grid>
         <DockPanel Grid.ColumnSpan="2">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="{x:Static res:MyResources.options}">
+                    <MenuItem Header="{x:Static res:MyResources.login}"
+                              Command="{Binding CmdAuth}" />
+                    <!--<Separator />
+                    <MenuItem Header="_Exit" />-->
+                </MenuItem>
+            </Menu>
             <Border DockPanel.Dock="Left"
                     BorderBrush="Black"
                     BorderThickness="0,0,1,0">
                 <StackPanel Orientation="Vertical"
                             Margin="5">
                     <Button x:Name="btnHome"
-                            Content="{x:Static res:MyResources.btn_Home}"
+                            Content="{x:Static res:MyResources.btn_general}"
                             Height="30"
                             Width="80"
                             Margin="5"
                             Click="btnHome_Click" />
                     <Button x:Name="btnErstellung"
-                            Content="{x:Static res:MyResources.btn_erstellung}"
+                            Content="{x:Static res:MyResources.btn_creation}"
                             Height="30"
                             Width="80"
                             Margin="5"
                             Click="btnErstellung_Click" />
                     <Button x:Name="btnVerwaltung"
-                            Content="{x:Static res:MyResources.btn_verwaltung}"
+                            Content="{x:Static res:MyResources.btn_management}"
                             Height="30"
                             Width="80"
                             Margin="5"

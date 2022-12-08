@@ -117,17 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btn_creation" xml:space="preserve">
+    <value>Erstellung</value>
+  </data>
   <data name="btn_delete" xml:space="preserve">
     <value>Eintrag löschen</value>
   </data>
-  <data name="btn_erstellung" xml:space="preserve">
-    <value>Erstellung</value>
-  </data>
-  <data name="btn_Home" xml:space="preserve">
+  <data name="btn_general" xml:space="preserve">
     <value>Allgemeines</value>
   </data>
+  <data name="btn_management" xml:space="preserve">
+    <value>Verwaltung</value>
+  </data>
   <data name="btn_modify" xml:space="preserve">
-    <value>Eintrag modifziert</value>
+    <value>Eintrag modifizieren</value>
   </data>
   <data name="btn_read" xml:space="preserve">
     <value>Einträge laden</value>
@@ -135,34 +138,64 @@
   <data name="btn_send" xml:space="preserve">
     <value>Senden</value>
   </data>
-  <data name="btn_verwaltung" xml:space="preserve">
-    <value>Verwaltung</value>
+  <data name="create_date" xml:space="preserve">
+    <value>Erstellungs-Datum:</value>
   </data>
-  <data name="input_date" xml:space="preserve">
-    <value>Auftrags-Datum:</value>
-  </data>
-  <data name="input_email" xml:space="preserve">
+  <data name="email" xml:space="preserve">
     <value>Email:</value>
   </data>
-  <data name="input_name" xml:space="preserve">
+  <data name="entries" xml:space="preserve">
+    <value>Einträge</value>
+  </data>
+  <data name="id" xml:space="preserve">
+    <value>Id:</value>
+  </data>
+  <data name="input" xml:space="preserve">
+    <value>Input</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>_Login</value>
+  </data>
+  <data name="login_title" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="modify_title" xml:space="preserve">
+    <value>Eintrag modifizieren</value>
+  </data>
+  <data name="name" xml:space="preserve">
     <value>Name:</value>
   </data>
-  <data name="input_priority" xml:space="preserve">
-    <value>Priorität:</value>
+  <data name="options" xml:space="preserve">
+    <value>_Optionen</value>
   </data>
-  <data name="input_remark" xml:space="preserve">
-    <value>Bemerkung:</value>
+  <data name="output" xml:space="preserve">
+    <value>Output</value>
   </data>
-  <data name="input_service" xml:space="preserve">
-    <value>Service:</value>
+  <data name="password" xml:space="preserve">
+    <value>Password:</value>
   </data>
-  <data name="input_status" xml:space="preserve">
-    <value>Status:</value>
-  </data>
-  <data name="input_tel" xml:space="preserve">
+  <data name="phone" xml:space="preserve">
     <value>Telefon:</value>
   </data>
+  <data name="pickup_date" xml:space="preserve">
+    <value>Abholdatum:</value>
+  </data>
+  <data name="priority" xml:space="preserve">
+    <value>Priorität:</value>
+  </data>
+  <data name="remark" xml:space="preserve">
+    <value>Kommentar:</value>
+  </data>
+  <data name="service" xml:space="preserve">
+    <value>Dienstleistung:</value>
+  </data>
+  <data name="status" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Username:</value>
+  </data>
   <data name="window_title" xml:space="preserve">
-    <value>Auftragsverwaltung</value>
+    <value>Skiservice Management</value>
   </data>
 </root>

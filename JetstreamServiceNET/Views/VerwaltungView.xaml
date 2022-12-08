@@ -30,47 +30,56 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
-        <GroupBox
-            Header="Data:"
+        <GroupBox Header="{x:Static res:MyResources.entries}"
             Grid.Row="1"
             Margin="10">
             <DataGrid Grid.Row="2"
                       Name="dgRegistrations"
                       AutoGenerateColumns="False"
                       CanUserResizeColumns="True"
-                      ItemsSource="{Binding Mitarbeiter}"
+                      ItemsSource="{Binding Orders, Mode=TwoWay}"
                       IsReadOnly="True"
-                      SelectedItem="{Binding selectedOrder, Mode=TwoWay}">
+                      SelectedItem="{Binding selectedOrder, Mode=TwoWay}"
+                      CanUserReorderColumns="False">
 
                 <DataGrid.Columns>
-                <DataGridTextColumn Header="Id"
+                    <DataGridTextColumn Header="{x:Static res:MyResources.id}"
                                     Binding="{Binding Id}" />
-                    <DataGridTextColumn Header="{x:Static res:MyResources.input_name}"
+                    <DataGridTextColumn Header="{x:Static res:MyResources.name}"
                                     Binding="{Binding Name}" />
-                    <DataGridTextColumn Header="{x:Static res:MyResources.input_email}"
+                    <DataGridTextColumn Header="{x:Static res:MyResources.email}"
                                     Binding="{Binding Email}" />
-                    <DataGridTextColumn Header="{x:Static res:MyResources.input_tel}"
-                                    Binding="{Binding Telefon}" />
+                    <DataGridTextColumn Header="{x:Static res:MyResources.phone}"
+                                    Binding="{Binding Phone}" />
 
-                    <DataGridTemplateColumn Header="{x:Static res:MyResources.input_date}" IsReadOnly="True">
+                    <DataGridTemplateColumn Header="{x:Static res:MyResources.create_date}" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <DatePicker SelectedDate="{Binding AuftragDatum}" />
+                            <DatePicker SelectedDate="{Binding CreateDate}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                    <DataGridTextColumn Header="{x:Static res:MyResources.input_service}"
+                    <DataGridTemplateColumn Header="{x:Static res:MyResources.pickup_date}"
+                                            IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding PickupDate}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="{x:Static res:MyResources.service}"
                                     Binding="{Binding Service}" />
 
-                    <DataGridTextColumn Header="{x:Static res:MyResources.input_status}"
+                    <DataGridTextColumn Header="{x:Static res:MyResources.status}"
                                     Binding="{Binding Status}" />
 
-                    <DataGridTextColumn Header="{x:Static res:MyResources.input_priority}"
-                                    Binding="{Binding Prioritaet}" />
+                    <DataGridTextColumn Header="{x:Static res:MyResources.priority}"
+                                    Binding="{Binding Priority}" />
 
-                    <DataGridTextColumn Header="{x:Static res:MyResources.input_remark}"
-                                    Binding="{Binding Bemerkung}" />
+                    <DataGridTextColumn Header="{x:Static res:MyResources.remark}"
+                                    Binding="{Binding Comment}" />
             </DataGrid.Columns>
         </DataGrid>
         </GroupBox>
@@ -78,6 +87,8 @@
 
         <ToolBarTray>
             <ToolBar Height="40">
+                <!--<Button Content="Einträge laden"></Button>-->
+                
                 <Button Command="{Binding CmdRead}"
                         ToolTip="{x:Static res:MyResources.btn_read}">
                     <Image Source="../pictures/read.png"
@@ -95,7 +106,7 @@
             </ToolBar>
         </ToolBarTray>
         <StatusBar Grid.Row="3">
-            <TextBlock Margin="10,0,10,0" Text="Status Bar mit Fehlermeldungen und Informationen"></TextBlock>
+            <TextBlock Margin="10,0,10,0" Text="{Binding content.status}"></TextBlock>
         </StatusBar>
 
     </Grid>

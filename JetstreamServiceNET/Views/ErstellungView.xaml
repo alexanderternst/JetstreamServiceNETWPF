@@ -20,7 +20,7 @@
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <GroupBox Header="Input"
+        <GroupBox Header="{x:Static res:MyResources.input}"
                   Margin="10,10,10,10">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -41,28 +41,28 @@
                        Grid.Column="0"
                        Margin="5"
                        VerticalContentAlignment="Center"
-                       Content="{x:Static res:MyResources.input_name}">
+                       Content="{x:Static res:MyResources.name}">
                 </Label>
 
                 <Label Grid.Row="1"
                        Grid.Column="0"
                        Margin="5"
                        VerticalContentAlignment="Center"
-                       Content="{x:Static res:MyResources.input_email}">
+                       Content="{x:Static res:MyResources.email}">
                 </Label>
 
                 <Label Grid.Row="2"
                        Grid.Column="0"
                        Margin="5"
                        VerticalContentAlignment="Center"
-                       Content="{x:Static res:MyResources.input_tel}">
+                       Content="{x:Static res:MyResources.phone}">
                 </Label>
 
                 <Label Grid.Row="3"
                        Grid.Column="0"
                        Margin="5"
                        VerticalContentAlignment="Center"
-                       Content="{x:Static res:MyResources.input_date}">
+                       Content="{x:Static res:MyResources.create_date}">
                 </Label>
 
                 <TextBox Grid.Row="0"
@@ -82,52 +82,70 @@
                          Grid.Column="1"
                          Margin="5"
                          VerticalContentAlignment="Center"
-                         Text="{Binding Path=order.Telefon, Mode=TwoWay}">
+                         Text="{Binding Path=order.Phone, Mode=TwoWay}">
                 </TextBox>
                 <DatePicker Grid.Row="3"
-                            Grid.Column="1"
-                            Margin="5"
-                            VerticalContentAlignment="Center"
-                            SelectedDate="{Binding Path=order.AuftragDatum, Mode=TwoWay}">
+                                    Grid.Column="1"
+                                    Focusable="False"
+                                    Margin="5"
+                                    VerticalContentAlignment="Center"
+                                    SelectedDate="{Binding Path=order.CreateDate, Mode=TwoWay, StringFormat={}{0:yyyy/MM/dd}}"
+                            >
                 </DatePicker>
 
                 <Label Grid.Row="0"
                        Grid.Column="2"
                        Margin="5"
                        VerticalContentAlignment="Center"
-                       Content="{x:Static res:MyResources.input_service}">
+                       Content="{x:Static res:MyResources.service}">
                 </Label>
 
                 <Label Grid.Row="1"
                        Grid.Column="2"
                        Margin="5"
                        VerticalContentAlignment="Center"
-                       Content="{x:Static res:MyResources.input_status}">
+                       Content="{x:Static res:MyResources.status}">
                 </Label>
 
                 <Label Grid.Row="2"
                        Grid.Column="2"
                        Margin="5"
                        VerticalContentAlignment="Center"
-                       Content="{x:Static res:MyResources.input_priority}">
+                       Content="{x:Static res:MyResources.priority}">
                 </Label>
 
                 <Label Grid.Row="3"
                        Grid.Column="2"
                        Margin="5"
                        VerticalContentAlignment="Center"
-                       Content="{x:Static res:MyResources.input_remark}">
+                       Content="{x:Static res:MyResources.pickup_date}">
+                </Label>
+
+                <Label HorizontalAlignment="Right"
+                       Grid.Row="4"
+                       Grid.Column="1"
+                       Margin="5"
+                       VerticalContentAlignment="Center"
+                       Content="{x:Static res:MyResources.remark}">
                 </Label>
 
                 <ComboBox Grid.Row="0"
                           Grid.Column="3"
-                          Margin="5">
+                          Margin="5"
+                          Text="{Binding order.Service}">
                     <ComboBoxItem IsSelected="True"
-                                  Content="Heisswachsen"></ComboBoxItem>
+                                  Content="Kleiner-Service"></ComboBoxItem>
+                    <ComboBoxItem Content="Grosser-Service"></ComboBoxItem>
+                    <ComboBoxItem Content="Rennski-Service"></ComboBoxItem>
+                    <ComboBoxItem Content="Bindung-montieren-und-einstellen"></ComboBoxItem>
+                    <ComboBoxItem Content="Fell-zuschneiden"></ComboBoxItem>
+                    <ComboBoxItem Content="Heisswachsen"></ComboBoxItem>
+
                 </ComboBox>
                 <ComboBox Grid.Row="1"
                           Grid.Column="3"
-                          Margin="5">
+                          Margin="5"
+                          Text="{Binding order.Status}">
                     <ComboBoxItem IsSelected="True"
                                   Content="Offen"></ComboBoxItem>
                     <ComboBoxItem Content="InArbeit"></ComboBoxItem>
@@ -135,20 +153,29 @@
                 </ComboBox>
                 <ComboBox Grid.Row="2"
                           Grid.Column="3"
-                          Margin="5">
-                    <ComboBoxItem IsSelected="True"
-                                  Content="Express"></ComboBoxItem>
-                    <ComboBoxItem Content="Schnell"></ComboBoxItem>
-                    <ComboBoxItem Content="Standard"></ComboBoxItem>
+                          Margin="5"
+                          Text="{Binding priority, Mode=TwoWay}">
+                    <ComboBoxItem 
+                                  Content="Tief"></ComboBoxItem>
+                    <ComboBoxItem IsSelected="True" Content="Standard"></ComboBoxItem>
+                    <ComboBoxItem Content="Express"></ComboBoxItem>
 
                 </ComboBox>
+
+                <DatePicker Grid.Row="3"
+                            Grid.Column="4"
+                            Margin="5"
+                            VerticalContentAlignment="Center"
+                            SelectedDate="{Binding Path=order.PickupDate, Mode=TwoWay}"
+                            Focusable="False">
+                </DatePicker>
 
                 <TextBox Grid.Row="4"
                          Grid.Column="2"
                          Grid.ColumnSpan="2"
                          TextWrapping="Wrap"
-                         Margin="5">
-
+                         Margin="5"
+                         Text="{Binding Path=order.Comment, Mode=TwoWay}">
                 </TextBox>
 
             </Grid>
@@ -161,7 +188,7 @@
                 Content="{x:Static res:MyResources.btn_send}"
                 Command="{Binding CmdSend}"></Button>
 
-        <GroupBox Header="Ouput"
+        <GroupBox Header="{x:Static res:MyResources.output}"
                   Grid.Row="2"
                   Margin="10,10,10,10">
             <Grid>
@@ -171,7 +198,7 @@
 
         <StatusBar Grid.Row="3">
             <TextBlock Margin="10,0,10,0"
-                       Text="Status Bar mit Fehlermeldungen und Informationen"></TextBlock>
+                       Text="{Binding content.status}"></TextBlock>
         </StatusBar>
 
     </Grid>

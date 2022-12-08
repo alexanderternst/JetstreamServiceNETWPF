@@ -1,7 +1,12 @@
 ﻿using System;
+using System.CodeDom;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Text.Json;
 using System.Threading;
 using System.Windows;
+using System.Windows.Documents;
 using JetstreamServiceNET.Model;
 using JetstreamServiceNET.Utility;
 using JetstreamServiceNET.Views;
@@ -14,6 +19,10 @@ namespace JetstreamServiceNET.ViewModels
     public class VerwaltungViewModel : ViewModelBase
     {
         private Order _selectedOrder = new Order();
+        private Content _content = new Content();
+
+        private ObservableCollection<Order> _orders = new ObservableCollection<Order>();
+
 
         // Breakpoint bei User Klasse setzen
         public Order selectedOrder
@@ -28,57 +37,40 @@ namespace JetstreamServiceNET.ViewModels
             }
         }
 
+        // Breakpoint bei User Klasse setzen
+        public Content content
+        {
+            get { return _content; }
+            set
+            {
+                if (value != _content)
+                {
+                    SetProperty<Content>(ref _content, value);
+                }
+            }
+        }
+
+        public ObservableCollection<Order> Orders
+        {
+            get { return _orders; }
+            set
+            {
+                if (value != _orders)
+                {
+                    SetProperty<ObservableCollection<Order>>(ref _orders, value);
+                }
+            }
+        }
 
         private RelayCommand _cmdRead;
         private RelayCommand _cmdDelete;
         private RelayCommand _cmdModify;
-
-        public ObservableCollection<Order> Mitarbeiter { get; set; }
 
         public VerwaltungViewModel()
         {
             _cmdRead = new RelayCommand(param => Execute_Read());
             _cmdDelete = new RelayCommand(_cmdSaveparam => Execute_Delete());
             _cmdModify = new RelayCommand(_cmdSaveparam => Execute_Modify());
-
-
-            Mitarbeiter = new ObservableCollection<Order>
-            {
-                new Order() {
-                    Id = 1,
-                    Name = "John Doe",
-                    Email = "john.doe@gmx.com",
-                    Telefon = "077 463 35 93",
-                    AuftragDatum = new DateTime(1971, 7, 23),
-                    Service = "Heisswachsen",
-                    Status= "Offen",
-                    Prioritaet = "Express",
-                    Bemerkung = "Bitte vorsicht mit Ski"
-                    },
-                new Order() {
-                    Id = 2,
-                    Name = "Jane Doe",
-                    Email = "jane.doe@gmx.com",
-                    Telefon = "077 828 82 73",
-                    AuftragDatum = new DateTime(2000, 10, 11),
-                    Service = "Heisswachsen",
-                    Status= "Offen",
-                    Prioritaet = "Express",
-                    Bemerkung = "keine Bemerkungen"
-                    },
-                new Order() { Id = 3, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new Order() { Id = 4, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new Order() { Id = 5, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new Order() { Id = 6, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new Order() { Id = 7, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new Order() { Id = 8, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new Order() { Id = 9, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new Order() { Id = 10, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new Order() { Id = 11, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new Order() { Id = 12, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-                new Order() { Id = 13, Name = "Sammy Doe", AuftragDatum = new DateTime(1991, 9, 2) },
-
-            };
         }
 
         public RelayCommand CmdRead
@@ -101,20 +93,67 @@ namespace JetstreamServiceNET.ViewModels
 
         private void Execute_Read()
         {
-            MessageBox.Show("Reading data", "Read");
+            try
+            {
+                var options = new RestClientOptions("https://localhost:7253/api/Registration")
+                {
+                    MaxTimeout = 10000,
+                    ThrowOnAnyError = true
+                };
+                var client = new RestClient(options);
+
+                var request = new RestRequest()
+                    .AddHeader("Authorization", "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJhbGV4IiwibmJmIjoxNjcwMjMyNTcwLCJleHAiOjE2NzAzMTg5NzAsImlhdCI6MTY3MDIzMjU3MH0.WyZ1zHATPn8Wn9HXxVsauFAOHRzUKrAwQ-oWJ4jTDHFooO0ngqZg5w5MWyudgdd2Kppt_zEX3kGDL7lcHBdOhg");
+
+                var response = client.Get(request);
+                string json = response.Content;
+                var statusCode = "Status Code: " + response.StatusCode;
+
+                Orders = JsonSerializer.Deserialize<ObservableCollection<Order>>(json);
+                content.status = statusCode;
+
+                MessageBox.Show($"Einträge geladen", "Laden", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                content.status = "Fehler: " + ex.Message;
+            }
         }
 
         private void Execute_Delete()
         {
-            MessageBox.Show("Deleting data", "Deleting");
+            try
+            {
+                string id = selectedOrder.Id.ToString();
+
+                var options = new RestClientOptions($"https://localhost:7253/api/Registration/{id}")
+                {
+                    MaxTimeout = 10000,
+                    ThrowOnAnyError = true
+                };
+                var client = new RestClient(options);
+
+                var request = new RestRequest()
+                    .AddHeader("Authorization", "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJhbGV4IiwibmJmIjoxNjcwMjMyNTcwLCJleHAiOjE2NzAzMTg5NzAsImlhdCI6MTY3MDIzMjU3MH0.WyZ1zHATPn8Wn9HXxVsauFAOHRzUKrAwQ-oWJ4jTDHFooO0ngqZg5w5MWyudgdd2Kppt_zEX3kGDL7lcHBdOhg");
+
+                var response = client.Delete(request);
+                string json = response.Content;
+                var statusCode = "Status Code: " + response.StatusCode;
+
+                Execute_Read();
+                content.status = statusCode;
+
+                MessageBox.Show($"Eintrag mit id {id} gelöscht", "Löschen", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                content.status = "Fehler: " + ex.Message;
+            }
         }
 
         private void Execute_Modify()
         {
-            //MessageBox.Show($"{selectedOrder.Id}", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            //ModifizierungViewModel vwm = new ModifizierungViewModel(selectedOrder);
-            Modifizierung win1 = new Modifizierung(selectedOrder);
+            ModifizierungWindow win1 = new ModifizierungWindow(selectedOrder);
             win1.ShowDialog();
         }
     }

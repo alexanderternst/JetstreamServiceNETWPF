@@ -1,5 +1,4 @@
-﻿using JetstreamServiceNET.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,18 +15,13 @@ using System.Windows.Shapes;
 namespace JetstreamServiceNET
 {
     /// <summary>
-    /// Interaction logic for Modifizierung.xaml
+    /// Interaction logic for AuthentificationWindow.xaml
     /// </summary>
-    public partial class Modifizierung : Window
+    public partial class AuthentificationWindow : Window
     {
-        private Order _order;
-        public Modifizierung(Order order)
+        public AuthentificationWindow()
         {
             InitializeComponent();
-            _order = order;
-            DataContext = _order;
-
-            lblTest.Content = _order.Name;
         }
     }
 }

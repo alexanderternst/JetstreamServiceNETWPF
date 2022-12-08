@@ -2,14 +2,17 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="JetstreamServiceNET.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="LanguageID" Type="System.String" Scope="Application">
+    <Setting Name="LanguageID" Type="System.String" Scope="User">
       <Value Profile="(Default)">DE-CH</Value>
     </Setting>
-    <Setting Name="WindowsHeight" Type="System.String" Scope="Application">
+    <Setting Name="WindowsHeight" Type="System.String" Scope="User">
       <Value Profile="(Default)">600</Value>
     </Setting>
-    <Setting Name="WindowsWidth" Type="System.String" Scope="Application">
+    <Setting Name="WindowsWidth" Type="System.String" Scope="User">
       <Value Profile="(Default)">400</Value>
+    </Setting>
+    <Setting Name="JWTToken" Type="System.String" Scope="User">
+      <Value Profile="(Default)">jwt</Value>
     </Setting>
   </Settings>
 </SettingsFile>

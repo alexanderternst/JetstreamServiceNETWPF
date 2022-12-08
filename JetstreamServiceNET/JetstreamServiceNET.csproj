@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="pictures\delete.png" />
+    <None Remove="pictures\logo.ico" />
     <None Remove="pictures\modify.png" />
     <None Remove="pictures\read.png" />
   </ItemGroup>
@@ -19,6 +20,7 @@
 
   <ItemGroup>
     <Resource Include="pictures\delete.png" />
+    <Resource Include="pictures\logo.ico" />
     <Resource Include="pictures\modify.png" />
     <Resource Include="pictures\read.png" />
   </ItemGroup>

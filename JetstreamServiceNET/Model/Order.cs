@@ -1,11 +1,11 @@
 ﻿using JetstreamServiceNET.ViewModels;
-using JetstreamServiceNET.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace JetstreamServiceNET.Model
@@ -14,6 +14,7 @@ namespace JetstreamServiceNET.Model
     {
 
         private int? _Id;
+        [JsonPropertyName("registration_id")]
         public int? Id
         {
             get { return _Id; }
@@ -27,6 +28,7 @@ namespace JetstreamServiceNET.Model
         }
 
         private string _Name;
+        [JsonPropertyName("registration_name")]
         public string Name
         {
             get { return _Name; }
@@ -41,6 +43,7 @@ namespace JetstreamServiceNET.Model
         }
 
         private string _Email;
+        [JsonPropertyName("registration_email")]
         public string Email
         {
             get { return _Email; }
@@ -53,46 +56,50 @@ namespace JetstreamServiceNET.Model
             }
         }
 
-        private string _Telefon;
-        public string Telefon
+        private string _Phone;
+        [JsonPropertyName("registration_phone")]
+        public string Phone
         {
-            get { return _Telefon; }
+            get { return _Phone; }
             set
             {
-                if (_Telefon != value)
+                if (_Phone != value)
                 {
-                    SetProperty(ref _Telefon, value);
+                    SetProperty(ref _Phone, value);
                 }
             }
         }
 
-        private DateTime _AuftragDatum;
-        public DateTime AuftragDatum
+        private DateTime _CreateDate;
+        [JsonPropertyName("registration_create_date")]
+        public DateTime CreateDate
         {
-            get { return _AuftragDatum; }
+            get { return _CreateDate; }
             set
             {
-                if (_AuftragDatum != value)
+                if (_CreateDate != value)
                 {
-                    SetProperty(ref _AuftragDatum, value);
+                    SetProperty(ref _CreateDate, value);
                 }
             }
         }
 
-        private string _Service;
-        public string Service
+        private DateTime _PickupDate;
+        [JsonPropertyName("registration_pickup_date")]
+        public DateTime PickupDate
         {
-            get { return _Service; }
+            get { return _PickupDate; }
             set
             {
-                if (_Service != value)
+                if (_PickupDate != value)
                 {
-                    SetProperty(ref _Service, value);
+                    SetProperty(ref _PickupDate, value);
                 }
             }
         }
 
         private string _Status;
+        [JsonPropertyName("registration_status")]
         public string Status
         {
             get { return _Status; }
@@ -105,28 +112,45 @@ namespace JetstreamServiceNET.Model
             }
         }
 
-        private string _Prioritaet;
-        public string Prioritaet
+        private string _Priority;
+        [JsonPropertyName("registration_priority")]
+        public string Priority
         {
-            get { return _Prioritaet; }
+            get { return _Priority; }
             set
             {
-                if (_Prioritaet != value)
+                if (_Priority != value)
                 {
-                    SetProperty(ref _Prioritaet, value);
+                    SetProperty(ref _Priority, value);
                 }
             }
         }
 
-        private string _Bemerkung;
-        public string Bemerkung
+        private string _Service;
+        [JsonPropertyName("registration_service")]
+        public string Service
         {
-            get { return _Bemerkung; }
+            get { return _Service; }
             set
             {
-                if (_Bemerkung != value)
+                if (_Service != value)
                 {
-                    SetProperty(ref _Bemerkung, value);
+                    SetProperty(ref _Service, value);
+                }
+            }
+        }
+
+
+        private string _Comment;
+        [JsonPropertyName("registration_comment")]
+        public string Comment
+        {
+            get { return _Comment; }
+            set
+            {
+                if (_Comment != value)
+                {
+                    SetProperty(ref _Comment, value);
                 }
             }
         }
