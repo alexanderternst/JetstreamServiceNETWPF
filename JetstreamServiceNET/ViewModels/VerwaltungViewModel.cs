@@ -159,8 +159,15 @@ namespace JetstreamServiceNET.ViewModels
 
         private void Execute_Modify()
         {
-            ModifizierungWindow win1 = new ModifizierungWindow(selectedOrder);
+            Order bestellungen = selectedOrder;
+
+            ModifizierungWindow win1 = new ModifizierungWindow(bestellungen);
             win1.ShowDialog();
+
+            if (win1.DialogResult == true)
+            {
+                MessageBox.Show(bestellungen.Name);
+            }
         }
     }
 

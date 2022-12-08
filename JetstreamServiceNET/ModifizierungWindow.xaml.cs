@@ -26,8 +26,12 @@ namespace JetstreamServiceNET
             InitializeComponent();
             _order = order;
             DataContext = _order;
+        }
 
-            lblTest.Content = _order.Name;
+        private void btnSend_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+            Close();
         }
     }
 }
