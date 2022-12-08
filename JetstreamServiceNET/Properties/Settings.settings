@@ -14,5 +14,8 @@
     <Setting Name="JWTToken" Type="System.String" Scope="User">
       <Value Profile="(Default)">jwt</Value>
     </Setting>
+    <Setting Name="APILink" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://localhost:7253</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -70,5 +70,17 @@ namespace JetstreamServiceNET.Properties {
                 this["JWTToken"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:7253")]
+        public string APILink {
+            get {
+                return ((string)(this["APILink"]));
+            }
+            set {
+                this["APILink"] = value;
+            }
+        }
     }
 }

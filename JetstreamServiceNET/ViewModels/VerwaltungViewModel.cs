@@ -21,6 +21,9 @@ namespace JetstreamServiceNET.ViewModels
         private Order _selectedOrder = new Order();
         private Content _content = new Content();
 
+        public string jwtKey { get; set; }
+        public string apiLink { get; set; }
+
         private ObservableCollection<Order> _orders = new ObservableCollection<Order>();
 
 
@@ -71,6 +74,9 @@ namespace JetstreamServiceNET.ViewModels
             _cmdRead = new RelayCommand(param => Execute_Read());
             _cmdDelete = new RelayCommand(_cmdSaveparam => Execute_Delete());
             _cmdModify = new RelayCommand(_cmdSaveparam => Execute_Modify());
+
+            jwtKey = Properties.Settings.Default.JWTToken;
+            apiLink = Properties.Settings.Default.APILink;
         }
 
         public RelayCommand CmdRead
@@ -95,7 +101,7 @@ namespace JetstreamServiceNET.ViewModels
         {
             try
             {
-                var options = new RestClientOptions("https://localhost:7253/api/Registration")
+                var options = new RestClientOptions($"{apiLink}/api/Registration")
                 {
                     MaxTimeout = 10000,
                     ThrowOnAnyError = true
@@ -103,7 +109,7 @@ namespace JetstreamServiceNET.ViewModels
                 var client = new RestClient(options);
 
                 var request = new RestRequest()
-                    .AddHeader("Authorization", "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJhbGV4IiwibmJmIjoxNjcwMjMyNTcwLCJleHAiOjE2NzAzMTg5NzAsImlhdCI6MTY3MDIzMjU3MH0.WyZ1zHATPn8Wn9HXxVsauFAOHRzUKrAwQ-oWJ4jTDHFooO0ngqZg5w5MWyudgdd2Kppt_zEX3kGDL7lcHBdOhg");
+                    .AddHeader("Authorization", $"Bearer {jwtKey}");
 
                 var response = client.Get(request);
                 string json = response.Content;
@@ -112,7 +118,7 @@ namespace JetstreamServiceNET.ViewModels
                 Orders = JsonSerializer.Deserialize<ObservableCollection<Order>>(json);
                 content.status = statusCode;
 
-                MessageBox.Show($"Einträge geladen", "Laden", MessageBoxButton.OK, MessageBoxImage.Information);
+                //MessageBox.Show($"Einträge geladen", "Laden", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
@@ -126,7 +132,7 @@ namespace JetstreamServiceNET.ViewModels
             {
                 string id = selectedOrder.Id.ToString();
 
-                var options = new RestClientOptions($"https://localhost:7253/api/Registration/{id}")
+                var options = new RestClientOptions($"{apiLink}/api/Registration/{id}")
                 {
                     MaxTimeout = 10000,
                     ThrowOnAnyError = true
@@ -134,7 +140,7 @@ namespace JetstreamServiceNET.ViewModels
                 var client = new RestClient(options);
 
                 var request = new RestRequest()
-                    .AddHeader("Authorization", "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJhbGV4IiwibmJmIjoxNjcwMjMyNTcwLCJleHAiOjE2NzAzMTg5NzAsImlhdCI6MTY3MDIzMjU3MH0.WyZ1zHATPn8Wn9HXxVsauFAOHRzUKrAwQ-oWJ4jTDHFooO0ngqZg5w5MWyudgdd2Kppt_zEX3kGDL7lcHBdOhg");
+                    .AddHeader("Authorization", $"Bearer {jwtKey}");
 
                 var response = client.Delete(request);
                 string json = response.Content;

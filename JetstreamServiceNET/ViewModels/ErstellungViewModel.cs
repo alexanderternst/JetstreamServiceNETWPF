@@ -22,6 +22,8 @@ namespace JetstreamServiceNET.ViewModels
         private Order _order = new Order();
         private Content _content = new Content();
 
+        public string apiLink { get; set; }
+
         // Breakpoint bei User Klasse setzen
         public Order order
         {
@@ -78,9 +80,9 @@ namespace JetstreamServiceNET.ViewModels
         {
             // Check if Values are empty
             _cmdSend = new RelayCommand(param => Execute_Send());
-
             order.CreateDate = DateTime.Now;
 
+            apiLink = Properties.Settings.Default.APILink;
         }
 
         public RelayCommand CmdSend
@@ -96,7 +98,7 @@ namespace JetstreamServiceNET.ViewModels
                 order.Priority = priority;
                 string json = JsonSerializer.Serialize<Order>(order);
 
-                var options = new RestClientOptions("https://localhost:7253/api/Registration")
+                var options = new RestClientOptions($"{apiLink}/api/Registration")
                 {
                     MaxTimeout = 10000,
                     ThrowOnAnyError = true

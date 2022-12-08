@@ -17,6 +17,8 @@ namespace JetstreamServiceNET.ViewModels
     {
         private Authentification _authentification = new Authentification();
 
+        public string apiLink { get; set; }
+
         // Breakpoint bei User Klasse setzen
         public Authentification authentification
         {
@@ -35,6 +37,7 @@ namespace JetstreamServiceNET.ViewModels
         public AuthentificationViewModel()
         {
             _cmdSend = new RelayCommand(param => Execute_Send());
+            apiLink = Properties.Settings.Default.APILink;
         }
 
         public RelayCommand CmdSend
@@ -47,7 +50,7 @@ namespace JetstreamServiceNET.ViewModels
         {
             string json = JsonSerializer.Serialize<Authentification>(authentification);
 
-            var options = new RestClientOptions("https://localhost:7253/api/User/login")
+            var options = new RestClientOptions($"{apiLink}/api/User/login")
             {
                 MaxTimeout = 10000,
                 ThrowOnAnyError = true
