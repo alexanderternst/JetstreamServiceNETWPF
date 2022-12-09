@@ -82,5 +82,29 @@ namespace JetstreamServiceNET.Properties {
                 this["APILink"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/api/Registration/")]
+        public string registrationLink {
+            get {
+                return ((string)(this["registrationLink"]));
+            }
+            set {
+                this["registrationLink"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/api/User/")]
+        public string userLink {
+            get {
+                return ((string)(this["userLink"]));
+            }
+            set {
+                this["userLink"] = value;
+            }
+        }
     }
 }

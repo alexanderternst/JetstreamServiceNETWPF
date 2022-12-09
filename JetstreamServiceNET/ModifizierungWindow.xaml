@@ -13,9 +13,6 @@
         Icon="pictures/logo.ico"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanResizeWithGrip">
-    <!--<Window.DataContext>
-        <vm:ModifizierungViewModel />
-    </Window.DataContext>-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120" />
@@ -29,6 +26,8 @@
             <RowDefinition Height="36"></RowDefinition>
             <RowDefinition Height="36"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+
             <RowDefinition Height="1*"></RowDefinition>
 
         </Grid.RowDefinitions>
@@ -175,7 +174,9 @@
         </TextBox>
 
         <Button x:Name="btnSend"
-                Content="senden" Grid.Row="4"
+                Content="Senden" Grid.Row="5"
+                Grid.Column="2"
+                Margin="5"
                 Click="btnSend_Click"></Button>
     </Grid>
 </Window>

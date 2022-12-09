@@ -70,6 +70,10 @@ namespace JetstreamServiceNET.ViewModels
                 Properties.Settings.Default.JWTToken = authResponse.jwt;
                 Properties.Settings.Default.Save();
             }
+            else if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                MessageBox.Show("Succesfuel login", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
             else if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
             {
                 MessageBox.Show("Invalid credentials", "Information", MessageBoxButton.OK, MessageBoxImage.Information);

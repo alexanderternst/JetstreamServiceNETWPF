@@ -22,6 +22,8 @@
                 <MenuItem Header="{x:Static res:MyResources.options}">
                     <MenuItem Header="{x:Static res:MyResources.login}"
                               Command="{Binding CmdAuth}" />
+                    <MenuItem Header="{x:Static res:MyResources.settings}"
+                              Command="{Binding CmdOptions}" />
                     <!--<Separator />
                     <MenuItem Header="_Exit" />-->
                 </MenuItem>

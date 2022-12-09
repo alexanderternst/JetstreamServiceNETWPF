@@ -17,5 +17,11 @@
     <Setting Name="APILink" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://localhost:7253</Value>
     </Setting>
+    <Setting Name="registrationLink" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/api/Registration/</Value>
+    </Setting>
+    <Setting Name="userLink" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/api/User/</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

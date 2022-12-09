@@ -3,9 +3,11 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.SqlTypes;
 using System.Text.Json;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
 using JetstreamServiceNET.Model;
 using JetstreamServiceNET.Utility;
@@ -22,12 +24,11 @@ namespace JetstreamServiceNET.ViewModels
         private Content _content = new Content();
 
         public string jwtKey { get; set; }
-        public string apiLink { get; set; }
+        public string registrationURL { get; set; }
 
         private ObservableCollection<Order> _orders = new ObservableCollection<Order>();
 
 
-        // Breakpoint bei User Klasse setzen
         public Order selectedOrder
         {
             get { return _selectedOrder; }
@@ -40,7 +41,6 @@ namespace JetstreamServiceNET.ViewModels
             }
         }
 
-        // Breakpoint bei User Klasse setzen
         public Content content
         {
             get { return _content; }
@@ -76,7 +76,9 @@ namespace JetstreamServiceNET.ViewModels
             _cmdModify = new RelayCommand(_cmdSaveparam => Execute_Modify());
 
             jwtKey = Properties.Settings.Default.JWTToken;
-            apiLink = Properties.Settings.Default.APILink;
+            string baseURL = Properties.Settings.Default.APILink;
+            string registration = Properties.Settings.Default.registrationLink;
+            registrationURL = baseURL + registration;
         }
 
         public RelayCommand CmdRead
@@ -101,7 +103,7 @@ namespace JetstreamServiceNET.ViewModels
         {
             try
             {
-                var options = new RestClientOptions($"{apiLink}/api/Registration")
+                var options = new RestClientOptions($"{registrationURL}")
                 {
                     MaxTimeout = 10000,
                     ThrowOnAnyError = true
@@ -112,13 +114,10 @@ namespace JetstreamServiceNET.ViewModels
                     .AddHeader("Authorization", $"Bearer {jwtKey}");
 
                 var response = client.Get(request);
-                string json = response.Content;
                 var statusCode = "Status Code: " + response.StatusCode;
 
-                Orders = JsonSerializer.Deserialize<ObservableCollection<Order>>(json);
+                Orders = JsonSerializer.Deserialize<ObservableCollection<Order>>(response.Content);
                 content.status = statusCode;
-
-                //MessageBox.Show($"Einträge geladen", "Laden", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
@@ -130,9 +129,9 @@ namespace JetstreamServiceNET.ViewModels
         {
             try
             {
-                string id = selectedOrder.Id.ToString();
+                string? id = selectedOrder.Id.ToString();
 
-                var options = new RestClientOptions($"{apiLink}/api/Registration/{id}")
+                var options = new RestClientOptions(registrationURL + id)
                 {
                     MaxTimeout = 10000,
                     ThrowOnAnyError = true
@@ -143,13 +142,11 @@ namespace JetstreamServiceNET.ViewModels
                     .AddHeader("Authorization", $"Bearer {jwtKey}");
 
                 var response = client.Delete(request);
-                string json = response.Content;
                 var statusCode = "Status Code: " + response.StatusCode;
 
-                Execute_Read();
                 content.status = statusCode;
-
                 MessageBox.Show($"Eintrag mit id {id} gelöscht", "Löschen", MessageBoxButton.OK, MessageBoxImage.Information);
+                Execute_Read();
             }
             catch (Exception ex)
             {
@@ -159,14 +156,30 @@ namespace JetstreamServiceNET.ViewModels
 
         private void Execute_Modify()
         {
-            Order bestellungen = selectedOrder;
+            Order bestellungen = new Order();
+            bestellungen = selectedOrder;
+            string? id = selectedOrder.Id.ToString();
 
             ModifizierungWindow win1 = new ModifizierungWindow(bestellungen);
             win1.ShowDialog();
 
             if (win1.DialogResult == true)
             {
-                MessageBox.Show(bestellungen.Name);
+                string json = JsonSerializer.Serialize<Order>(bestellungen);
+
+                var options = new RestClientOptions(registrationURL + id)
+                {
+                    MaxTimeout = 10000,
+                    ThrowOnAnyError = true
+                };
+                var client = new RestClient(options);
+
+                var request = new RestRequest()
+                    .AddHeader("Authorization", $"Bearer {jwtKey}")
+                    .AddJsonBody(json);
+
+                var response = client.Put(request);
+                content.status = "Status Code: " + response.StatusCode;
             }
         }
     }

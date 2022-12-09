@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="apiLink" xml:space="preserve">
+    <value>API Link:</value>
+  </data>
   <data name="btn_creation" xml:space="preserve">
     <value>Creation</value>
   </data>
@@ -153,6 +156,9 @@
   <data name="input" xml:space="preserve">
     <value>Input</value>
   </data>
+  <data name="language" xml:space="preserve">
+    <value>Language:</value>
+  </data>
   <data name="login" xml:space="preserve">
     <value>_Login</value>
   </data>
@@ -188,6 +194,12 @@
   </data>
   <data name="service" xml:space="preserve">
     <value>Service:</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>_Settings</value>
+  </data>
+  <data name="settings_title" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="status" xml:space="preserve">
     <value>Status:</value>

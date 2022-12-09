@@ -61,6 +61,15 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to API Link:.
+        /// </summary>
+        public static string apiLink {
+            get {
+                return ResourceManager.GetString("apiLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Creation.
         /// </summary>
         public static string btn_creation {
@@ -169,6 +178,15 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Language:.
+        /// </summary>
+        public static string language {
+            get {
+                return ResourceManager.GetString("language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to _Login.
         /// </summary>
         public static string login {
@@ -273,6 +291,24 @@ namespace JetstreamServiceNET.Resources {
         public static string service {
             get {
                 return ResourceManager.GetString("service", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _Settings.
+        /// </summary>
+        public static string settings {
+            get {
+                return ResourceManager.GetString("settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string settings_title {
+            get {
+                return ResourceManager.GetString("settings_title", resourceCulture);
             }
         }
         

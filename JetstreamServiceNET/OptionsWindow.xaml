@@ -1,0 +1,60 @@
+﻿<Window x:Class="JetstreamServiceNET.OptionsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JetstreamServiceNET"
+        xmlns:vm="clr-namespace:JetstreamServiceNET.ViewModels"
+        xmlns:res="clr-namespace:JetstreamServiceNET.Resources"
+        mc:Ignorable="d"
+        Title="{x:Static res:MyResources.settings_title}"
+        Height="150"
+        Width="250"
+        ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen"
+        Icon="pictures/logo.ico">
+    <Window.DataContext>
+        <vm:OptionsWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36" />
+            <RowDefinition Height="36" />
+            <RowDefinition Height="36" />
+            <RowDefinition Height="1*" />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0"
+               Grid.Column="0"
+               Margin="5"
+               Content="{x:Static res:MyResources.language}"></Label>
+        <Label Grid.Row="1"
+               Grid.Column="0"
+               Margin="5"
+               Content="{x:Static res:MyResources.apiLink}"></Label>
+
+        <ComboBox Grid.Column="1"
+                  Grid.Row="0"
+                  Margin="5"
+                  Text="{Binding options.language}">
+            <ComboBoxItem>English</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">German</ComboBoxItem>
+        </ComboBox>
+
+        <TextBox Grid.Row="1"
+                 Grid.Column="1"
+                 Margin="5"
+                 VerticalContentAlignment="Center"
+                 Text="{Binding options.link}">
+        </TextBox>
+
+        <Button Grid.Row="2"
+                Margin="5"
+                Content="{x:Static res:MyResources.btn_send}"
+                Command="{Binding CmdSend}"></Button>
+    </Grid>
+</Window>
