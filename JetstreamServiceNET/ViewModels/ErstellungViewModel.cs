@@ -108,6 +108,7 @@ namespace JetstreamServiceNET.ViewModels
                 var request = new RestRequest()
                     .AddJsonBody(json);
 
+                //ExecuteGet, ExecutePost = Automatisch deserialisieren/serialisieren
                 var response = client.Post(request);
                 content.status = "Status Code: " + response.StatusCode;
             }
