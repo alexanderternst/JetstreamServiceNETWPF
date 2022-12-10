@@ -41,8 +41,9 @@
                   Grid.Row="0"
                   Margin="5"
                   Text="{Binding options.language}">
-            <ComboBoxItem>English</ComboBoxItem>
             <ComboBoxItem IsSelected="True">German</ComboBoxItem>
+            <ComboBoxItem>English</ComboBoxItem>
+            <ComboBoxItem>French</ComboBoxItem>
         </ComboBox>
 
         <TextBox Grid.Row="1"

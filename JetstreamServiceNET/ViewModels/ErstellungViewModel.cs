@@ -24,7 +24,6 @@ namespace JetstreamServiceNET.ViewModels
 
         public string registrationURL { get; set; }
 
-        // Breakpoint bei User Klasse setzen
         public Order order
         {
             get { return _order; }
@@ -78,7 +77,6 @@ namespace JetstreamServiceNET.ViewModels
 
         public ErstellungViewModel()
         {
-            // Check if Values are empty
             _cmdSend = new RelayCommand(param => Execute_Send());
             order.CreateDate = DateTime.Now;
 
@@ -98,9 +96,10 @@ namespace JetstreamServiceNET.ViewModels
             try
             {
                 order.Priority = priority;
+                order.Id = 0;
                 string json = JsonSerializer.Serialize<Order>(order);
 
-                var options = new RestClientOptions($"{registrationURL}")
+                var options = new RestClientOptions(registrationURL)
                 {
                     MaxTimeout = 10000,
                     ThrowOnAnyError = true
@@ -112,6 +111,7 @@ namespace JetstreamServiceNET.ViewModels
 
                 var response = client.Post(request);
                 content.status = "Status Code: " + response.StatusCode;
+
             }
             catch (Exception ex)
             {

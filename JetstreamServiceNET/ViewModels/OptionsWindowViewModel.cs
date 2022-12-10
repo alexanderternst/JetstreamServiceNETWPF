@@ -58,6 +58,10 @@ namespace JetstreamServiceNET.ViewModels
             {
                 Properties.Settings.Default.LanguageID = "DE-CH";
             }
+            else if (options.language == "French")
+            {
+                Properties.Settings.Default.LanguageID = "fr";
+            }
             Properties.Settings.Default.APILink = options.link;
             Properties.Settings.Default.Save();
 

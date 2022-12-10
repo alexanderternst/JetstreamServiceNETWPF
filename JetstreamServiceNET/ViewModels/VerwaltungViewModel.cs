@@ -103,7 +103,7 @@ namespace JetstreamServiceNET.ViewModels
         {
             try
             {
-                var options = new RestClientOptions($"{registrationURL}")
+                var options = new RestClientOptions(registrationURL)
                 {
                     MaxTimeout = 10000,
                     ThrowOnAnyError = true
@@ -145,7 +145,7 @@ namespace JetstreamServiceNET.ViewModels
                 var statusCode = "Status Code: " + response.StatusCode;
 
                 content.status = statusCode;
-                MessageBox.Show($"Eintrag mit id {id} gelöscht", "Löschen", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($" Eintrag mit id {id} gelöscht", "Löschen", MessageBoxButton.OK, MessageBoxImage.Information);
                 Execute_Read();
             }
             catch (Exception ex)
@@ -156,32 +156,38 @@ namespace JetstreamServiceNET.ViewModels
 
         private void Execute_Modify()
         {
-            Order bestellungen = new Order();
-            bestellungen = selectedOrder;
-            string? id = selectedOrder.Id.ToString();
-
-            ModifizierungWindow win1 = new ModifizierungWindow(bestellungen);
-            win1.ShowDialog();
-
-            if (win1.DialogResult == true)
+            try
             {
-                string json = JsonSerializer.Serialize<Order>(bestellungen);
+                Order bestellungen = new Order();
+                bestellungen = selectedOrder;
+                string? id = selectedOrder.Id.ToString();
 
-                var options = new RestClientOptions(registrationURL + id)
+                ModifizierungWindow win1 = new ModifizierungWindow(bestellungen);
+                win1.ShowDialog();
+
+                if (win1.DialogResult == true)
                 {
-                    MaxTimeout = 10000,
-                    ThrowOnAnyError = true
-                };
-                var client = new RestClient(options);
+                    string json = JsonSerializer.Serialize<Order>(bestellungen);
 
-                var request = new RestRequest()
-                    .AddHeader("Authorization", $"Bearer {jwtKey}")
-                    .AddJsonBody(json);
+                    var options = new RestClientOptions(registrationURL + id)
+                    {
+                        MaxTimeout = 10000,
+                        ThrowOnAnyError = true
+                    };
+                    var client = new RestClient(options);
 
-                var response = client.Put(request);
-                content.status = "Status Code: " + response.StatusCode;
+                    var request = new RestRequest()
+                        .AddHeader("Authorization", $"Bearer {jwtKey}")
+                        .AddJsonBody(json);
+
+                    var response = client.Put(request);
+                    content.status = "Status Code: " + response.StatusCode;
+                }
+            }
+            catch (Exception ex)
+            {
+                content.status = "Error: " + ex.Message;
             }
         }
     }
-
 }
