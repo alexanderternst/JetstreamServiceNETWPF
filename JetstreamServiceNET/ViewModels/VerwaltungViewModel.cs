@@ -121,7 +121,7 @@ namespace JetstreamServiceNET.ViewModels
             }
             catch (Exception ex)
             {
-                content.status = "Fehler: " + ex.Message;
+                content.status = "Error: " + ex.Message;
             }
         }
 
@@ -150,7 +150,7 @@ namespace JetstreamServiceNET.ViewModels
             }
             catch (Exception ex)
             {
-                content.status = "Fehler: " + ex.Message;
+                content.status = "Error: " + ex.Message;
             }
         }
 

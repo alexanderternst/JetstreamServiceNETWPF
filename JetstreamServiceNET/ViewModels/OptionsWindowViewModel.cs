@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -57,11 +58,12 @@ namespace JetstreamServiceNET.ViewModels
             {
                 Properties.Settings.Default.LanguageID = "DE-CH";
             }
-            Properties.Settings.Default.APILink= options.link;
+            Properties.Settings.Default.APILink = options.link;
             Properties.Settings.Default.Save();
 
-            MessageBox.Show("In order for the changes to take effect, please restart the application", "Restart", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(" Please restart the application", "Restart", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
     }
 }
 ;
