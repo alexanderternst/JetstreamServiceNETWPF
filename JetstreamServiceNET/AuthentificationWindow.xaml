@@ -53,6 +53,7 @@
             Grid.Row="2"
             Margin="5"
             Content="{x:Static res:MyResources.btn_send}"
-            Command="{Binding CmdSend}"></Button>
+            Command="{Binding CmdSend}"
+            IsDefault="True"></Button>
     </Grid>
 </Window>

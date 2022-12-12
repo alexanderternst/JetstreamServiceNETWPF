@@ -48,39 +48,45 @@ namespace JetstreamServiceNET.ViewModels
 
         private void Execute_Send()
         {
-            string json = JsonSerializer.Serialize<Authentification>(authentification);
-
-            var options = new RestClientOptions($"{apiLink}/api/User/login")
+            try
             {
-                MaxTimeout = 10000,
-                ThrowOnAnyError = true
-            };
-            var client = new RestClient(options);
+                string json = JsonSerializer.Serialize<Authentification>(authentification);
 
-            var request = new RestRequest()
-                .AddJsonBody(json);
+                var options = new RestClientOptions(apiLink + "/api/User/login")
+                {
+                    MaxTimeout = 10000,
+                    ThrowOnAnyError = true
+                };
+                var client = new RestClient(options);
 
-            var response = client.Post(request);
+                var request = new RestRequest()
+                    .AddJsonBody(json);
 
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                AuthentificationResponse authResponse = new AuthentificationResponse();
-                authResponse = JsonSerializer.Deserialize<AuthentificationResponse>(response.Content);
+                var response = client.Post(request);
 
-                Properties.Settings.Default.JWTToken = authResponse.jwt;
-                Properties.Settings.Default.Save();
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    AuthentificationResponse authResponse = new AuthentificationResponse();
+                    authResponse = JsonSerializer.Deserialize<AuthentificationResponse>(response.Content);
+
+                    Properties.Settings.Default.JWTToken = authResponse.jwt;
+                    Properties.Settings.Default.Save();
+
+                    MessageBox.Show("Successful login", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
+                {
+                    MessageBox.Show("Invalid credentials", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show(response.Content, "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
-            else if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            catch (Exception ex)
             {
-                MessageBox.Show("Succesfuel login", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
-            {
-                MessageBox.Show("Invalid credentials", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else
-            {
-                MessageBox.Show(response.Content, "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

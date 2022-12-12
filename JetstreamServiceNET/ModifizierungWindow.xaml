@@ -177,6 +177,7 @@
                 Content="Senden" Grid.Row="5"
                 Grid.Column="2"
                 Margin="5"
-                Click="btnSend_Click"></Button>
+                Click="btnSend_Click"
+                IsDefault="True"></Button>
     </Grid>
 </Window>

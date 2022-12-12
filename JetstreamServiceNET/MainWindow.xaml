@@ -8,7 +8,7 @@
         xmlns:vm="clr-namespace:JetstreamServiceNET.ViewModels"
         mc:Ignorable="d"
         Title="{x:Static res:MyResources.window_title}"
-        Height="500"
+        Height="400"
         Width="800"
         ResizeMode="CanResizeWithGrip"
         Icon="pictures/logo.ico"
@@ -18,7 +18,7 @@
     </Window.DataContext>
     <Grid>
         <DockPanel Grid.ColumnSpan="2">
-            <Menu DockPanel.Dock="Top">
+            <Menu DockPanel.Dock="Top" Background="AliceBlue">
                 <MenuItem Header="{x:Static res:MyResources.options}">
                     <MenuItem Header="{x:Static res:MyResources.login}"
                               Command="{Binding CmdAuth}" />

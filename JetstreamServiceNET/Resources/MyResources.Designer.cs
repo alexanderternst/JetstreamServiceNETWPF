@@ -142,6 +142,15 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string delete {
+            get {
+                return ResourceManager.GetString("delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email:.
         /// </summary>
         public static string email {
@@ -201,6 +210,15 @@ namespace JetstreamServiceNET.Resources {
         public static string login_title {
             get {
                 return ResourceManager.GetString("login_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modify.
+        /// </summary>
+        public static string modify {
+            get {
+                return ResourceManager.GetString("modify", resourceCulture);
             }
         }
         
@@ -273,6 +291,15 @@ namespace JetstreamServiceNET.Resources {
         public static string priority {
             get {
                 return ResourceManager.GetString("priority", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read.
+        /// </summary>
+        public static string read {
+            get {
+                return ResourceManager.GetString("read", resourceCulture);
             }
         }
         

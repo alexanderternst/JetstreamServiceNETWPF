@@ -182,6 +182,7 @@ namespace JetstreamServiceNET.ViewModels
 
                     var response = client.Put(request);
                     content.status = "Status Code: " + response.StatusCode;
+
                 }
             }
             catch (Exception ex)

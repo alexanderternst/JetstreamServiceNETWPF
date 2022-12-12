@@ -7,7 +7,7 @@
              xmlns:res="clr-namespace:JetstreamServiceNET.Resources"
              xmlns:vm="clr-namespace:JetstreamServiceNET.ViewModels"
              mc:Ignorable="d"
-             d:DesignHeight="500"
+             d:DesignHeight="400"
              d:DesignWidth="800">
     <UserControl.DataContext>
         <vm:ErstellungViewModel />
@@ -85,11 +85,11 @@
                          Text="{Binding Path=order.Phone, Mode=TwoWay}">
                 </TextBox>
                 <DatePicker Grid.Row="3"
-                                    Grid.Column="1"
-                                    Focusable="False"
-                                    Margin="5"
-                                    VerticalContentAlignment="Center"
-                                    SelectedDate="{Binding Path=order.CreateDate, Mode=TwoWay}">
+                            Grid.Column="1"
+                            Focusable="False"
+                            Margin="5"
+                            VerticalContentAlignment="Center"
+                            SelectedDate="{Binding Path=order.CreateDate, Mode=TwoWay}">
                 </DatePicker>
 
                 <Label Grid.Row="0"
@@ -154,9 +154,9 @@
                           Grid.Column="3"
                           Margin="5"
                           Text="{Binding priority, Mode=TwoWay}">
-                    <ComboBoxItem 
-                                  Content="Tief"></ComboBoxItem>
-                    <ComboBoxItem IsSelected="True" Content="Standard"></ComboBoxItem>
+                    <ComboBoxItem Content="Tief"></ComboBoxItem>
+                    <ComboBoxItem IsSelected="True"
+                                  Content="Standard"></ComboBoxItem>
                     <ComboBoxItem Content="Express"></ComboBoxItem>
 
                 </ComboBox>
@@ -185,11 +185,15 @@
                 Width="100"
                 HorizontalAlignment="Left"
                 Content="{x:Static res:MyResources.btn_send}"
-                Command="{Binding CmdSend}"></Button>
+                Command="{Binding CmdSend}"
+                IsDefault="True"></Button>
 
-        <StatusBar Grid.Row="3">
-            <TextBlock Margin="10,0,10,0"
-                       Text="{Binding content.status}"></TextBlock>
+        <StatusBar Grid.Row="3"
+                   Background="LightGray">
+            <StatusBarItem>
+                <TextBlock Margin="10,0,10,0"
+                           Text="{Binding content.status}"></TextBlock>
+            </StatusBarItem>
         </StatusBar>
 
     </Grid>

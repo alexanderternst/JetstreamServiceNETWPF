@@ -1,13 +1,14 @@
 ﻿<UserControl x:Class="JetstreamServiceNET.Views.VerwaltungView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:JetstreamServiceNET.Views"
              xmlns:vm="clr-namespace:JetstreamServiceNET.ViewModels"
              xmlns:res="clr-namespace:JetstreamServiceNET.Resources"
              mc:Ignorable="d"
-             d:DesignHeight="500" d:DesignWidth="800">
+             d:DesignHeight="400"
+             d:DesignWidth="800">
     <UserControl.DataContext>
         <vm:VerwaltungViewModel />
     </UserControl.DataContext>
@@ -31,8 +32,8 @@
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
         <GroupBox Header="{x:Static res:MyResources.entries}"
-            Grid.Row="1"
-            Margin="10">
+                  Grid.Row="1"
+                  Margin="10">
             <DataGrid Grid.Row="2"
                       Name="dgRegistrations"
                       AutoGenerateColumns="False"
@@ -44,21 +45,22 @@
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="{x:Static res:MyResources.id}"
-                                    Binding="{Binding Id}" />
+                                        Binding="{Binding Id}" />
                     <DataGridTextColumn Header="{x:Static res:MyResources.name}"
-                                    Binding="{Binding Name}" />
+                                        Binding="{Binding Name}" />
                     <DataGridTextColumn Header="{x:Static res:MyResources.email}"
-                                    Binding="{Binding Email}" />
+                                        Binding="{Binding Email}" />
                     <DataGridTextColumn Header="{x:Static res:MyResources.phone}"
-                                    Binding="{Binding Phone}" />
+                                        Binding="{Binding Phone}" />
 
-                    <DataGridTemplateColumn Header="{x:Static res:MyResources.create_date}" IsReadOnly="True">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <DatePicker SelectedDate="{Binding CreateDate}" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="{x:Static res:MyResources.create_date}"
+                                            IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding CreateDate}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
                     <DataGridTemplateColumn Header="{x:Static res:MyResources.pickup_date}"
                                             IsReadOnly="True">
@@ -70,44 +72,56 @@
                     </DataGridTemplateColumn>
 
                     <DataGridTextColumn Header="{x:Static res:MyResources.service}"
-                                    Binding="{Binding Service}" />
+                                        Binding="{Binding Service}" />
 
                     <DataGridTextColumn Header="{x:Static res:MyResources.status}"
-                                    Binding="{Binding Status}" />
+                                        Binding="{Binding Status}" />
 
                     <DataGridTextColumn Header="{x:Static res:MyResources.priority}"
-                                    Binding="{Binding Priority}" />
+                                        Binding="{Binding Priority}" />
 
                     <DataGridTextColumn Header="{x:Static res:MyResources.remark}"
-                                    Binding="{Binding Comment}" />
-            </DataGrid.Columns>
-        </DataGrid>
+                                        Binding="{Binding Comment}" />
+                </DataGrid.Columns>
+            </DataGrid>
         </GroupBox>
 
-
-        <ToolBarTray>
+        <ToolBarTray Background="AliceBlue">
             <ToolBar Height="40">
-                <!--<Button Content="Einträge laden"></Button>-->
-                
                 <Button Command="{Binding CmdRead}"
                         ToolTip="{x:Static res:MyResources.btn_read}">
-                    <Image Source="../pictures/read.png"
-                           Height="22"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../pictures/read.png" />
+                        <TextBlock Margin="3,0,0,0"
+                                   Text="{x:Static res:MyResources.read}"></TextBlock>
+                    </StackPanel>
                 </Button>
                 <Button Command="{Binding CmdDelete}"
                         ToolTip="{x:Static res:MyResources.btn_delete}">
-                    <Image Source="../pictures/delete.png" Height="22"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../pictures/delete.png" />
+                        <TextBlock Margin="3,0,0,0"
+                                   Text="{x:Static res:MyResources.delete}"></TextBlock>
+                    </StackPanel>
                 </Button>
                 <Button Command="{Binding CmdModify}"
                         ToolTip="{x:Static res:MyResources.btn_modify}">
-                    <Image Source="../pictures/modify.png"
-                           Height="22" />
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../pictures/modify.png" />
+                        <TextBlock Margin="3,0,0,0"
+                                   Text="{x:Static res:MyResources.modify}"></TextBlock>
+                    </StackPanel>
+
                 </Button>
             </ToolBar>
         </ToolBarTray>
-        <StatusBar Grid.Row="3">
-            <TextBlock Margin="10,0,10,0" Text="{Binding content.status}"></TextBlock>
-        </StatusBar>
 
+        <StatusBar Grid.Row="3"
+                   Background="LightGray">
+            <StatusBarItem>
+                <TextBlock Margin="10,0,10,0"
+                           Text="{Binding content.status}"></TextBlock>
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
 </UserControl>

@@ -144,6 +144,9 @@
   <data name="create_date" xml:space="preserve">
     <value>Date de création:</value>
   </data>
+  <data name="delete" xml:space="preserve">
+    <value>Effacer</value>
+  </data>
   <data name="email" xml:space="preserve">
     <value>Email:</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="login_title" xml:space="preserve">
     <value>Connexion</value>
+  </data>
+  <data name="modify" xml:space="preserve">
+    <value>Modifier</value>
   </data>
   <data name="modify_title" xml:space="preserve">
     <value>Modifier l'entrée</value>
@@ -188,6 +194,9 @@
   </data>
   <data name="priority" xml:space="preserve">
     <value>Priorité:</value>
+  </data>
+  <data name="read" xml:space="preserve">
+    <value>Lis</value>
   </data>
   <data name="remark" xml:space="preserve">
     <value>Remarque:</value>
