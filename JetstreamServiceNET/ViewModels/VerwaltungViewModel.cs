@@ -111,7 +111,7 @@ namespace JetstreamServiceNET.ViewModels
                 var client = new RestClient(options);
 
                 var request = new RestRequest()
-                    .AddHeader("Authorization", $"Bearer {jwtKey}");
+                    .AddHeader("Authorization", $"Bearer " + jwtKey);
 
                 var response = client.Get(request);
                 var statusCode = "Status Code: " + response.StatusCode;
@@ -139,7 +139,7 @@ namespace JetstreamServiceNET.ViewModels
                 var client = new RestClient(options);
 
                 var request = new RestRequest()
-                    .AddHeader("Authorization", $"Bearer {jwtKey}");
+                    .AddHeader("Authorization", $"Bearer " + jwtKey);
 
                 var response = client.Delete(request);
                 var statusCode = "Status Code: " + response.StatusCode;
@@ -177,7 +177,7 @@ namespace JetstreamServiceNET.ViewModels
                     var client = new RestClient(options);
 
                     var request = new RestRequest()
-                        .AddHeader("Authorization", $"Bearer {jwtKey}")
+                        .AddHeader("Authorization", $"Bearer " + jwtKey)
                         .AddJsonBody(json);
 
                     var response = client.Put(request);
