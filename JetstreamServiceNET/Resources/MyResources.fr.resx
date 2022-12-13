@@ -120,6 +120,9 @@
   <data name="apiLink" xml:space="preserve">
     <value>Lien API:</value>
   </data>
+  <data name="btn_cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
   <data name="btn_creation" xml:space="preserve">
     <value>Création</value>
   </data>

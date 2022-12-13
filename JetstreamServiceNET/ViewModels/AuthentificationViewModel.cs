@@ -17,9 +17,12 @@ namespace JetstreamServiceNET.ViewModels
     {
         private Authentification _authentification = new Authentification();
 
+        private bool _IsIndeterminate = new bool();
+
         public string apiLink { get; set; }
 
-        // Breakpoint bei User Klasse setzen
+        public Action CloseAction { get; set; }
+
         public Authentification authentification
         {
             get { return _authentification; }
@@ -32,12 +35,25 @@ namespace JetstreamServiceNET.ViewModels
             }
         }
 
+        public bool IsIndeterminate
+        {
+            get { return _IsIndeterminate; }
+            set
+            {
+                if (value != _IsIndeterminate)
+                {
+                    SetProperty(ref _IsIndeterminate, value);
+                }
+            }
+        }
+
         private RelayCommand _cmdSend;
 
         public AuthentificationViewModel()
         {
-            _cmdSend = new RelayCommand(param => Execute_Send());
+            _cmdSend = new RelayCommand(param => Execute_Send(), param => CanExecute_Send());
             apiLink = Properties.Settings.Default.APILink;
+            IsIndeterminate = false;
         }
 
         public RelayCommand CmdSend
@@ -48,6 +64,8 @@ namespace JetstreamServiceNET.ViewModels
 
         private void Execute_Send()
         {
+            IsIndeterminate = true;
+
             try
             {
                 string json = JsonSerializer.Serialize<Authentification>(authentification);
@@ -74,20 +92,27 @@ namespace JetstreamServiceNET.ViewModels
 
                     MessageBox.Show("Successful login", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                }
-                else if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
-                {
-                    MessageBox.Show("Invalid credentials", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    CloseAction();
                 }
                 else
                 {
-                    MessageBox.Show(response.Content, "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show($"{response.StatusCode}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            finally { IsIndeterminate = false; }
+        }
+
+        private bool CanExecute_Send()
+        {
+            if (authentification == null)
+                return false;
+            else
+                return authentification.user != null && authentification.password != null;
         }
     }
 }

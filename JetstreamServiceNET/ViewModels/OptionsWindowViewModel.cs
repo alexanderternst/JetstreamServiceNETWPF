@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Resources;
 
 namespace JetstreamServiceNET.ViewModels
 {
@@ -19,8 +20,9 @@ namespace JetstreamServiceNET.ViewModels
     {
         private Options _options = new Options();
 
+        public Action CloseAction { get; set; }
 
-        // Breakpoint bei User Klasse setzen
+
         public Options options
         {
             get { return _options; }
@@ -40,6 +42,14 @@ namespace JetstreamServiceNET.ViewModels
             _cmdSend = new RelayCommand(param => Execute_Send());
 
             options.link = Properties.Settings.Default.APILink;
+            string lang = Properties.Settings.Default.LanguageID;
+            
+            if (lang == "DE-CH")
+                options.language = "German";
+            else if (lang == "en")
+                options.language = "English";
+            else if (lang == "fr")
+                options.language = "French";
         }
 
         public RelayCommand CmdSend
@@ -65,7 +75,9 @@ namespace JetstreamServiceNET.ViewModels
             Properties.Settings.Default.APILink = options.link;
             Properties.Settings.Default.Save();
 
+
             MessageBox.Show(" Please restart the application", "Restart", MessageBoxButton.OK, MessageBoxImage.Information);
+            CloseAction();
         }
 
     }

@@ -68,12 +68,12 @@ namespace JetstreamServiceNET.ViewModels
         private RelayCommand _cmdRead;
         private RelayCommand _cmdDelete;
         private RelayCommand _cmdModify;
-
+        
         public VerwaltungViewModel()
         {
-            _cmdRead = new RelayCommand(param => Execute_Read());
-            _cmdDelete = new RelayCommand(_cmdSaveparam => Execute_Delete());
-            _cmdModify = new RelayCommand(_cmdSaveparam => Execute_Modify());
+            _cmdRead = new RelayCommand(param => Execute_Read(), param => CanExecute_Read());
+            _cmdDelete = new RelayCommand(param => Execute_Delete(), param => CanExecute_Delete());
+            _cmdModify = new RelayCommand(param => Execute_Modify(), param => CanExecute_Modify());
 
             jwtKey = Properties.Settings.Default.JWTToken;
             string baseURL = Properties.Settings.Default.APILink;
@@ -160,7 +160,7 @@ namespace JetstreamServiceNET.ViewModels
             {
                 Order bestellungen = new Order();
                 bestellungen = selectedOrder;
-                string? id = selectedOrder.Id.ToString();
+                string id = selectedOrder.Id.ToString();
 
                 ModifizierungWindow win1 = new ModifizierungWindow(bestellungen);
                 win1.ShowDialog();
@@ -184,11 +184,37 @@ namespace JetstreamServiceNET.ViewModels
                     content.status = "Status Code: " + response.StatusCode;
 
                 }
+                else if (win1.DialogResult == false)
+                {
+                    content.status = "Canceled changed";
+                    Execute_Read();
+                }
             }
             catch (Exception ex)
             {
                 content.status = "Error: " + ex.Message;
             }
+        }
+
+        private bool CanExecute_Modify()
+        {
+            if (selectedOrder == null)
+                return false;
+            else
+                return selectedOrder.Id != null;
+        }
+
+        private bool CanExecute_Delete()
+        {
+            if (selectedOrder == null)
+                return false;
+            else
+                return selectedOrder.Id != null;
+        }
+
+        private bool CanExecute_Read()
+        {
+            return true;
         }
     }
 }

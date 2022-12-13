@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JetstreamServiceNET.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,10 @@ namespace JetstreamServiceNET
         public OptionsWindow()
         {
             InitializeComponent();
+            OptionsWindowViewModel ovm = new OptionsWindowViewModel(); // this creates an instance of the ViewModel
+            this.DataContext = ovm; // this sets the newly created ViewModel as the DataContext for the View
+            if (ovm.CloseAction == null)
+                ovm.CloseAction = new Action(() => this.Close());
         }
     }
 }

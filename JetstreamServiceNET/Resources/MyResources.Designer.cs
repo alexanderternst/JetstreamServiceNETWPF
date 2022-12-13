@@ -70,6 +70,15 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string btn_cancel {
+            get {
+                return ResourceManager.GetString("btn_cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Creation.
         /// </summary>
         public static string btn_creation {
