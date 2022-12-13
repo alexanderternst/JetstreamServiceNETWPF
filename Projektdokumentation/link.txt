@@ -1,0 +1,5 @@
+https://learn.microsoft.com/en-us/dotnet/core/extensions/work-with-resx-files-programmatically
+https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.progressbar.isindeterminate?redirectedfrom=MSDN&view=windowsdesktop-7.0#System_Windows_Controls_ProgressBar_IsIndeterminate
+https://learn.microsoft.com/en-us/visualstudio/ide/managing-application-settings-dotnet?view=vs-2022
+https://stackoverflow.com/questions/4376475/wpf-mvvm-how-to-close-a-window
+https://stackoverflow.com/questions/1648792/wpf-textbox-text-is-not-updating
