@@ -112,7 +112,7 @@ namespace JetstreamServiceNET.ViewModels
             if (authentification == null)
                 return false;
             else
-                return authentification.user != null && authentification.password != null;
+                return authentification.user != null && authentification.password != null && authentification.user != "" && authentification.password != "";
         }
     }
 }

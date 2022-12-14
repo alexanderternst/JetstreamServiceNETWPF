@@ -40,13 +40,13 @@
         <TextBox Grid.Row="0"
                  Grid.Column="1"
                  Margin="5"
-                 Text="{Binding authentification.user}"
+                 Text="{Binding authentification.user, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                  VerticalContentAlignment="Center">
         </TextBox>
         <TextBox Grid.Row="1"
                  Grid.Column="1"
                  Margin="5"
-                 Text="{Binding authentification.password}"
+                 Text="{Binding authentification.password, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                  VerticalContentAlignment="Center">
         </TextBox>
 

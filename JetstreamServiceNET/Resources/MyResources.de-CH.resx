@@ -144,6 +144,15 @@
   <data name="btn_send" xml:space="preserve">
     <value>Senden</value>
   </data>
+  <data name="btn_unban" xml:space="preserve">
+    <value>Entbannen</value>
+  </data>
+  <data name="btn_user" xml:space="preserve">
+    <value>Benutzer</value>
+  </data>
+  <data name="counter" xml:space="preserve">
+    <value>Counter:</value>
+  </data>
   <data name="create_date" xml:space="preserve">
     <value>Erstellungs-Datum:</value>
   </data>
@@ -218,6 +227,15 @@
   </data>
   <data name="username" xml:space="preserve">
     <value>Username:</value>
+  </data>
+  <data name="users" xml:space="preserve">
+    <value>Benutzer</value>
+  </data>
+  <data name="usr_read" xml:space="preserve">
+    <value>User laden</value>
+  </data>
+  <data name="usr_unban" xml:space="preserve">
+    <value>User entbannen</value>
   </data>
   <data name="window_title" xml:space="preserve">
     <value>Skiservice Management</value>

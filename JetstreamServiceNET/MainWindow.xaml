@@ -51,6 +51,13 @@
                             Width="80"
                             Margin="5"
                             Click="btnVerwaltung_Click" />
+
+                    <Button x:Name="btnBenutzer"
+                            Content="{x:Static res:MyResources.btn_user}"
+                            Height="30"
+                            Width="80"
+                            Margin="5"
+                            Click="btnBenutzer_Click" />
                 </StackPanel>
             </Border>
 

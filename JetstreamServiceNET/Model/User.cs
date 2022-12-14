@@ -8,11 +8,24 @@ using System.Threading.Tasks;
 
 namespace JetstreamServiceNET.Model
 {
-    public class Authentification : ViewModelBase
+    public class User : ViewModelBase
     {
+        private int _Id;
+        [JsonPropertyName("user_id")]
+        public int Id
+        {
+            get { return _Id; }
+            set
+            {
+                if (_Id != value)
+                {
+                    SetProperty(ref _Id, value);
+                }
+            }
+        }
 
         private string _user;
-        [JsonPropertyName("user_username")]
+        [JsonPropertyName("username")]
         public string user
         {
             get { return _user; }
@@ -25,7 +38,7 @@ namespace JetstreamServiceNET.Model
             }
         }
         private string _password;
-        [JsonPropertyName("user_password")]
+        [JsonPropertyName("password")]
         public string password
         {
             get { return _password; }
@@ -34,6 +47,20 @@ namespace JetstreamServiceNET.Model
                 if (_password != value)
                 {
                     SetProperty(ref _password, value);
+                }
+            }
+        }
+
+        private int _counter;
+        [JsonPropertyName("counter")]
+        public int counter
+        {
+            get { return _counter; }
+            set
+            {
+                if (_counter != value)
+                {
+                    SetProperty(ref _counter, value);
                 }
             }
         }

@@ -69,27 +69,27 @@
                          Grid.Column="1"
                          Margin="5"
                          VerticalContentAlignment="Center"
-                         Text="{Binding Path=order.Name, Mode=TwoWay}">
+                         Text="{Binding Path=order.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 </TextBox>
 
                 <TextBox Grid.Row="1"
                          Grid.Column="1"
                          Margin="5"
                          VerticalContentAlignment="Center"
-                         Text="{Binding Path=order.Email, Mode=TwoWay}">
+                         Text="{Binding Path=order.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 </TextBox>
                 <TextBox Grid.Row="2"
                          Grid.Column="1"
                          Margin="5"
                          VerticalContentAlignment="Center"
-                         Text="{Binding Path=order.Phone, Mode=TwoWay}">
+                         Text="{Binding Path=order.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 </TextBox>
                 <DatePicker Grid.Row="3"
                             Grid.Column="1"
                             Focusable="False"
                             Margin="5"
                             VerticalContentAlignment="Center"
-                            SelectedDate="{Binding Path=order.CreateDate, Mode=TwoWay}">
+                            SelectedDate="{Binding Path=order.CreateDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 </DatePicker>
 
                 <Label Grid.Row="0"
@@ -131,7 +131,7 @@
                 <ComboBox Grid.Row="0"
                           Grid.Column="3"
                           Margin="5"
-                          Text="{Binding order.Service}">
+                          Text="{Binding order.Service,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <ComboBoxItem IsSelected="True"
                                   Content="Kleiner-Service"></ComboBoxItem>
                     <ComboBoxItem Content="Grosser-Service"></ComboBoxItem>
@@ -144,7 +144,7 @@
                 <ComboBox Grid.Row="1"
                           Grid.Column="3"
                           Margin="5"
-                          Text="{Binding order.Status}">
+                          Text="{Binding order.Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <ComboBoxItem IsSelected="True"
                                   Content="Offen"></ComboBoxItem>
                     <ComboBoxItem Content="InArbeit"></ComboBoxItem>
@@ -153,7 +153,7 @@
                 <ComboBox Grid.Row="2"
                           Grid.Column="3"
                           Margin="5"
-                          Text="{Binding priority, Mode=TwoWay}">
+                          Text="{Binding priority, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <ComboBoxItem Content="Tief"></ComboBoxItem>
                     <ComboBoxItem IsSelected="True"
                                   Content="Standard"></ComboBoxItem>
@@ -174,7 +174,7 @@
                          Grid.ColumnSpan="2"
                          TextWrapping="Wrap"
                          Margin="5"
-                         Text="{Binding Path=order.Comment, Mode=TwoWay}">
+                         Text="{Binding Path=order.Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 </TextBox>
 
             </Grid>
@@ -190,9 +190,18 @@
 
         <StatusBar Grid.Row="3"
                    Background="LightGray">
-            <StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Left">
                 <TextBlock Margin="10,0,10,0"
                            Text="{Binding content.status}"></TextBlock>
+            </StatusBarItem>
+
+            <StatusBarItem HorizontalAlignment="Right">
+                <ProgressBar Margin="10,0,10,0"
+                             IsIndeterminate="{Binding IsIndeterminate}"
+                             Width="100"
+                             Height="20">
+
+                </ProgressBar>
             </StatusBarItem>
         </StatusBar>
 

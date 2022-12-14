@@ -39,7 +39,7 @@ namespace JetstreamServiceNET.ViewModels
 
         public OptionsWindowViewModel()
         {
-            _cmdSend = new RelayCommand(param => Execute_Send());
+            _cmdSend = new RelayCommand(param => Execute_Send(), param => CanExecute_Send());
 
             options.link = Properties.Settings.Default.APILink;
             string lang = Properties.Settings.Default.LanguageID;
@@ -79,7 +79,14 @@ namespace JetstreamServiceNET.ViewModels
             MessageBox.Show(" Please restart the application", "Restart", MessageBoxButton.OK, MessageBoxImage.Information);
             CloseAction();
         }
+            
+        private bool CanExecute_Send()
+        {
+            if (options == null)
+                return false;
+            else
+                return options.link != "" && options.link != null;
+        }
 
     }
 }
-;

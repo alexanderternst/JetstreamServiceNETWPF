@@ -20,7 +20,7 @@ namespace JetstreamServiceNET
     /// </summary>
     public partial class ModifizierungWindow : Window
     {
-        private Order _order;
+        private Order _order = new Order();
         public ModifizierungWindow(Order order)
         {
             InitializeComponent();
@@ -38,6 +38,11 @@ namespace JetstreamServiceNET
         {
             DialogResult = false;
             Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            DialogResult = false;
         }
     }
 }

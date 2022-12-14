@@ -8,11 +8,12 @@
         xmlns:res="clr-namespace:JetstreamServiceNET.Resources"
         mc:Ignorable="d"
         Title="{x:Static res:MyResources.modify_title}"
-        Height="450"
+        Height="300"
         Width="800"
         Icon="pictures/logo.ico"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="CanResizeWithGrip">
+        ResizeMode="CanResizeWithGrip"
+        Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120" />
@@ -26,7 +27,7 @@
             <RowDefinition Height="36"></RowDefinition>
             <RowDefinition Height="36"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
 
             <RowDefinition Height="1*"></RowDefinition>
 
@@ -64,27 +65,27 @@
                  Grid.Column="1"
                  Margin="5"
                  VerticalContentAlignment="Center"
-                 Text="{Binding Path=Name, Mode=TwoWay}">
+                 Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
         </TextBox>
 
         <TextBox Grid.Row="1"
                  Grid.Column="1"
                  Margin="5"
                  VerticalContentAlignment="Center"
-                 Text="{Binding Path=Email, Mode=TwoWay}">
+                 Text="{Binding Path=Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
         </TextBox>
         <TextBox Grid.Row="2"
                  Grid.Column="1"
                  Margin="5"
                  VerticalContentAlignment="Center"
-                 Text="{Binding Path=Phone, Mode=TwoWay}">
+                 Text="{Binding Path=Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
         </TextBox>
         <DatePicker Grid.Row="3"
                     Grid.Column="1"
                     Focusable="False"
                     Margin="5"
                     VerticalContentAlignment="Center"
-                    SelectedDate="{Binding Path=CreateDate, Mode=TwoWay}">
+                    SelectedDate="{Binding Path=CreateDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
         </DatePicker>
 
         <Label Grid.Row="0"
@@ -126,7 +127,7 @@
         <ComboBox Grid.Row="0"
                   Grid.Column="3"
                   Margin="5"
-                  Text="{Binding Service}">
+                  Text="{Binding Service,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ComboBoxItem IsSelected="True"
                           Content="Kleiner-Service"></ComboBoxItem>
             <ComboBoxItem Content="Grosser-Service"></ComboBoxItem>
@@ -140,7 +141,7 @@
                     Grid.Row="1"
                   Grid.Column="3"
                   Margin="5"
-                  Text="{Binding Status}">
+                  Text="{Binding Status,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ComboBoxItem IsSelected="True"
                           Content="Offen"></ComboBoxItem>
             <ComboBoxItem Content="InArbeit"></ComboBoxItem>
@@ -149,7 +150,7 @@
         <ComboBox Grid.Row="2"
                   Grid.Column="3"
                   Margin="5"
-                  Text="{Binding Priority, Mode=TwoWay}">
+                  Text="{Binding Priority, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ComboBoxItem Content="Tief"></ComboBoxItem>
             <ComboBoxItem IsSelected="True"
                           Content="Standard"></ComboBoxItem>
@@ -161,7 +162,7 @@
                     Grid.Column="4"
                     Margin="5"
                     VerticalContentAlignment="Center"
-                    SelectedDate="{Binding Path=PickupDate, Mode=TwoWay}"
+                    SelectedDate="{Binding Path=PickupDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     Focusable="False">
         </DatePicker>
 
@@ -170,7 +171,7 @@
                  Grid.ColumnSpan="2"
                  TextWrapping="Wrap"
                  Margin="5"
-                 Text="{Binding Path=Comment, Mode=TwoWay}">
+                 Text="{Binding Path=Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
         </TextBox>
 
         <StackPanel Orientation="Horizontal"

@@ -21,6 +21,7 @@ namespace JetstreamServiceNET.ViewModels
     {
         private Order _order = new Order();
         private Content _content = new Content();
+        private bool _IsIndeterminate = new bool();
 
         public string registrationURL { get; set; }
 
@@ -44,6 +45,18 @@ namespace JetstreamServiceNET.ViewModels
                 if (value != _content)
                 {
                     SetProperty<Content>(ref _content, value);
+                }
+            }
+        }
+
+        public bool IsIndeterminate
+        {
+            get { return _IsIndeterminate; }
+            set
+            {
+                if (value != _IsIndeterminate)
+                {
+                    SetProperty(ref _IsIndeterminate, value);
                 }
             }
         }
@@ -77,7 +90,7 @@ namespace JetstreamServiceNET.ViewModels
 
         public ErstellungViewModel()
         {
-            _cmdSend = new RelayCommand(param => Execute_Send());
+            _cmdSend = new RelayCommand(param => Execute_Send(), param => CanExecute_Send());
             order.CreateDate = DateTime.Now;
 
             string baseURL = Properties.Settings.Default.APILink;
@@ -93,10 +106,15 @@ namespace JetstreamServiceNET.ViewModels
 
         private void Execute_Send()
         {
+            IsIndeterminate = true;
             try
             {
                 order.Priority = priority;
                 order.Id = 0;
+
+                if (order.Comment == null)
+                    order.Comment = "";
+                
                 string json = JsonSerializer.Serialize<Order>(order);
 
                 var options = new RestClientOptions(registrationURL)
@@ -117,6 +135,18 @@ namespace JetstreamServiceNET.ViewModels
             {
                 content.status = "Error: " + ex.Message;
             }
+            finally
+            {
+                IsIndeterminate = false;
+            }
+        }
+
+        private bool CanExecute_Send()
+        {
+            if (order == null)
+                return false;
+            else
+                return order.Name != null && order.Email != null && order.Phone != null && order.Name != "" && order.Email != "" && order.Phone != "";
         }
     }
 }

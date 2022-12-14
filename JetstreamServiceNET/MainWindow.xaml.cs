@@ -48,5 +48,11 @@ namespace JetstreamServiceNET
             VerwaltungView verwaltung = new VerwaltungView();
             ContentArea.Content = verwaltung;
         }
+
+        private void btnBenutzer_Click(object sender, RoutedEventArgs e)
+        {
+            BenutzerView benutzer = new BenutzerView();
+            ContentArea.Content = benutzer;
+        }
     }
 }

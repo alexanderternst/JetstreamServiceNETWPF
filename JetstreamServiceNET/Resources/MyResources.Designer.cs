@@ -142,6 +142,33 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unban.
+        /// </summary>
+        public static string btn_unban {
+            get {
+                return ResourceManager.GetString("btn_unban", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        public static string btn_user {
+            get {
+                return ResourceManager.GetString("btn_user", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Counter:.
+        /// </summary>
+        public static string counter {
+            get {
+                return ResourceManager.GetString("counter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Creation-Date:.
         /// </summary>
         public static string create_date {
@@ -363,6 +390,33 @@ namespace JetstreamServiceNET.Resources {
         public static string username {
             get {
                 return ResourceManager.GetString("username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Users.
+        /// </summary>
+        public static string users {
+            get {
+                return ResourceManager.GetString("users", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read users.
+        /// </summary>
+        public static string usr_read {
+            get {
+                return ResourceManager.GetString("usr_read", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unban user.
+        /// </summary>
+        public static string usr_unban {
+            get {
+                return ResourceManager.GetString("usr_unban", resourceCulture);
             }
         }
         

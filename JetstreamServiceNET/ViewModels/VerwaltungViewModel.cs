@@ -22,6 +22,7 @@ namespace JetstreamServiceNET.ViewModels
     {
         private Order _selectedOrder = new Order();
         private Content _content = new Content();
+        private bool _IsIndeterminate = new bool();
 
         public string jwtKey { get; set; }
         public string registrationURL { get; set; }
@@ -65,6 +66,18 @@ namespace JetstreamServiceNET.ViewModels
             }
         }
 
+        public bool IsIndeterminate
+        {
+            get { return _IsIndeterminate; }
+            set
+            {
+                if (value != _IsIndeterminate)
+                {
+                    SetProperty(ref _IsIndeterminate, value);
+                }
+            }
+        }
+
         private RelayCommand _cmdRead;
         private RelayCommand _cmdDelete;
         private RelayCommand _cmdModify;
@@ -79,6 +92,7 @@ namespace JetstreamServiceNET.ViewModels
             string baseURL = Properties.Settings.Default.APILink;
             string registration = Properties.Settings.Default.registrationLink;
             registrationURL = baseURL + registration;
+            IsIndeterminate = false;
         }
 
         public RelayCommand CmdRead
@@ -101,6 +115,7 @@ namespace JetstreamServiceNET.ViewModels
 
         private void Execute_Read()
         {
+            IsIndeterminate = true;
             try
             {
                 var options = new RestClientOptions(registrationURL)
@@ -123,10 +138,15 @@ namespace JetstreamServiceNET.ViewModels
             {
                 content.status = "Error: " + ex.Message;
             }
+            finally
+            {
+                IsIndeterminate = false;
+            }
         }
 
         private void Execute_Delete()
         {
+            IsIndeterminate = true;
             try
             {
                 string? id = selectedOrder.Id.ToString();
@@ -152,10 +172,15 @@ namespace JetstreamServiceNET.ViewModels
             {
                 content.status = "Error: " + ex.Message;
             }
+            finally 
+            {
+                IsIndeterminate = false;
+            }
         }
 
         private void Execute_Modify()
         {
+            IsIndeterminate = true;
             try
             {
                 Order bestellungen = new Order();
@@ -193,6 +218,10 @@ namespace JetstreamServiceNET.ViewModels
             catch (Exception ex)
             {
                 content.status = "Error: " + ex.Message;
+            }
+            finally
+            {
+                IsIndeterminate = false;
             }
         }
 
