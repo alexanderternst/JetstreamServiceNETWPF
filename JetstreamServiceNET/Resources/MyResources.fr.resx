@@ -211,6 +211,9 @@
   <data name="read" xml:space="preserve">
     <value>Lis</value>
   </data>
+  <data name="regiLink" xml:space="preserve">
+    <value>Lien d'inscription:</value>
+  </data>
   <data name="remark" xml:space="preserve">
     <value>Remarque:</value>
   </data>
@@ -225,6 +228,9 @@
   </data>
   <data name="status" xml:space="preserve">
     <value>Statut:</value>
+  </data>
+  <data name="userLink" xml:space="preserve">
+    <value>Lien utilisateur:</value>
   </data>
   <data name="username" xml:space="preserve">
     <value>Nom d'utilisateur:</value>

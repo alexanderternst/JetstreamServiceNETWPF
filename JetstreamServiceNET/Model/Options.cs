@@ -16,6 +16,33 @@ namespace JetstreamServiceNET.Model
                 }
             }
         }
+
+        private string _userLink;
+        public string UserLink
+        {
+            get { return _userLink; }
+            set
+            {
+                if (_userLink != value)
+                {
+                    SetProperty(ref _userLink, value);
+                }
+            }
+        }
+
+        private string _regiLink;
+        public string RegiLink
+        {
+            get { return _regiLink; }
+            set
+            {
+                if (_regiLink != value)
+                {
+                    SetProperty(ref _regiLink, value);
+                }
+            }
+        }
+
         private string _language;
         public string Language
         {

@@ -9,7 +9,9 @@
         mc:Ignorable="d"
         Title="{x:Static res:MyResources.login_title}"
         Height="150"
-        Width="250"
+        Width="300"
+        MinHeight="140"
+        MinWidth="200"
         Icon="pictures/logo.ico"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanResizeWithGrip">
@@ -18,14 +20,14 @@
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="35" />
-            <RowDefinition Height="35" />
-            <RowDefinition Height="35" />
+            <RowDefinition Height="36" />
+            <RowDefinition Height="36" />
             <RowDefinition Height="1*" />
+            <RowDefinition Height="36" />
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="120" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0"
@@ -50,14 +52,19 @@
                  VerticalContentAlignment="Center">
         </TextBox>
 
-        <Button Grid.Row="2"
-                Margin="5"
-                Content="{x:Static res:MyResources.btn_send}"
-                Command="{Binding CmdSend}"
-                IsDefault="True"></Button>
-        <ProgressBar Grid.Row="2"
-                     Grid.Column="1"
-                     Margin="5"
-                     IsIndeterminate="{Binding IsIndeterminate}" />
+        <StackPanel Grid.Row="5"
+                    Orientation="Horizontal"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Right">
+            <ProgressBar Height="20"
+                         Width="100"
+                         Margin="5"
+                         IsIndeterminate="{Binding Content.IsIndeterminate}" />
+            <Button Margin="5,5,10,5"
+                    Width="80"
+                    Content="{x:Static res:MyResources.btn_send}"
+                    Command="{Binding CmdSend}"
+                    IsDefault="True"></Button>
+        </StackPanel>
     </Grid>
 </Window>

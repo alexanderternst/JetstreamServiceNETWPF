@@ -10,6 +10,8 @@
         Title="{x:Static res:MyResources.window_title}"
         Height="400"
         Width="800"
+        MinHeight="200"
+        MinWidth="400"
         ResizeMode="CanResizeWithGrip"
         Icon="pictures/logo.ico"
         WindowStartupLocation="CenterScreen">

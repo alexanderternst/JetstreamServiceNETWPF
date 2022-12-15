@@ -11,7 +11,10 @@
     <None Remove="pictures\delete.png" />
     <None Remove="pictures\logo.ico" />
     <None Remove="pictures\modify.png" />
-    <None Remove="pictures\read.png" />
+    <None Remove="pictures\readOrder.png" />
+    <None Remove="pictures\readUser.png" />
+    <None Remove="pictures\setting.ico" />
+    <None Remove="pictures\unban.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,7 +25,10 @@
     <Resource Include="pictures\delete.png" />
     <Resource Include="pictures\logo.ico" />
     <Resource Include="pictures\modify.png" />
-    <Resource Include="pictures\read.png" />
+    <Resource Include="pictures\readOrder.png" />
+    <Resource Include="pictures\readUser.png" />
+    <Resource Include="pictures\setting.ico" />
+    <Resource Include="pictures\unban.png" />
   </ItemGroup>
 
   <ItemGroup>

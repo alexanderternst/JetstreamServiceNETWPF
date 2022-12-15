@@ -59,7 +59,8 @@
                 <Button Command="{Binding CmdRead}"
                         ToolTip="{x:Static res:MyResources.usr_read}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="../pictures/read.png" />
+                        <Image Source="../pictures/readUser.png"
+                               Height="30" />
                         <TextBlock Margin="3,0,0,0"
                                    Text="{x:Static res:MyResources.read}"></TextBlock>
                     </StackPanel>
@@ -67,7 +68,8 @@
                 <Button Command="{Binding CmdUnban}"
                         ToolTip="{x:Static res:MyResources.usr_unban}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="../pictures/delete.png" />
+                        <Image Source="../pictures/unban.png"
+                               Height="30" />
                         <TextBlock Margin="3,0,0,0"
                                    Text="{x:Static res:MyResources.btn_unban}"></TextBlock>
                     </StackPanel>
@@ -79,7 +81,7 @@
                    Background="LightGray">
             <StatusBarItem HorizontalAlignment="Left">
                 <TextBlock Margin="10,0,10,0"
-                           Text="{Binding Content.status}"></TextBlock>
+                           Text="{Binding Content.Status}"></TextBlock>
             </StatusBarItem>
 
             <StatusBarItem HorizontalAlignment="Right">

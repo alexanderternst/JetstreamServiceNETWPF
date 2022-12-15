@@ -194,7 +194,7 @@ namespace JetstreamServiceNET.ViewModels
                 var response = client.Delete(request);
 
                 Content.Status = "Status Code: " + response.StatusCode;
-                MessageBox.Show($" Eintrag mit id {id} gelöscht", "Löschen", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Eintrag mit id {id} gelöscht", "Löschen", MessageBoxButton.OK, MessageBoxImage.Information);
                 Execute_Read();
             }
             catch (Exception ex)
@@ -266,8 +266,8 @@ namespace JetstreamServiceNET.ViewModels
                 Execute_Read();
                 IEnumerable<Order> filteredOrder;
                 filteredOrder = Orders.Where(x => x.Name.Contains(SearchContent, StringComparison.OrdinalIgnoreCase) || x.Id.ToString().Contains(SearchContent, StringComparison.OrdinalIgnoreCase) || x.Phone.Contains(SearchContent, StringComparison.OrdinalIgnoreCase) || x.Email.Contains(SearchContent, StringComparison.OrdinalIgnoreCase) || x.Priority.Contains(SearchContent, StringComparison.OrdinalIgnoreCase) || x.Service.Contains(SearchContent, StringComparison.OrdinalIgnoreCase) || x.Status.Contains(SearchContent, StringComparison.OrdinalIgnoreCase));
-                var myObservableCollection = new ObservableCollection<Order>(filteredOrder);
-                Orders = myObservableCollection;
+                var filteredOrderCollection = new ObservableCollection<Order>(filteredOrder);
+                Orders = filteredOrderCollection;
             }
             catch (Exception ex)
             {

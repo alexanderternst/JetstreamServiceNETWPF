@@ -5,6 +5,7 @@ using RestSharp;
 using System;
 using System.Collections.ObjectModel;
 using System.Text.Json;
+using System.Windows;
 
 namespace JetstreamServiceNET.ViewModels
 {
@@ -152,6 +153,7 @@ namespace JetstreamServiceNET.ViewModels
                 var statusCode = "Status Code: " + response.StatusCode;
 
                 Content.Status = statusCode;
+                MessageBox.Show($"Benutzer mit id {SelectedUser.Id} entbannt", "Entbannt", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {

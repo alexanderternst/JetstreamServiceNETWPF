@@ -8,11 +8,13 @@
         xmlns:res="clr-namespace:JetstreamServiceNET.Resources"
         mc:Ignorable="d"
         Title="{x:Static res:MyResources.settings_title}"
-        Height="150"
-        Width="250"
+        Height="250"
+        Width="300"
+        MinWidth="240"
+        MinHeight="220"
         ResizeMode="CanResizeWithGrip"
         WindowStartupLocation="CenterScreen"
-        Icon="pictures/logo.ico">
+        Icon="pictures/setting.ico">
     <Window.DataContext>
         <vm:OptionsWindowViewModel />
     </Window.DataContext>
@@ -21,11 +23,12 @@
             <RowDefinition Height="36" />
             <RowDefinition Height="36" />
             <RowDefinition Height="36" />
+            <RowDefinition Height="36" />
             <RowDefinition Height="1*" />
-
+            <RowDefinition Height="36" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="120" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0"
@@ -36,6 +39,18 @@
                Grid.Column="0"
                Margin="5"
                Content="{x:Static res:MyResources.apiLink}"></Label>
+
+        <Label Grid.Row="2"
+               Grid.Column="0"
+               Margin="5"
+               Content="{x:Static res:MyResources.regiLink}">
+        </Label>
+
+        <Label Grid.Row="3"
+               Grid.Column="0"
+               Margin="5"
+               Content="{x:Static res:MyResources.userLink}">
+        </Label>
 
         <ComboBox Grid.Column="1"
                   Grid.Row="0"
@@ -53,10 +68,27 @@
                  Text="{Binding Options.Link, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
         </TextBox>
 
-        <Button Grid.Row="2"
-                Margin="5"
+        <TextBox Grid.Row="2"
+                 Grid.Column="1"
+                 Margin="5"
+                 VerticalContentAlignment="Center"
+                 Text="{Binding Options.RegiLink, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        </TextBox>
+
+        <TextBox Grid.Row="3"
+                 Grid.Column="1"
+                 Margin="5"
+                 VerticalContentAlignment="Center"
+                 Text="{Binding Options.UserLink, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        </TextBox>
+
+        <Button Grid.Row="5"
+                Grid.Column="2"
+                Margin="5,5,10,5"
                 Content="{x:Static res:MyResources.btn_send}"
                 Command="{Binding CmdSend}"
-                IsDefault="True"></Button>
+                IsDefault="True"
+                HorizontalAlignment="Right"
+                Width="80"></Button>
     </Grid>
 </Window>

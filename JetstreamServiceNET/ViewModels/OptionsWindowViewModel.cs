@@ -36,6 +36,8 @@ namespace JetstreamServiceNET.ViewModels
             _cmdSend = new RelayCommand(param => Execute_Send(), param => CanExecute_Send());
 
             Options.Link = Settings.Default.APILink;
+            Options.RegiLink = Settings.Default.registrationLink;
+            Options.UserLink = Settings.Default.userLink;
             string lang = Settings.Default.LanguageID;
 
             if (lang == "DE-CH")
@@ -73,9 +75,11 @@ namespace JetstreamServiceNET.ViewModels
                 Settings.Default.LanguageID = "fr";
             }
             Settings.Default.APILink = Options.Link;
+            Settings.Default.registrationLink = Options.RegiLink;
+            Settings.Default.userLink = Options.UserLink;
             Settings.Default.Save();
 
-            MessageBox.Show(" Please restart the application", "Restart", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Please restart the application", "Restart", MessageBoxButton.OK, MessageBoxImage.Information);
             CloseAction();
         }
 

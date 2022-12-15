@@ -340,6 +340,15 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Registration Link:.
+        /// </summary>
+        public static string regiLink {
+            get {
+                return ResourceManager.GetString("regiLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remark:.
         /// </summary>
         public static string remark {
@@ -381,6 +390,15 @@ namespace JetstreamServiceNET.Resources {
         public static string status {
             get {
                 return ResourceManager.GetString("status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Link:.
+        /// </summary>
+        public static string userLink {
+            get {
+                return ResourceManager.GetString("userLink", resourceCulture);
             }
         }
         
