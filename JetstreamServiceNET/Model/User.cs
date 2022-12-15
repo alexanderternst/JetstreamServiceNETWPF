@@ -1,10 +1,5 @@
 ﻿using JetstreamServiceNET.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace JetstreamServiceNET.Model
 {
@@ -24,22 +19,22 @@ namespace JetstreamServiceNET.Model
             }
         }
 
-        private string _user;
+        private string _username;
         [JsonPropertyName("username")]
-        public string user
+        public string Username
         {
-            get { return _user; }
+            get { return _username; }
             set
             {
-                if (_user != value)
+                if (_username != value)
                 {
-                    SetProperty(ref _user, value);
+                    SetProperty(ref _username, value);
                 }
             }
         }
         private string _password;
         [JsonPropertyName("password")]
-        public string password
+        public string Password
         {
             get { return _password; }
             set
@@ -53,7 +48,7 @@ namespace JetstreamServiceNET.Model
 
         private int _counter;
         [JsonPropertyName("counter")]
-        public int counter
+        public int Counter
         {
             get { return _counter; }
             set

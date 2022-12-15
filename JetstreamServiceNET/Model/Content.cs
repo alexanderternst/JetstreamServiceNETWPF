@@ -1,17 +1,11 @@
 ﻿using JetstreamServiceNET.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace JetstreamServiceNET.Model
 {
     public class Content : ViewModelBase
     {
         private string _status;
-        public string status
+        public string Status
         {
             get { return _status; }
             set
@@ -23,5 +17,18 @@ namespace JetstreamServiceNET.Model
             }
         }
 
+        private bool _IsIndeterminate = new bool();
+
+        public bool IsIndeterminate
+        {
+            get { return _IsIndeterminate; }
+            set
+            {
+                if (value != _IsIndeterminate)
+                {
+                    SetProperty(ref _IsIndeterminate, value);
+                }
+            }
+        }
     }
 }

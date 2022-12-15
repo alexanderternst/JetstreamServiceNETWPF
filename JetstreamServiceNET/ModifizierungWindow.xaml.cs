@@ -21,6 +21,11 @@ namespace JetstreamServiceNET
     public partial class ModifizierungWindow : Window
     {
         private Order _order = new Order();
+
+        /// <summary>
+        /// Konstruktor welcher Daten von anderem Fenster nimmt und speichert
+        /// </summary>
+        /// <param name="order"></param>
         public ModifizierungWindow(Order order)
         {
             InitializeComponent();
@@ -28,21 +33,26 @@ namespace JetstreamServiceNET
             DataContext = _order;
         }
 
+        /// <summary>
+        /// Methode welche auf klicken des Senden Knopfes reagiert
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
             Close();
         }
 
+        /// <summary>
+        /// Methode welche auf klicken des Abbrechen Knopfes reagiert
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
             Close();
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            DialogResult = false;
         }
     }
 }

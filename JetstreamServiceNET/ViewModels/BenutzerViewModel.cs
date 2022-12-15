@@ -1,14 +1,10 @@
 ﻿using JetstreamServiceNET.Model;
+using JetstreamServiceNET.Properties;
 using JetstreamServiceNET.Utility;
 using RestSharp;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace JetstreamServiceNET.ViewModels
 {
@@ -16,15 +12,16 @@ namespace JetstreamServiceNET.ViewModels
     {
         private User _selectedUser = new User();
         private Content _content = new Content();
-        private bool _IsIndeterminate = new bool();
 
-        public string jwtKey { get; set; }
-        public string userURL { get; set; }
+        public string JwtKey { get; set; }
+        public string UserURL { get; set; }
 
         private ObservableCollection<User> _users = new ObservableCollection<User>();
 
-
-        public User selectedUser
+        /// <summary>
+        /// User Property mit INotifyPropertyChanged
+        /// </summary>
+        public User SelectedUser
         {
             get { return _selectedUser; }
             set
@@ -36,7 +33,10 @@ namespace JetstreamServiceNET.ViewModels
             }
         }
 
-        public Content content
+        /// <summary>
+        /// Content Property mit INotifyPropertyChanged
+        /// </summary>
+        public Content Content
         {
             get { return _content; }
             set
@@ -48,6 +48,9 @@ namespace JetstreamServiceNET.ViewModels
             }
         }
 
+        /// <summary>
+        /// ObservableCollection User Property mit INotifyPropertyChanged
+        /// </summary>
         public ObservableCollection<User> Users
         {
             get { return _users; }
@@ -60,52 +63,49 @@ namespace JetstreamServiceNET.ViewModels
             }
         }
 
-        public bool IsIndeterminate
-        {
-            get { return _IsIndeterminate; }
-            set
-            {
-                if (value != _IsIndeterminate)
-                {
-                    SetProperty(ref _IsIndeterminate, value);
-                }
-            }
-        }
-
         private RelayCommand _cmdRead;
         private RelayCommand _cmdUnban;
 
+        /// <summary>
+        /// Konstruktor welcher Command Binding instanziiert und Properties setzt
+        /// </summary>
         public BenutzerViewModel()
         {
             _cmdRead = new RelayCommand(param => Execute_Read(), param => CanExecute_Read());
             _cmdUnban = new RelayCommand(param => Execute_Unban(), param => CanExecute_Unban());
 
-            jwtKey = Properties.Settings.Default.JWTToken;
-            string baseURL = Properties.Settings.Default.APILink;
-            string user = Properties.Settings.Default.userLink;
-            userURL = baseURL + user;
-            IsIndeterminate = false;
+            JwtKey = Properties.Settings.Default.JWTToken;
+            UserURL = Settings.Default.APILink + Settings.Default.userLink;
+            Content.IsIndeterminate = false;
         }
 
+        /// <summary>
+        /// Prop für Command Binding
+        /// </summary>
         public RelayCommand CmdRead
         {
             get { return _cmdRead; }
             set { _cmdRead = value; }
         }
 
+        /// <summary>
+        /// Prop für Command Binding
+        /// </summary>
         public RelayCommand CmdUnban
         {
             get { return _cmdUnban; }
             set { _cmdUnban = value; }
         }
 
-        
+        /// <summary>
+        /// Methode welche HTTP GET Request ausführt
+        /// </summary>
         private void Execute_Read()
         {
-            IsIndeterminate = true;
+            Content.IsIndeterminate = true;
             try
             {
-                var options = new RestClientOptions(userURL)
+                var options = new RestClientOptions(UserURL)
                 {
                     MaxTimeout = 10000,
                     ThrowOnAnyError = true
@@ -113,30 +113,32 @@ namespace JetstreamServiceNET.ViewModels
                 var client = new RestClient(options);
 
                 var request = new RestRequest()
-                    .AddHeader("Authorization", $"Bearer " + jwtKey);
+                    .AddHeader("Authorization", $"Bearer " + JwtKey);
 
                 var response = client.Get(request);
-                var statusCode = "Status Code: " + response.StatusCode;
 
                 Users = JsonSerializer.Deserialize<ObservableCollection<User>>(response.Content);
-                content.status = statusCode;
+                Content.Status = "Status Code: " + response.StatusCode;
             }
             catch (Exception ex)
             {
-                content.status = "Error: " + ex.Message;
+                Content.Status = "Error: " + ex.Message;
             }
             finally
             {
-                IsIndeterminate = false;
+                Content.IsIndeterminate = false;
             }
         }
 
+        /// <summary>
+        /// Methode welche HTTP PUT Request ausführt
+        /// </summary>
         private void Execute_Unban()
         {
-            IsIndeterminate = true;
+            Content.IsIndeterminate = true;
             try
             {
-                var options = new RestClientOptions(userURL + "unban/" + selectedUser.Id)
+                var options = new RestClientOptions(UserURL + "unban/" + SelectedUser.Id)
                 {
                     MaxTimeout = 10000,
                     ThrowOnAnyError = true
@@ -144,36 +146,44 @@ namespace JetstreamServiceNET.ViewModels
                 var client = new RestClient(options);
 
                 var request = new RestRequest()
-                    .AddHeader("Authorization", $"Bearer " + jwtKey);
+                    .AddHeader("Authorization", $"Bearer " + JwtKey);
 
                 var response = client.Put(request);
                 var statusCode = "Status Code: " + response.StatusCode;
 
-                content.status = statusCode;
+                Content.Status = statusCode;
             }
             catch (Exception ex)
             {
-                content.status = "Error: " + ex.Message;
+                Content.Status = "Error: " + ex.Message;
             }
             finally
             {
-                IsIndeterminate = false;
+                Content.IsIndeterminate = false;
                 Execute_Read();
             }
-            
+
         }
 
+        /// <summary>
+        /// Methode welche überprüft ob Button aktiviert sein sollen
+        /// </summary>
+        /// <returns>true/false/returns>
         private bool CanExecute_Read()
         {
             return true;
         }
 
+        /// <summary>
+        /// Methode welche überprüft ob Button aktiviert sein sollen
+        /// </summary>
+        /// <returns>true/false</returns>
         private bool CanExecute_Unban()
         {
-            if (selectedUser == null)
+            if (SelectedUser == null)
                 return false;
             else
-                return selectedUser.Id != 0;
+                return SelectedUser.Id != 0;
         }
     }
 }

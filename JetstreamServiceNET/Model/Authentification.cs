@@ -1,10 +1,5 @@
 ﻿using JetstreamServiceNET.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace JetstreamServiceNET.Model
 {
@@ -13,7 +8,7 @@ namespace JetstreamServiceNET.Model
 
         private string _user;
         [JsonPropertyName("user_username")]
-        public string user
+        public string User
         {
             get { return _user; }
             set
@@ -26,7 +21,7 @@ namespace JetstreamServiceNET.Model
         }
         private string _password;
         [JsonPropertyName("user_password")]
-        public string password
+        public string Password
         {
             get { return _password; }
             set

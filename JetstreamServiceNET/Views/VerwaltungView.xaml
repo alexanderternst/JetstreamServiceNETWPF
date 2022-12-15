@@ -40,7 +40,7 @@
                       CanUserResizeColumns="True"
                       ItemsSource="{Binding Orders, Mode=TwoWay}"
                       IsReadOnly="True"
-                      SelectedItem="{Binding selectedOrder, Mode=TwoWay}"
+                      SelectedItem="{Binding SelectedOrder, Mode=TwoWay}"
                       CanUserReorderColumns="False">
 
                 <DataGrid.Columns>
@@ -87,11 +87,13 @@
         </GroupBox>
 
         <ToolBarTray Background="AliceBlue">
-            <ToolBar Height="40">
+            <ToolBar Height="40"
+                     Background="AliceBlue">
                 <Button Command="{Binding CmdRead}"
                         ToolTip="{x:Static res:MyResources.btn_read}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="../pictures/read.png" />
+                        <Image Source="../pictures/read.png"
+                               Height="30" />
                         <TextBlock Margin="3,0,0,0"
                                    Text="{x:Static res:MyResources.read}"></TextBlock>
                     </StackPanel>
@@ -99,7 +101,8 @@
                 <Button Command="{Binding CmdDelete}"
                         ToolTip="{x:Static res:MyResources.btn_delete}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="../pictures/delete.png" />
+                        <Image Source="../pictures/delete.png"
+                               Height="30" />
                         <TextBlock Margin="3,0,0,0"
                                    Text="{x:Static res:MyResources.delete}"></TextBlock>
                     </StackPanel>
@@ -107,25 +110,38 @@
                 <Button Command="{Binding CmdModify}"
                         ToolTip="{x:Static res:MyResources.btn_modify}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="../pictures/modify.png" />
+                        <Image Source="../pictures/modify.png"
+                               Height="30" />
                         <TextBlock Margin="3,0,0,0"
                                    Text="{x:Static res:MyResources.modify}"></TextBlock>
                     </StackPanel>
 
                 </Button>
             </ToolBar>
+
+            <ToolBar HorizontalAlignment="Right">
+                <TextBox Width="100"
+                         Text="{Binding SearchContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                </TextBox>
+                <Button Content="Search"
+                        Command="{Binding CmdSearch}">
+
+                </Button>
+            </ToolBar>
+
+
         </ToolBarTray>
 
         <StatusBar Grid.Row="3"
                    Background="LightGray">
             <StatusBarItem HorizontalAlignment="Left">
                 <TextBlock Margin="10,0,10,0"
-                           Text="{Binding content.status}"></TextBlock>
+                           Text="{Binding Content.status}"></TextBlock>
             </StatusBarItem>
 
             <StatusBarItem HorizontalAlignment="Right">
                 <ProgressBar Margin="10,0,10,0"
-                             IsIndeterminate="{Binding IsIndeterminate}"
+                             IsIndeterminate="{Binding Content.IsIndeterminate}"
                              Width="100"
                              Height="20">
 

@@ -40,7 +40,7 @@
         <ComboBox Grid.Column="1"
                   Grid.Row="0"
                   Margin="5"
-                  Text="{Binding options.language, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                  Text="{Binding Options.Language, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ComboBoxItem IsSelected="True">German</ComboBoxItem>
             <ComboBoxItem>English</ComboBoxItem>
             <ComboBoxItem>French</ComboBoxItem>
@@ -50,7 +50,7 @@
                  Grid.Column="1"
                  Margin="5"
                  VerticalContentAlignment="Center"
-                 Text="{Binding options.link, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                 Text="{Binding Options.Link, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
         </TextBox>
 
         <Button Grid.Row="2"

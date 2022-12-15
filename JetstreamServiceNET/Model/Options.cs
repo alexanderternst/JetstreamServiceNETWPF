@@ -1,17 +1,11 @@
 ﻿using JetstreamServiceNET.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace JetstreamServiceNET.Model
 {
     public class Options : ViewModelBase
     {
         private string _link;
-        public string link
+        public string Link
         {
             get { return _link; }
             set
@@ -23,7 +17,7 @@ namespace JetstreamServiceNET.Model
             }
         }
         private string _language;
-        public string language
+        public string Language
         {
             get { return _language; }
             set

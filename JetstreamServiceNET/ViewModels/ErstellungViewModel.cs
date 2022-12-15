@@ -1,19 +1,9 @@
 ﻿using JetstreamServiceNET.Model;
+using JetstreamServiceNET.Properties;
 using JetstreamServiceNET.Utility;
 using RestSharp;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Resources;
 
 namespace JetstreamServiceNET.ViewModels
 {
@@ -21,11 +11,12 @@ namespace JetstreamServiceNET.ViewModels
     {
         private Order _order = new Order();
         private Content _content = new Content();
-        private bool _IsIndeterminate = new bool();
+        public string RegistrationURL { get; set; }
 
-        public string registrationURL { get; set; }
-
-        public Order order
+        /// <summary>
+        /// Order Property mit INotifyPropertyChanged
+        /// </summary>
+        public Order Order
         {
             get { return _order; }
             set
@@ -37,7 +28,10 @@ namespace JetstreamServiceNET.ViewModels
             }
         }
 
-        public Content content
+        /// <summary>
+        /// Content Property mit INotifyPropertyChanged
+        /// </summary>
+        public Content Content
         {
             get { return _content; }
             set
@@ -49,75 +43,75 @@ namespace JetstreamServiceNET.ViewModels
             }
         }
 
-        public bool IsIndeterminate
-        {
-            get { return _IsIndeterminate; }
-            set
-            {
-                if (value != _IsIndeterminate)
-                {
-                    SetProperty(ref _IsIndeterminate, value);
-                }
-            }
-        }
-
+        /// <summary>
+        /// String Property mit INotifyPropertyChanged
+        /// </summary>
         private string _priority;
-        public string priority
+        public string Priority
         {
             get { return _priority; }
-            set {
+            set
+            {
                 if (value != _priority)
                 {
                     SetProperty(ref _priority, value);
                 }
-
                 if (_priority == "Express")
                 {
-                    order.PickupDate = order.CreateDate.AddDays(5);
+                    Order.PickupDate = Order.CreateDate.AddDays(5);
+
                 }
                 else if (_priority == "Tief")
                 {
-                    order.PickupDate = order.CreateDate.AddDays(12);
+                    Order.PickupDate = Order.CreateDate.AddDays(12);
                 }
                 else
                 {
-                    order.PickupDate = order.CreateDate.AddDays(7);
+                    Order.PickupDate = Order.CreateDate.AddDays(7);
                 }
             }
         }
 
         private RelayCommand _cmdSend;
 
+        /// <summary>
+        /// Konstruktor welcher Command Binding instanziiert und Properties setzt
+        /// </summary>
         public ErstellungViewModel()
         {
             _cmdSend = new RelayCommand(param => Execute_Send(), param => CanExecute_Send());
-            order.CreateDate = DateTime.Now;
 
-            string baseURL = Properties.Settings.Default.APILink;
-            string registration = Properties.Settings.Default.registrationLink;
-            registrationURL = baseURL + registration;
+            Order.CreateDate = DateTime.Now;
+            RegistrationURL = Settings.Default.APILink + Settings.Default.registrationLink;
+            Content.IsIndeterminate = false;
         }
 
+        /// <summary>
+        /// Prop für Command Binding
+        /// </summary>
         public RelayCommand CmdSend
         {
             get { return _cmdSend; }
             set { _cmdSend = value; }
         }
 
+        /// <summary>
+        /// Methode welche HTTP POST Request ausführt
+        /// </summary>
         private void Execute_Send()
         {
-            IsIndeterminate = true;
+            Content.IsIndeterminate = true;
             try
             {
-                order.Priority = priority;
-                order.Id = 0;
+                Order.Priority = Priority;
+                Order.Id = 0;
 
-                if (order.Comment == null)
-                    order.Comment = "";
-                
-                string json = JsonSerializer.Serialize<Order>(order);
+                if (Order.Comment == null)
+                    Order.Comment = "";
 
-                var options = new RestClientOptions(registrationURL)
+                string json = JsonSerializer.Serialize<Order>(Order);
+
+                var options = new RestClientOptions(RegistrationURL)
                 {
                     MaxTimeout = 10000,
                     ThrowOnAnyError = true
@@ -128,25 +122,29 @@ namespace JetstreamServiceNET.ViewModels
                     .AddJsonBody(json);
 
                 var response = client.Post(request);
-                content.status = "Status Code: " + response.StatusCode;
+                Content.Status = "Status Code: " + response.StatusCode;
 
             }
             catch (Exception ex)
             {
-                content.status = "Error: " + ex.Message;
+                Content.Status = "Error: " + ex.Message;
             }
             finally
             {
-                IsIndeterminate = false;
+                Content.IsIndeterminate = false;
             }
         }
 
+        /// <summary>
+        /// Methode welche überprüft ob Senden Button aktiviert sein soll
+        /// </summary>
+        /// <returns>true/false</returns>
         private bool CanExecute_Send()
         {
-            if (order == null)
+            if (Order == null)
                 return false;
             else
-                return order.Name != null && order.Email != null && order.Phone != null && order.Name != "" && order.Email != "" && order.Phone != "";
+                return Order.Name != null && Order.Email != null && Order.Phone != null && Order.Name != "" && Order.Email != "" && Order.Phone != "";
         }
     }
 }

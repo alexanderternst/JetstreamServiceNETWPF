@@ -3,13 +3,8 @@ using JetstreamServiceNET.Properties;
 using JetstreamServiceNET.Utility;
 using RestSharp;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace JetstreamServiceNET.ViewModels
 {
@@ -17,13 +12,15 @@ namespace JetstreamServiceNET.ViewModels
     {
         private Authentification _authentification = new Authentification();
 
-        private bool _IsIndeterminate = new bool();
-
-        public string apiLink { get; set; }
-
+        private Content _content = new Content();
         public Action CloseAction { get; set; }
 
-        public Authentification authentification
+        public string UserURL { get; set; }
+
+        /// <summary>
+        /// Authentification Property mit INotifyPropertyChanged
+        /// </summary>
+        public Authentification Authentification
         {
             get { return _authentification; }
             set
@@ -35,42 +32,54 @@ namespace JetstreamServiceNET.ViewModels
             }
         }
 
-        public bool IsIndeterminate
+        /// <summary>
+        /// Content Property mit INotifyPropertyChanged
+        /// </summary>
+        public Content Content
         {
-            get { return _IsIndeterminate; }
+            get { return _content; }
             set
             {
-                if (value != _IsIndeterminate)
+                if (value != _content)
                 {
-                    SetProperty(ref _IsIndeterminate, value);
+                    SetProperty<Content>(ref _content, value);
                 }
             }
         }
 
         private RelayCommand _cmdSend;
 
+        /// <summary>
+        /// Konstruktor welcher Command Binding instanziiert und URL setzt.
+        /// </summary>
         public AuthentificationViewModel()
         {
             _cmdSend = new RelayCommand(param => Execute_Send(), param => CanExecute_Send());
-            apiLink = Properties.Settings.Default.APILink;
-            IsIndeterminate = false;
+            UserURL = Settings.Default.APILink + Settings.Default.userLink;
+            Content.IsIndeterminate = false;
         }
 
+        /// <summary>
+        /// CmdSend Prop welche wir für Command Binding verwenden
+        /// </summary>
         public RelayCommand CmdSend
         {
             get { return _cmdSend; }
             set { _cmdSend = value; }
         }
 
+        /// <summary>
+        /// Methode welche HTTP POST Request ausführt
+        /// </summary>
         private void Execute_Send()
         {
-            IsIndeterminate = true;
+            Content.IsIndeterminate = true;
 
             try
             {
-                string json = JsonSerializer.Serialize<Authentification>(authentification);
+                string json = JsonSerializer.Serialize<Authentification>(Authentification);
 
-                var options = new RestClientOptions(apiLink + "/api/User/login")
+                var options = new RestClientOptions(UserURL + "login")
                 {
                     MaxTimeout = 10000,
                     ThrowOnAnyError = true
@@ -84,35 +93,36 @@ namespace JetstreamServiceNET.ViewModels
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    AuthentificationResponse authResponse = new AuthentificationResponse();
-                    authResponse = JsonSerializer.Deserialize<AuthentificationResponse>(response.Content);
+                    AuthentificationResponse authResponse = JsonSerializer.Deserialize<AuthentificationResponse>(response.Content);
 
-                    Properties.Settings.Default.JWTToken = authResponse.jwt;
-                    Properties.Settings.Default.Save();
+                    Settings.Default.JWTToken = authResponse.Jwt;
+                    Settings.Default.Save();
 
                     MessageBox.Show("Successful login", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
-
                     CloseAction();
                 }
                 else
                 {
                     MessageBox.Show($"{response.StatusCode}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            finally { IsIndeterminate = false; }
+            finally { Content.IsIndeterminate = false; }
         }
 
+        /// <summary>
+        /// Methode welche überprüft ob Senden Button aktiviert soll sein
+        /// </summary>
+        /// <returns>true/false</returns>
         private bool CanExecute_Send()
         {
-            if (authentification == null)
+            if (Authentification == null)
                 return false;
             else
-                return authentification.user != null && authentification.password != null && authentification.user != "" && authentification.password != "";
+                return Authentification.User != null && Authentification.Password != null && Authentification.User != "" && Authentification.Password != "";
         }
     }
 }

@@ -17,15 +17,14 @@
         <vm:MainWindowViewModel />
     </Window.DataContext>
     <Grid>
-        <DockPanel Grid.ColumnSpan="2">
-            <Menu DockPanel.Dock="Top" Background="AliceBlue">
+        <DockPanel>
+            <Menu DockPanel.Dock="Top"
+                  Background="AliceBlue">
                 <MenuItem Header="{x:Static res:MyResources.options}">
                     <MenuItem Header="{x:Static res:MyResources.login}"
                               Command="{Binding CmdAuth}" />
                     <MenuItem Header="{x:Static res:MyResources.settings}"
                               Command="{Binding CmdOptions}" />
-                    <!--<Separator />
-                    <MenuItem Header="_Exit" />-->
                 </MenuItem>
             </Menu>
             <Border DockPanel.Dock="Left"

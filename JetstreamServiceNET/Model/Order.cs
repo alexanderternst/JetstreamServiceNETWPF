@@ -36,7 +36,6 @@ namespace JetstreamServiceNET.Model
             {
                 if (_Name != value)
                 {
-                    //_Name = value;
                     SetProperty(ref _Name, value);
                 }
             }

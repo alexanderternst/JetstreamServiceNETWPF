@@ -12,8 +12,7 @@
         Width="800"
         Icon="pictures/logo.ico"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="CanResizeWithGrip"
-        Closing="Window_Closing">
+        ResizeMode="CanResizeWithGrip">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120" />
@@ -138,7 +137,7 @@
 
         </ComboBox>
         <ComboBox IsReadOnly="True"
-                    Grid.Row="1"
+                  Grid.Row="1"
                   Grid.Column="3"
                   Margin="5"
                   Text="{Binding Status,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
@@ -180,7 +179,7 @@
                     HorizontalAlignment="Right">
 
             <Button x:Name="btnCancel"
-                Content="{x:Static res:MyResources.btn_cancel}"
+                    Content="{x:Static res:MyResources.btn_cancel}"
                     Margin="5"
                     Width="100"
                     Click="btnCancel_Click"></Button>

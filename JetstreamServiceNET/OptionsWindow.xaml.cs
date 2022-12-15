@@ -20,11 +20,14 @@ namespace JetstreamServiceNET
     /// </summary>
     public partial class OptionsWindow : Window
     {
+        /// <summary>
+        /// Konstruktor in dem wir Aktion zum schliessen eines Fensters setzen
+        /// </summary>
         public OptionsWindow()
         {
             InitializeComponent();
-            OptionsWindowViewModel ovm = new OptionsWindowViewModel(); // this creates an instance of the ViewModel
-            this.DataContext = ovm; // this sets the newly created ViewModel as the DataContext for the View
+            OptionsWindowViewModel ovm = new OptionsWindowViewModel();
+            DataContext = ovm;
             if (ovm.CloseAction == null)
                 ovm.CloseAction = new Action(() => this.Close());
         }

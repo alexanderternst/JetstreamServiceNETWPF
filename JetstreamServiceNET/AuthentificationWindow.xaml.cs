@@ -20,11 +20,14 @@ namespace JetstreamServiceNET
     /// </summary>
     public partial class AuthentificationWindow : Window
     {
+        /// <summary>
+        /// Konstruktor in dem wir Aktion zum schliessen eines Fensters setzen
+        /// </summary>
         public AuthentificationWindow()
         {
             InitializeComponent();
-            AuthentificationViewModel auvm = new AuthentificationViewModel(); // this creates an instance of the ViewModel
-            this.DataContext = auvm; // this sets the newly created ViewModel as the DataContext for the View
+            AuthentificationViewModel auvm = new AuthentificationViewModel();
+            DataContext = auvm;
             if (auvm.CloseAction == null)
                 auvm.CloseAction = new Action(() => this.Close());
         }

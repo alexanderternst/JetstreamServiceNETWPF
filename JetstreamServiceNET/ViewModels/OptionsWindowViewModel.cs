@@ -1,29 +1,20 @@
 ﻿using JetstreamServiceNET.Model;
 using JetstreamServiceNET.Properties;
 using JetstreamServiceNET.Utility;
-using RestSharp;
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Channels;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Resources;
 
 namespace JetstreamServiceNET.ViewModels
 {
     public class OptionsWindowViewModel : ViewModelBase
     {
         private Options _options = new Options();
-
         public Action CloseAction { get; set; }
 
-
-        public Options options
+        /// <summary>
+        /// Options Property mit INotifyPropertyChanged
+        /// </summary>
+        public Options Options
         {
             get { return _options; }
             set
@@ -37,55 +28,67 @@ namespace JetstreamServiceNET.ViewModels
 
         private RelayCommand _cmdSend;
 
+        /// <summary>
+        /// Konstruktor welcher Command Binding instanziiert und Properties setzt
+        /// </summary>
         public OptionsWindowViewModel()
         {
             _cmdSend = new RelayCommand(param => Execute_Send(), param => CanExecute_Send());
 
-            options.link = Properties.Settings.Default.APILink;
-            string lang = Properties.Settings.Default.LanguageID;
-            
+            Options.Link = Settings.Default.APILink;
+            string lang = Settings.Default.LanguageID;
+
             if (lang == "DE-CH")
-                options.language = "German";
+                Options.Language = "German";
             else if (lang == "en")
-                options.language = "English";
+                Options.Language = "English";
             else if (lang == "fr")
-                options.language = "French";
+                Options.Language = "French";
         }
 
+        /// <summary>
+        /// Prop für Command Binding
+        /// </summary>
         public RelayCommand CmdSend
         {
             get { return _cmdSend; }
             set { _cmdSend = value; }
         }
 
+        /// <summary>
+        /// Methode welche Werte in XML Settings Datei speichert
+        /// </summary>
         private void Execute_Send()
         {
-            if (options.language == "English")
+            if (Options.Language == "English")
             {
-                Properties.Settings.Default.LanguageID = "en";
+                Settings.Default.LanguageID = "en";
             }
-            else if (options.language == "German")
+            else if (Options.Language == "German")
             {
-                Properties.Settings.Default.LanguageID = "DE-CH";
+                Settings.Default.LanguageID = "DE-CH";
             }
-            else if (options.language == "French")
+            else if (Options.Language == "French")
             {
-                Properties.Settings.Default.LanguageID = "fr";
+                Settings.Default.LanguageID = "fr";
             }
-            Properties.Settings.Default.APILink = options.link;
-            Properties.Settings.Default.Save();
-
+            Settings.Default.APILink = Options.Link;
+            Settings.Default.Save();
 
             MessageBox.Show(" Please restart the application", "Restart", MessageBoxButton.OK, MessageBoxImage.Information);
             CloseAction();
         }
-            
+
+        /// <summary>
+        /// Methode welche überprüft ob Senden Knopf aktiviert sein soll
+        /// </summary>
+        /// <returns></returns>
         private bool CanExecute_Send()
         {
-            if (options == null)
+            if (Options == null)
                 return false;
             else
-                return options.link != "" && options.link != null;
+                return Options.Link != "" && Options.Link != null;
         }
 
     }
