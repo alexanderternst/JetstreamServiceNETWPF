@@ -92,7 +92,7 @@ namespace JetstreamServiceNET.ViewModels
             if (Options == null)
                 return false;
             else
-                return Options.Link != "" && Options.Link != null;
+                return Options.Link != "" && Options.Link != null && Options.UserLink != "" && Options.UserLink != null && Options.RegiLink != "" && Options.RegiLink != null;
         }
 
     }
