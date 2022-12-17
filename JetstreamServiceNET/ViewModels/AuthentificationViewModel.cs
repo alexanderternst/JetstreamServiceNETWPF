@@ -110,7 +110,10 @@ namespace JetstreamServiceNET.ViewModels
             {
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            finally { Content.IsIndeterminate = false; }
+            finally 
+            { 
+                Content.IsIndeterminate = false; 
+            }
         }
 
         /// <summary>

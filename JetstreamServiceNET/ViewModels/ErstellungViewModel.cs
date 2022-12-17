@@ -103,8 +103,8 @@ namespace JetstreamServiceNET.ViewModels
             Content.IsIndeterminate = true;
             try
             {
-                Order.Priority = Priority;
                 Order.Id = 0;
+                Order.Priority = Priority;
 
                 if (Order.Comment == null)
                     Order.Comment = "";

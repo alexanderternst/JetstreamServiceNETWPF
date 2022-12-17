@@ -194,7 +194,7 @@ namespace JetstreamServiceNET.ViewModels
                 var response = client.Delete(request);
 
                 Content.Status = "Status Code: " + response.StatusCode;
-                MessageBox.Show($"Eintrag mit id {id} gelöscht", "Löschen", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Entry with id {id} deleted", "Delete", MessageBoxButton.OK, MessageBoxImage.Information);
                 Execute_Read();
             }
             catch (Exception ex)

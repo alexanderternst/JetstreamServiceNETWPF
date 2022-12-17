@@ -153,7 +153,7 @@ namespace JetstreamServiceNET.ViewModels
                 var statusCode = "Status Code: " + response.StatusCode;
 
                 Content.Status = statusCode;
-                MessageBox.Show($"Benutzer mit id {SelectedUser.Id} entbannt", "Entbannt", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"User with id {SelectedUser.Id} unbanned", "Unban", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
