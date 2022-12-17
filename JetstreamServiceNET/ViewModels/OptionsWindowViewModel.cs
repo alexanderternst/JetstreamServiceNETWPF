@@ -46,6 +46,10 @@ namespace JetstreamServiceNET.ViewModels
                 Options.Language = "English";
             else if (lang == "fr")
                 Options.Language = "French";
+            else if (lang == "it")
+                Options.Language = "Italian";
+            else
+                Options.Language = "English";
         }
 
         /// <summary>
@@ -73,6 +77,14 @@ namespace JetstreamServiceNET.ViewModels
             else if (Options.Language == "French")
             {
                 Settings.Default.LanguageID = "fr";
+            }
+            else if (Options.Language == "Italian")
+            {
+                Settings.Default.LanguageID = "it";
+            }
+            else
+            {
+                Settings.Default.LanguageID = "en";
             }
             Settings.Default.APILink = Options.Link;
             Settings.Default.registrationLink = Options.RegiLink;

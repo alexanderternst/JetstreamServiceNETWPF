@@ -144,6 +144,12 @@
   <data name="btn_read" xml:space="preserve">
     <value>Charger les entrées</value>
   </data>
+  <data name="btn_save" xml:space="preserve">
+    <value>Sauvegarder</value>
+  </data>
+  <data name="btn_search" xml:space="preserve">
+    <value>Chercher</value>
+  </data>
   <data name="btn_send" xml:space="preserve">
     <value>Envoyer</value>
   </data>
@@ -248,6 +254,6 @@
     <value>Débannir l'utilisateur</value>
   </data>
   <data name="window_title" xml:space="preserve">
-    <value>Skiservice Management</value>
+    <value>Jetstream-Skiservice Management</value>
   </data>
 </root>

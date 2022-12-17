@@ -125,7 +125,7 @@
                 <TextBox Width="120"
                          Text="{Binding SearchContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 </TextBox>
-                <Button Content="Search"
+                <Button Content="{x:Static res:MyResources.btn_search}"
                         Command="{Binding CmdSearch}"
                         IsDefault="True">
 

@@ -70,7 +70,7 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to API Link:.
+        ///   Looks up a localized string similar to API link:.
         /// </summary>
         public static string apiLink {
             get {
@@ -138,6 +138,24 @@ namespace JetstreamServiceNET.Resources {
         public static string btn_read {
             get {
                 return ResourceManager.GetString("btn_read", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string btn_save {
+            get {
+                return ResourceManager.GetString("btn_save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string btn_search {
+            get {
+                return ResourceManager.GetString("btn_search", resourceCulture);
             }
         }
         
@@ -349,7 +367,7 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registration Link:.
+        ///   Looks up a localized string similar to Registration link:.
         /// </summary>
         public static string regiLink {
             get {
@@ -403,7 +421,7 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User Link:.
+        ///   Looks up a localized string similar to User link:.
         /// </summary>
         public static string userLink {
             get {
@@ -448,7 +466,7 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Skiservice Management.
+        ///   Looks up a localized string similar to Jetstream-Skiservice Management.
         /// </summary>
         public static string window_title {
             get {

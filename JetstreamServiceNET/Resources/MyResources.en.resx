@@ -121,7 +121,7 @@
     <value>_About</value>
   </data>
   <data name="apiLink" xml:space="preserve">
-    <value>API Link:</value>
+    <value>API link:</value>
   </data>
   <data name="btn_cancel" xml:space="preserve">
     <value>Cancel</value>
@@ -143,6 +143,12 @@
   </data>
   <data name="btn_read" xml:space="preserve">
     <value>Load entries</value>
+  </data>
+  <data name="btn_save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="btn_search" xml:space="preserve">
+    <value>Search</value>
   </data>
   <data name="btn_send" xml:space="preserve">
     <value>Send</value>
@@ -214,7 +220,7 @@
     <value>Read</value>
   </data>
   <data name="regiLink" xml:space="preserve">
-    <value>Registration Link:</value>
+    <value>Registration link:</value>
   </data>
   <data name="remark" xml:space="preserve">
     <value>Remark:</value>
@@ -231,11 +237,8 @@
   <data name="status" xml:space="preserve">
     <value>Status:</value>
   </data>
-  <data name="t" xml:space="preserve">
-    <value />
-  </data>
   <data name="userLink" xml:space="preserve">
-    <value>User Link:</value>
+    <value>User link:</value>
   </data>
   <data name="username" xml:space="preserve">
     <value>Username:</value>
@@ -250,6 +253,6 @@
     <value>Unban user</value>
   </data>
   <data name="window_title" xml:space="preserve">
-    <value>Skiservice Management</value>
+    <value>Jetstream-Skiservice Management</value>
   </data>
 </root>

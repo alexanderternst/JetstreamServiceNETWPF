@@ -66,7 +66,7 @@ namespace JetstreamServiceNET.ViewModels
         /// </summary>
         private void Execute_About()
         {
-            MessageBox.Show("JetstreamSkiservice Tool created by Alexander Ernst\nApplication which lets you create and modify Orders with API as Backend.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("JetstreamSkiservice tool created by Alexander Ernst\nApplication which lets you create and modify orders with API as Backend.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

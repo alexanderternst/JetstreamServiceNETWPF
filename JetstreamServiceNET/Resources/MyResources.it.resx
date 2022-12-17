@@ -118,70 +118,70 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="about" xml:space="preserve">
-    <value>_Informationen</value>
+    <value>_Di</value>
   </data>
   <data name="apiLink" xml:space="preserve">
-    <value>API Link:</value>
+    <value>Collegamento API:</value>
   </data>
   <data name="btn_cancel" xml:space="preserve">
-    <value>Abbrechen</value>
+    <value>Annulla</value>
   </data>
   <data name="btn_creation" xml:space="preserve">
-    <value>_Erstellung</value>
+    <value>_Creazione</value>
   </data>
   <data name="btn_delete" xml:space="preserve">
-    <value>Eintrag löschen</value>
+    <value>Elimina voce</value>
   </data>
   <data name="btn_general" xml:space="preserve">
-    <value>Allgemeines</value>
+    <value>Generale</value>
   </data>
   <data name="btn_management" xml:space="preserve">
-    <value>_Verwaltung</value>
+    <value>_Gestione</value>
   </data>
   <data name="btn_modify" xml:space="preserve">
-    <value>Eintrag modifizieren</value>
+    <value>Modifica voce</value>
   </data>
   <data name="btn_read" xml:space="preserve">
-    <value>Einträge laden</value>
+    <value>Carica voci</value>
   </data>
   <data name="btn_save" xml:space="preserve">
-    <value>Speichern</value>
+    <value>Salva</value>
   </data>
   <data name="btn_search" xml:space="preserve">
-    <value>Suchen</value>
+    <value>Ricerca</value>
   </data>
   <data name="btn_send" xml:space="preserve">
-    <value>Senden</value>
+    <value>Spedire</value>
   </data>
   <data name="btn_unban" xml:space="preserve">
-    <value>Entbannen</value>
+    <value>Sblocca</value>
   </data>
   <data name="btn_user" xml:space="preserve">
-    <value>_Benutzer</value>
+    <value>_Utente</value>
   </data>
   <data name="counter" xml:space="preserve">
-    <value>Counter:</value>
+    <value>Contatore:</value>
   </data>
   <data name="create_date" xml:space="preserve">
-    <value>Erstellungs-Datum:</value>
+    <value>Data di creazione:</value>
   </data>
   <data name="delete" xml:space="preserve">
-    <value>Löschen</value>
+    <value>Elimina</value>
   </data>
   <data name="email" xml:space="preserve">
     <value>Email:</value>
   </data>
   <data name="entries" xml:space="preserve">
-    <value>Einträge</value>
+    <value>Inserimenti</value>
   </data>
   <data name="id" xml:space="preserve">
     <value>Id:</value>
   </data>
   <data name="input" xml:space="preserve">
-    <value>Input</value>
+    <value>Ingresso</value>
   </data>
   <data name="language" xml:space="preserve">
-    <value>Sprache:</value>
+    <value>Lingua:</value>
   </data>
   <data name="login" xml:space="preserve">
     <value>_Login</value>
@@ -190,67 +190,67 @@
     <value>Login</value>
   </data>
   <data name="modify" xml:space="preserve">
-    <value>Modifizieren</value>
+    <value>Modificare</value>
   </data>
   <data name="modify_title" xml:space="preserve">
-    <value>Eintrag modifizieren</value>
+    <value>Modifica voce</value>
   </data>
   <data name="name" xml:space="preserve">
-    <value>Name:</value>
+    <value>Nome:</value>
   </data>
   <data name="options" xml:space="preserve">
-    <value>_Optionen</value>
+    <value>_Opzioni</value>
   </data>
   <data name="output" xml:space="preserve">
-    <value>Output</value>
+    <value>Produzione</value>
   </data>
   <data name="password" xml:space="preserve">
-    <value>Password:</value>
+    <value>Parola d'ordine:</value>
   </data>
   <data name="phone" xml:space="preserve">
-    <value>Telefon:</value>
+    <value>Telefono:</value>
   </data>
   <data name="pickup_date" xml:space="preserve">
-    <value>Abholdatum:</value>
+    <value>Data di ritiro:</value>
   </data>
   <data name="priority" xml:space="preserve">
-    <value>Priorität:</value>
+    <value>Priorità:</value>
   </data>
   <data name="read" xml:space="preserve">
-    <value>Lesen</value>
+    <value>Leggi</value>
   </data>
   <data name="regiLink" xml:space="preserve">
-    <value>Registrationslink:</value>
+    <value>Link di registrazione:</value>
   </data>
   <data name="remark" xml:space="preserve">
-    <value>Kommentar:</value>
+    <value>Nota:</value>
   </data>
   <data name="service" xml:space="preserve">
-    <value>Dienstleistung:</value>
+    <value>Servizio:</value>
   </data>
   <data name="settings" xml:space="preserve">
-    <value>Ein_stellungen</value>
+    <value>_Impostazioni</value>
   </data>
   <data name="settings_title" xml:space="preserve">
-    <value>Einstellungen</value>
+    <value>Impostazioni</value>
   </data>
   <data name="status" xml:space="preserve">
-    <value>Status:</value>
+    <value>Stato:</value>
   </data>
   <data name="userLink" xml:space="preserve">
-    <value>User Link:</value>
+    <value>Collegamento utente:</value>
   </data>
   <data name="username" xml:space="preserve">
-    <value>Username:</value>
+    <value>Nome utente:</value>
   </data>
   <data name="users" xml:space="preserve">
-    <value>Benutzer</value>
+    <value>Utenti</value>
   </data>
   <data name="usr_read" xml:space="preserve">
-    <value>User laden</value>
+    <value>Leggi gli utenti</value>
   </data>
   <data name="usr_unban" xml:space="preserve">
-    <value>User entbannen</value>
+    <value>Sblocca utente</value>
   </data>
   <data name="window_title" xml:space="preserve">
     <value>Jetstream-Skiservice Management</value>
