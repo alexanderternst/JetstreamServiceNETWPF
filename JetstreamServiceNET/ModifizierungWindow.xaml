@@ -144,16 +144,14 @@
             <ComboBoxItem Content="InArbeit"></ComboBoxItem>
             <ComboBoxItem Content="abgeschlossen"></ComboBoxItem>
         </ComboBox>
-        <ComboBox Grid.Row="2"
-                  Grid.Column="3"
-                  Margin="5"
-                  Text="{Binding Priority, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-            <ComboBoxItem Content="Tief"></ComboBoxItem>
-            <ComboBoxItem IsSelected="True"
-                          Content="Standard"></ComboBoxItem>
-            <ComboBoxItem Content="Express"></ComboBoxItem>
 
-        </ComboBox>
+        <TextBox Grid.Row="2"
+                 Grid.Column="3"
+                 Margin="5"
+                 Text="{Binding Priority, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 IsReadOnly="True"
+                 VerticalContentAlignment="Center">
+        </TextBox>
 
         <DatePicker Grid.Row="3"
                     Grid.Column="4"

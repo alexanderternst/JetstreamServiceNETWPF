@@ -21,12 +21,15 @@
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top"
-                  Background="AliceBlue">
+                  Background="AliceBlue"
+                  Height="20">
                 <MenuItem Header="{x:Static res:MyResources.options}">
                     <MenuItem Header="{x:Static res:MyResources.login}"
                               Command="{Binding CmdAuth}" />
                     <MenuItem Header="{x:Static res:MyResources.settings}"
                               Command="{Binding CmdOptions}" />
+                    <MenuItem Header="{x:Static res:MyResources.about}"
+                              Command="{Binding CmdAbout}" />
                 </MenuItem>
             </Menu>
             <Border DockPanel.Dock="Left"
@@ -34,29 +37,23 @@
                     BorderThickness="0,0,1,0">
                 <StackPanel Orientation="Vertical"
                             Margin="5">
-                    <Button x:Name="btnHome"
-                            Content="{x:Static res:MyResources.btn_general}"
-                            Height="30"
-                            Width="80"
-                            Margin="5"
-                            Click="btnHome_Click" />
                     <Button x:Name="btnErstellung"
                             Content="{x:Static res:MyResources.btn_creation}"
-                            Height="30"
-                            Width="80"
+                            Height="40"
+                            Width="100"
                             Margin="5"
                             Click="btnErstellung_Click" />
                     <Button x:Name="btnVerwaltung"
                             Content="{x:Static res:MyResources.btn_management}"
-                            Height="30"
-                            Width="80"
+                            Height="40"
+                            Width="100"
                             Margin="5"
                             Click="btnVerwaltung_Click" />
 
                     <Button x:Name="btnBenutzer"
                             Content="{x:Static res:MyResources.btn_user}"
-                            Height="30"
-                            Width="80"
+                            Height="40"
+                            Width="100"
                             Margin="5"
                             Click="btnBenutzer_Click" />
                 </StackPanel>

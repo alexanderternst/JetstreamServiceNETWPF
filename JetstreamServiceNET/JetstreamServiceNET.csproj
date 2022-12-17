@@ -14,6 +14,7 @@
     <None Remove="pictures\readOrder.png" />
     <None Remove="pictures\readUser.png" />
     <None Remove="pictures\setting.ico" />
+    <None Remove="pictures\skiservice.jpg" />
     <None Remove="pictures\unban.png" />
   </ItemGroup>
 
@@ -28,6 +29,7 @@
     <Resource Include="pictures\readOrder.png" />
     <Resource Include="pictures\readUser.png" />
     <Resource Include="pictures\setting.ico" />
+    <Resource Include="pictures\skiservice.jpg" />
     <Resource Include="pictures\unban.png" />
   </ItemGroup>
 

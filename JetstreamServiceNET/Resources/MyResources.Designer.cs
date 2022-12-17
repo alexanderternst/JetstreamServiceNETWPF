@@ -61,6 +61,15 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to _About.
+        /// </summary>
+        public static string about {
+            get {
+                return ResourceManager.GetString("about", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to API Link:.
         /// </summary>
         public static string apiLink {
@@ -79,7 +88,7 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Creation.
+        ///   Looks up a localized string similar to _Creation.
         /// </summary>
         public static string btn_creation {
             get {
@@ -106,7 +115,7 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Management.
+        ///   Looks up a localized string similar to _Management.
         /// </summary>
         public static string btn_management {
             get {
@@ -151,7 +160,7 @@ namespace JetstreamServiceNET.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User.
+        ///   Looks up a localized string similar to _User.
         /// </summary>
         public static string btn_user {
             get {

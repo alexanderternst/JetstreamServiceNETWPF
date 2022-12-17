@@ -28,13 +28,7 @@ namespace JetstreamServiceNET
         public MainWindow()
         {
             InitializeComponent();
-            ContentArea.Content = new HomeView();
-        }
-
-        private void btnHome_Click(object sender, RoutedEventArgs e)
-        {
-            HomeView home = new HomeView();
-            ContentArea.Content = home;
+            ContentArea.Content = new ErstellungView();
         }
 
         private void btnErstellung_Click(object sender, RoutedEventArgs e)

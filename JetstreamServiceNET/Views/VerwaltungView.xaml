@@ -122,11 +122,12 @@
             <ToolBar HorizontalAlignment="Right"
                      Background="AliceBlue"
                      Height="40">
-                <TextBox Width="100"
+                <TextBox Width="120"
                          Text="{Binding SearchContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 </TextBox>
                 <Button Content="Search"
-                        Command="{Binding CmdSearch}">
+                        Command="{Binding CmdSearch}"
+                        IsDefault="True">
 
                 </Button>
             </ToolBar>
