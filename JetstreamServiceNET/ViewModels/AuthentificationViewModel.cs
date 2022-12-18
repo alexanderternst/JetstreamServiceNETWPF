@@ -18,7 +18,7 @@ namespace JetstreamServiceNET.ViewModels
         public string UserURL { get; set; }
 
         /// <summary>
-        /// Authentification Property mit INotifyPropertyChanged
+        /// Property von Typ Authentification für Login mit INotifyPropertyChanged
         /// </summary>
         public Authentification Authentification
         {
@@ -33,7 +33,7 @@ namespace JetstreamServiceNET.ViewModels
         }
 
         /// <summary>
-        /// Content Property mit INotifyPropertyChanged
+        /// Property von Typ Content für Status Bar mit INotifyPropertyChanged
         /// </summary>
         public Content Content
         {

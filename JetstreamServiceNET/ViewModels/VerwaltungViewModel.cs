@@ -23,7 +23,7 @@ namespace JetstreamServiceNET.ViewModels
         private ObservableCollection<Order> _orders = new ObservableCollection<Order>();
 
         /// <summary>
-        /// Order Property mit INotifyPropertyChanged
+        /// Property von Typ Order für selektierte Bestellung mit INotifyPropertyChanged
         /// </summary>
         public Order SelectedOrder
         {
@@ -38,7 +38,7 @@ namespace JetstreamServiceNET.ViewModels
         }
 
         /// <summary>
-        /// Content Property mit INotifyPropertyChanged
+        /// Property von Typ Content für Status Bar mit INotifyPropertyChanged
         /// </summary>
         public Content Content
         {
@@ -53,7 +53,7 @@ namespace JetstreamServiceNET.ViewModels
         }
 
         /// <summary>
-        /// ObservableCollection Order Property mit INotifyPropertyChanged
+        /// Property von Typ ObservableCollection, Order für Bestellungen mit INotifyPropertyChanged
         /// </summary>
         public ObservableCollection<Order> Orders
         {
@@ -68,7 +68,7 @@ namespace JetstreamServiceNET.ViewModels
         }
 
         /// <summary>
-        /// String Property mit INotifyPropertyChanged
+        /// Property von Typ string für Suchfunktion mit INotifyPropertyChanged
         /// </summary>
         public string SearchContent
         {
@@ -143,9 +143,9 @@ namespace JetstreamServiceNET.ViewModels
         /// </summary>
         private void Execute_Read()
         {
-            Content.IsIndeterminate = true;
             try
             {
+                Content.IsIndeterminate = true;
                 var options = new RestClientOptions(RegistrationURL)
                 {
                     MaxTimeout = 10000,
@@ -176,9 +176,9 @@ namespace JetstreamServiceNET.ViewModels
         /// </summary>
         private void Execute_Delete()
         {
-            Content.IsIndeterminate = true;
             try
             {
+                Content.IsIndeterminate = true;
                 string? id = SelectedOrder.Id.ToString();
 
                 var options = new RestClientOptions(RegistrationURL + id)
@@ -193,9 +193,7 @@ namespace JetstreamServiceNET.ViewModels
 
                 var response = client.Delete(request);
 
-                Content.Status = "Status Code: " + response.StatusCode;
-                MessageBox.Show($"Entry with id {id} deleted", "Delete", MessageBoxButton.OK, MessageBoxImage.Information);
-                Execute_Read();
+                MessageBox.Show($"Entry with id {id} deleted", "Entry deleted", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
@@ -204,6 +202,7 @@ namespace JetstreamServiceNET.ViewModels
             finally
             {
                 Content.IsIndeterminate = false;
+                Execute_Read();
             }
         }
 
@@ -212,19 +211,17 @@ namespace JetstreamServiceNET.ViewModels
         /// </summary>
         private void Execute_Modify()
         {
-            Content.IsIndeterminate = true;
             try
             {
-                Order bestellungen = new Order();
-                bestellungen = SelectedOrder;
-                string id = SelectedOrder.Id.ToString();
+                Content.IsIndeterminate = true;
+                string? id = SelectedOrder.Id.ToString();
 
-                ModifizierungWindow win1 = new ModifizierungWindow(bestellungen);
+                ModifizierungWindow win1 = new ModifizierungWindow(SelectedOrder);
                 win1.ShowDialog();
 
                 if (win1.DialogResult == true)
                 {
-                    string json = JsonSerializer.Serialize<Order>(bestellungen);
+                    string json = JsonSerializer.Serialize<Order>(SelectedOrder);
 
                     var options = new RestClientOptions(RegistrationURL + id)
                     {

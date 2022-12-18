@@ -31,16 +31,61 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
+
+        <ToolBarTray Background="AliceBlue">
+            <ToolBar Height="40"
+                     Background="AliceBlue">
+                <Button Command="{Binding CmdRead}"
+                        ToolTip="{x:Static res:MyResources.btn_read}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../pictures/readOrder.png"
+                               Height="30" />
+                        <TextBlock Margin="3,0,0,0"
+                                   Text="{x:Static res:MyResources.read}"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding CmdDelete}"
+                        ToolTip="{x:Static res:MyResources.btn_delete}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../pictures/delete.png"
+                               Height="30" />
+                        <TextBlock Margin="3,0,0,0"
+                                   Text="{x:Static res:MyResources.delete}"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding CmdModify}"
+                        ToolTip="{x:Static res:MyResources.btn_modify}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../pictures/modify.png"
+                               Height="30" />
+                        <TextBlock Margin="3,0,0,0"
+                                   Text="{x:Static res:MyResources.modify}"></TextBlock>
+                    </StackPanel>
+                </Button>
+            </ToolBar>
+
+            <ToolBar HorizontalAlignment="Right"
+                     Background="AliceBlue"
+                     Height="40">
+                <TextBox Width="120"
+                         Text="{Binding SearchContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                </TextBox>
+                <Button Content="{x:Static res:MyResources.btn_search}"
+                        Command="{Binding CmdSearch}"
+                        IsDefault="True">
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+
         <GroupBox Header="{x:Static res:MyResources.entries}"
                   Grid.Row="1"
                   Margin="10">
-            <DataGrid Grid.Row="2"
-                      Name="dgRegistrations"
+            <DataGrid Name="dgRegistrations"
+                      ItemsSource="{Binding Orders, Mode=TwoWay}"
+                      SelectedItem="{Binding SelectedOrder, Mode=TwoWay}"
+                      IsReadOnly="True"
                       AutoGenerateColumns="False"
                       CanUserResizeColumns="True"
-                      ItemsSource="{Binding Orders, Mode=TwoWay}"
-                      IsReadOnly="True"
-                      SelectedItem="{Binding SelectedOrder, Mode=TwoWay}"
                       CanUserReorderColumns="False">
 
                 <DataGrid.Columns>
@@ -86,56 +131,7 @@
             </DataGrid>
         </GroupBox>
 
-        <ToolBarTray Background="AliceBlue">
-            <ToolBar Height="40"
-                     Background="AliceBlue">
-                <Button Command="{Binding CmdRead}"
-                        ToolTip="{x:Static res:MyResources.btn_read}">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="../pictures/readOrder.png"
-                               Height="30" />
-                        <TextBlock Margin="3,0,0,0"
-                                   Text="{x:Static res:MyResources.read}"></TextBlock>
-                    </StackPanel>
-                </Button>
-                <Button Command="{Binding CmdDelete}"
-                        ToolTip="{x:Static res:MyResources.btn_delete}">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="../pictures/delete.png"
-                               Height="30" />
-                        <TextBlock Margin="3,0,0,0"
-                                   Text="{x:Static res:MyResources.delete}"></TextBlock>
-                    </StackPanel>
-                </Button>
-                <Button Command="{Binding CmdModify}"
-                        ToolTip="{x:Static res:MyResources.btn_modify}">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="../pictures/modify.png"
-                               Height="30" />
-                        <TextBlock Margin="3,0,0,0"
-                                   Text="{x:Static res:MyResources.modify}"></TextBlock>
-                    </StackPanel>
-
-                </Button>
-            </ToolBar>
-
-            <ToolBar HorizontalAlignment="Right"
-                     Background="AliceBlue"
-                     Height="40">
-                <TextBox Width="120"
-                         Text="{Binding SearchContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                </TextBox>
-                <Button Content="{x:Static res:MyResources.btn_search}"
-                        Command="{Binding CmdSearch}"
-                        IsDefault="True">
-
-                </Button>
-            </ToolBar>
-
-
-        </ToolBarTray>
-
-        <StatusBar Grid.Row="3"
+        <StatusBar Grid.Row="2"
                    Background="LightGray">
             <StatusBarItem HorizontalAlignment="Left">
                 <TextBlock Margin="10,0,10,0"

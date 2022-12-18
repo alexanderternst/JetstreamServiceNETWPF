@@ -14,7 +14,7 @@ namespace JetstreamServiceNET.ViewModels
         public string RegistrationURL { get; set; }
 
         /// <summary>
-        /// Order Property mit INotifyPropertyChanged
+        /// Property von Typ Order für Bestellung mit INotifyPropertyChanged
         /// </summary>
         public Order Order
         {
@@ -29,7 +29,7 @@ namespace JetstreamServiceNET.ViewModels
         }
 
         /// <summary>
-        /// Content Property mit INotifyPropertyChanged
+        /// Property von Typ Content für Status Bar mit INotifyPropertyChanged
         /// </summary>
         public Content Content
         {
@@ -44,7 +44,7 @@ namespace JetstreamServiceNET.ViewModels
         }
 
         /// <summary>
-        /// String Property mit INotifyPropertyChanged
+        /// Property von Typ String für Priority mit INotifyPropertyChanged welche auch Logik integriert
         /// </summary>
         private string _priority;
         public string Priority
@@ -100,9 +100,9 @@ namespace JetstreamServiceNET.ViewModels
         /// </summary>
         private void Execute_Send()
         {
-            Content.IsIndeterminate = true;
             try
             {
+                Content.IsIndeterminate = true;
                 Order.Id = 0;
                 Order.Priority = Priority;
 

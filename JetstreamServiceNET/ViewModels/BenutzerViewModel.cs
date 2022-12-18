@@ -20,7 +20,7 @@ namespace JetstreamServiceNET.ViewModels
         private ObservableCollection<User> _users = new ObservableCollection<User>();
 
         /// <summary>
-        /// User Property mit INotifyPropertyChanged
+        /// Property von Typ User für selektierter Benutzer mit INotifyPropertyChanged
         /// </summary>
         public User SelectedUser
         {
@@ -35,7 +35,7 @@ namespace JetstreamServiceNET.ViewModels
         }
 
         /// <summary>
-        /// Content Property mit INotifyPropertyChanged
+        /// Property von Typ Content für Status Bar mit INotifyPropertyChanged
         /// </summary>
         public Content Content
         {
@@ -50,7 +50,7 @@ namespace JetstreamServiceNET.ViewModels
         }
 
         /// <summary>
-        /// ObservableCollection User Property mit INotifyPropertyChanged
+        /// Property von Typ ObservableCollection, User für Benutzer mit INotifyPropertyChanged
         /// </summary>
         public ObservableCollection<User> Users
         {
@@ -152,8 +152,7 @@ namespace JetstreamServiceNET.ViewModels
                 var response = client.Put(request);
                 var statusCode = "Status Code: " + response.StatusCode;
 
-                Content.Status = statusCode;
-                MessageBox.Show($"User with id {SelectedUser.Id} unbanned", "Unban", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"User with id {SelectedUser.Id} unbanned", "User unbanned", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {

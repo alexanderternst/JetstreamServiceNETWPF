@@ -45,7 +45,7 @@ namespace JetstreamServiceNET.ViewModels
         }
 
         /// <summary>
-        /// Methode welche Fenster aufruft
+        /// Methode welche Fenster für Authentification aufruft
         /// </summary>
         private void Execute_Auth()
         {
@@ -53,7 +53,7 @@ namespace JetstreamServiceNET.ViewModels
             authWindow.ShowDialog();
         }
         /// <summary>
-        /// Methode welche Fenster aufruft
+        /// Methode welche Fenster für Einstellungen aufruft
         /// </summary>
         private void Execute_Options()
         {

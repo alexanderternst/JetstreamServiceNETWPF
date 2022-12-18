@@ -12,7 +12,7 @@ namespace JetstreamServiceNET.ViewModels
         public Action CloseAction { get; set; }
 
         /// <summary>
-        /// Options Property mit INotifyPropertyChanged
+        /// Property von Typ Options für Einstellungen mit INotifyPropertyChanged
         /// </summary>
         public Options Options
         {
@@ -91,6 +91,7 @@ namespace JetstreamServiceNET.ViewModels
             Settings.Default.userLink = Options.UserLink;
             Settings.Default.Save();
 
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(Settings.Default.LanguageID);
             MessageBox.Show("Please restart the application", "Restart", MessageBoxButton.OK, MessageBoxImage.Information);
             CloseAction();
         }
