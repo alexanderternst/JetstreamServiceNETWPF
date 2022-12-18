@@ -1,4 +1,4 @@
-# JetstreamServiceNET
+# JetstreamServiceNETWPF
 Eine WPF Applikation welche Daten des [JetstreamSkiservice API](https://github.com/alexanderternst/JetstreamSkiserviceAPI) abrufen, erstellen, löschen und modifizieren kann.
 Zusätzlich bietet die Applikation die Möglichkeit zur Authentifikation, und ist auch Mehrsprachenfähig. Einstellungen werden durch eine XML-Datei, welche in der Applikation modifiziert werden kann, verwaltet.
 ## Durchsetzung
