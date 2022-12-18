@@ -238,7 +238,7 @@
     <value>Status:</value>
   </data>
   <data name="userLink" xml:space="preserve">
-    <value>User Link:</value>
+    <value>Benutzer Link:</value>
   </data>
   <data name="username" xml:space="preserve">
     <value>Username:</value>
@@ -247,10 +247,10 @@
     <value>Benutzer</value>
   </data>
   <data name="usr_read" xml:space="preserve">
-    <value>User laden</value>
+    <value>Benutzer laden</value>
   </data>
   <data name="usr_unban" xml:space="preserve">
-    <value>User entbannen</value>
+    <value>Benutzer entbannen</value>
   </data>
   <data name="window_title" xml:space="preserve">
     <value>Jetstream-Skiservice Management</value>
