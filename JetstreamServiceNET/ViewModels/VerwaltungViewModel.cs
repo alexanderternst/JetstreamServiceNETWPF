@@ -254,7 +254,7 @@ namespace JetstreamServiceNET.ViewModels
         }
 
         /// <summary>
-        /// Methode welche in Liste nach spezifischem Text sucht und Reihen mit diesem Text wieder anzeigt
+        /// Methode welche in ObservableCollection nach spezifischem Text sucht und Reihen mit diesem Text wieder anzeigt
         /// </summary>
         private void Execute_Search()
         {
