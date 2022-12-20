@@ -1,11 +1,12 @@
-﻿<Window x:Class="JetstreamServiceNET.AuthentificationWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JetstreamServiceNET"
         xmlns:vm="clr-namespace:JetstreamServiceNET.ViewModels"
         xmlns:res="clr-namespace:JetstreamServiceNET.Resources"
+        xmlns:Views="clr-namespace:JetstreamServiceNET.Views"
+        x:Class="JetstreamServiceNET.AuthentificationWindow"
         mc:Ignorable="d"
         Title="{x:Static res:MyResources.login_title}"
         Height="150"
@@ -30,28 +31,26 @@
             <ColumnDefinition Width="120" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
-        
+
         <Label Grid.Row="0"
                Grid.Column="0"
                Margin="5"
-               Content="{x:Static res:MyResources.username}"></Label>
+               Content="{x:Static res:MyResources.username}" />
         <Label Grid.Row="1"
                Grid.Column="0"
                Margin="5"
-               Content="{x:Static res:MyResources.password}"></Label>
+               Content="{x:Static res:MyResources.password}" />
 
         <TextBox Grid.Row="0"
                  Grid.Column="1"
                  Margin="5"
-                 Text="{Binding Authentification.User, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                 VerticalContentAlignment="Center">
-        </TextBox>
+                 Text="{Binding Authentification.User, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalContentAlignment="Center" />
         <TextBox Grid.Row="1"
                  Grid.Column="1"
                  Margin="5"
-                 Text="{Binding Authentification.Password, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                 VerticalContentAlignment="Center">
-        </TextBox>
+                 Text="{Binding Authentification.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalContentAlignment="Center" />
 
         <StackPanel Grid.Row="5"
                     Orientation="Horizontal"
@@ -65,7 +64,7 @@
                     Width="80"
                     Content="{x:Static res:MyResources.btn_send}"
                     Command="{Binding CmdSend}"
-                    IsDefault="True"></Button>
+                    IsDefault="True" />
         </StackPanel>
     </Grid>
 </Window>
