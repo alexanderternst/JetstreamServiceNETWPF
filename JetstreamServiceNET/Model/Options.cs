@@ -4,8 +4,8 @@ namespace JetstreamServiceNET.Model
 {
     public class Options : ViewModelBase
     {
-        private string _link;
-        public string Link
+        private string? _link;
+        public string? Link
         {
             get { return _link; }
             set
@@ -17,8 +17,8 @@ namespace JetstreamServiceNET.Model
             }
         }
 
-        private string _userLink;
-        public string UserLink
+        private string? _userLink;
+        public string? UserLink
         {
             get { return _userLink; }
             set
@@ -30,8 +30,8 @@ namespace JetstreamServiceNET.Model
             }
         }
 
-        private string _regiLink;
-        public string RegiLink
+        private string? _regiLink;
+        public string? RegiLink
         {
             get { return _regiLink; }
             set
@@ -43,8 +43,8 @@ namespace JetstreamServiceNET.Model
             }
         }
 
-        private string _language;
-        public string Language
+        private string? _language;
+        public string? Language
         {
             get { return _language; }
             set

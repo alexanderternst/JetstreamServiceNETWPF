@@ -31,10 +31,5 @@ namespace JetstreamServiceNET
             if (auvm.CloseAction == null)
                 auvm.CloseAction = new Action(() => this.Close());
         }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }

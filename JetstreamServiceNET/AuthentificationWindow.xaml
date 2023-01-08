@@ -50,8 +50,7 @@
                  Grid.Column="1"
                  Margin="5"
                  Text="{Binding Authentification.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 VerticalContentAlignment="Center"
-                 TextChanged="TextBox_TextChanged" />
+                 VerticalContentAlignment="Center" />
 
         <StackPanel Grid.Row="5"
                     Orientation="Horizontal"

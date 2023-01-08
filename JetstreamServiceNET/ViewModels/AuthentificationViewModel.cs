@@ -76,7 +76,7 @@ namespace JetstreamServiceNET.ViewModels
             Content.IsIndeterminate = true;
             try
             {
-                string json = JsonSerializer.Serialize<User>(Authentification);
+                string? json = JsonSerializer.Serialize<User>(Authentification);
 
                 var options = new RestClientOptions(UserURL + "login")
                 {
@@ -92,7 +92,7 @@ namespace JetstreamServiceNET.ViewModels
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    User authResponse = JsonSerializer.Deserialize<User>(response.Content);
+                    User? authResponse = JsonSerializer.Deserialize<User>(response.Content);
 
                     Settings.Default.JWTToken = authResponse.Jwt;
                     Settings.Default.Save();

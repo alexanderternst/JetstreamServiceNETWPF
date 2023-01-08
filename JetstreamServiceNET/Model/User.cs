@@ -5,23 +5,23 @@ namespace JetstreamServiceNET.Model
 {
     public class User : ViewModelBase
     {
-        private int _Id;
+        private int? _id;
         [JsonPropertyName("user_id")]
-        public int Id
+        public int? Id
         {
-            get { return _Id; }
+            get { return _id; }
             set
             {
-                if (_Id != value)
+                if (_id != value)
                 {
-                    SetProperty(ref _Id, value);
+                    SetProperty(ref _id, value);
                 }
             }
         }
 
-        private string _username;
+        private string? _username;
         [JsonPropertyName("user_username")]
-        public string Username
+        public string? Username
         {
             get { return _username; }
             set
@@ -32,9 +32,9 @@ namespace JetstreamServiceNET.Model
                 }
             }
         }
-        private string _password;
+        private string? _password;
         [JsonPropertyName("user_password")]
-        public string Password
+        public string? Password
         {
             get { return _password; }
             set
@@ -46,9 +46,9 @@ namespace JetstreamServiceNET.Model
             }
         }
 
-        private int _counter;
+        private int? _counter;
         [JsonPropertyName("user_counter")]
-        public int Counter
+        public int? Counter
         {
             get { return _counter; }
             set
@@ -60,9 +60,9 @@ namespace JetstreamServiceNET.Model
             }
         }
 
-        private string _jwt;
+        private string? _jwt;
         [JsonPropertyName("token")]
-        public string Jwt
+        public string? Jwt
         {
             get { return _jwt; }
             set

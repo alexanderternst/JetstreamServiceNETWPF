@@ -7,143 +7,143 @@ namespace JetstreamServiceNET.Model
     public class Order : ViewModelBase
     {
 
-        private int? _Id;
+        private int? _id;
         [JsonPropertyName("registration_id")]
         public int? Id
         {
-            get { return _Id; }
+            get { return _id; }
             set
             {
-                if (_Id != value)
+                if (_id != value)
                 {
-                    SetProperty(ref _Id, value);
+                    SetProperty(ref _id, value);
                 }
             }
         }
 
-        private string _Name;
+        private string? _name;
         [JsonPropertyName("registration_name")]
-        public string Name
+        public string? Name
         {
-            get { return _Name; }
+            get { return _name; }
             set
             {
-                if (_Name != value)
+                if (_name != value)
                 {
-                    SetProperty(ref _Name, value);
+                    SetProperty(ref _name, value);
                 }
             }
         }
 
-        private string _Email;
+        private string? _email;
         [JsonPropertyName("registration_email")]
-        public string Email
+        public string? Email
         {
-            get { return _Email; }
+            get { return _email; }
             set
             {
-                if (_Email != value)
+                if (_email != value)
                 {
-                    SetProperty(ref _Email, value);
+                    SetProperty(ref _email, value);
                 }
             }
         }
 
-        private string _Phone;
+        private string? _phone;
         [JsonPropertyName("registration_phone")]
-        public string Phone
+        public string? Phone
         {
-            get { return _Phone; }
+            get { return _phone; }
             set
             {
-                if (_Phone != value)
+                if (_phone != value)
                 {
-                    SetProperty(ref _Phone, value);
+                    SetProperty(ref _phone, value);
                 }
             }
         }
 
-        private DateTime _CreateDate;
+        private DateTime _createDate;
         [JsonPropertyName("registration_create_date")]
         public DateTime CreateDate
         {
-            get { return _CreateDate; }
+            get { return _createDate; }
             set
             {
-                if (_CreateDate != value)
+                if (_createDate != value)
                 {
-                    SetProperty(ref _CreateDate, value);
+                    SetProperty(ref _createDate, value);
                 }
             }
         }
 
-        private DateTime _PickupDate;
+        private DateTime _pickupDate;
         [JsonPropertyName("registration_pickup_date")]
         public DateTime PickupDate
         {
-            get { return _PickupDate; }
+            get { return _pickupDate; }
             set
             {
-                if (_PickupDate != value)
+                if (_pickupDate != value)
                 {
-                    SetProperty(ref _PickupDate, value);
+                    SetProperty(ref _pickupDate, value);
                 }
             }
         }
 
-        private string _Status;
+        private string? _status;
         [JsonPropertyName("registration_status")]
-        public string Status
+        public string? Status
         {
-            get { return _Status; }
+            get { return _status; }
             set
             {
-                if (_Status != value)
+                if (_status != value)
                 {
-                    SetProperty(ref _Status, value);
+                    SetProperty(ref _status, value);
                 }
             }
         }
 
-        private string _Priority;
+        private string? _priority;
         [JsonPropertyName("registration_priority")]
-        public string Priority
+        public string? Priority
         {
-            get { return _Priority; }
+            get { return _priority; }
             set
             {
-                if (_Priority != value)
+                if (_priority != value)
                 {
-                    SetProperty(ref _Priority, value);
+                    SetProperty(ref _priority, value);
                 }
             }
         }
 
-        private string _Service;
+        private string? _service;
         [JsonPropertyName("registration_service")]
-        public string Service
+        public string? Service
         {
-            get { return _Service; }
+            get { return _service; }
             set
             {
-                if (_Service != value)
+                if (_service != value)
                 {
-                    SetProperty(ref _Service, value);
+                    SetProperty(ref _service, value);
                 }
             }
         }
 
 
-        private string _Comment;
+        private string? _comment;
         [JsonPropertyName("registration_comment")]
-        public string Comment
+        public string? Comment
         {
-            get { return _Comment; }
+            get { return _comment; }
             set
             {
-                if (_Comment != value)
+                if (_comment != value)
                 {
-                    SetProperty(ref _Comment, value);
+                    SetProperty(ref _comment, value);
                 }
             }
         }

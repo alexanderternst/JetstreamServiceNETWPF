@@ -4,8 +4,8 @@ namespace JetstreamServiceNET.Model
 {
     public class Content : ViewModelBase
     {
-        private string _status;
-        public string Status
+        private string? _status;
+        public string? Status
         {
             get { return _status; }
             set
@@ -17,7 +17,7 @@ namespace JetstreamServiceNET.Model
             }
         }
 
-        private bool _IsIndeterminate = new bool();
+        private bool _IsIndeterminate = new();
 
         public bool IsIndeterminate
         {
