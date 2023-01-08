@@ -10,7 +10,7 @@ namespace JetstreamServiceNET.ViewModels
 {
     public class AuthentificationViewModel : ViewModelBase
     {
-        private Authentification _authentification = new Authentification();
+        private User _authentification = new User();
 
         private Content _content = new Content();
         public Action CloseAction { get; set; }
@@ -20,14 +20,14 @@ namespace JetstreamServiceNET.ViewModels
         /// <summary>
         /// Property von Typ Authentification für Login mit INotifyPropertyChanged
         /// </summary>
-        public Authentification Authentification
+        public User Authentification
         {
             get { return _authentification; }
             set
             {
                 if (value != _authentification)
                 {
-                    SetProperty<Authentification>(ref _authentification, value);
+                    SetProperty<User>(ref _authentification, value);
                 }
             }
         }
@@ -74,10 +74,9 @@ namespace JetstreamServiceNET.ViewModels
         private void Execute_Send()
         {
             Content.IsIndeterminate = true;
-
             try
             {
-                string json = JsonSerializer.Serialize<Authentification>(Authentification);
+                string json = JsonSerializer.Serialize<User>(Authentification);
 
                 var options = new RestClientOptions(UserURL + "login")
                 {
@@ -93,7 +92,7 @@ namespace JetstreamServiceNET.ViewModels
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    AuthentificationResponse authResponse = JsonSerializer.Deserialize<AuthentificationResponse>(response.Content);
+                    User authResponse = JsonSerializer.Deserialize<User>(response.Content);
 
                     Settings.Default.JWTToken = authResponse.Jwt;
                     Settings.Default.Save();
@@ -125,7 +124,7 @@ namespace JetstreamServiceNET.ViewModels
             if (Authentification == null)
                 return false;
             else
-                return Authentification.User != null && Authentification.Password != null && Authentification.User != "" && Authentification.Password != "";
+                return Authentification.Username != null && Authentification.Password != null && Authentification.Username != "" && Authentification.Password != "";
         }
     }
 }

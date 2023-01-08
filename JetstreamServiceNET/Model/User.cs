@@ -20,7 +20,7 @@ namespace JetstreamServiceNET.Model
         }
 
         private string _username;
-        [JsonPropertyName("username")]
+        [JsonPropertyName("user_username")]
         public string Username
         {
             get { return _username; }
@@ -33,7 +33,7 @@ namespace JetstreamServiceNET.Model
             }
         }
         private string _password;
-        [JsonPropertyName("password")]
+        [JsonPropertyName("user_password")]
         public string Password
         {
             get { return _password; }
@@ -47,7 +47,7 @@ namespace JetstreamServiceNET.Model
         }
 
         private int _counter;
-        [JsonPropertyName("counter")]
+        [JsonPropertyName("user_counter")]
         public int Counter
         {
             get { return _counter; }
@@ -56,6 +56,20 @@ namespace JetstreamServiceNET.Model
                 if (_counter != value)
                 {
                     SetProperty(ref _counter, value);
+                }
+            }
+        }
+
+        private string _jwt;
+        [JsonPropertyName("token")]
+        public string Jwt
+        {
+            get { return _jwt; }
+            set
+            {
+                if (_jwt != value)
+                {
+                    SetProperty(ref _jwt, value);
                 }
             }
         }

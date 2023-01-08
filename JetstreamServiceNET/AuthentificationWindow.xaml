@@ -44,13 +44,14 @@
         <TextBox Grid.Row="0"
                  Grid.Column="1"
                  Margin="5"
-                 Text="{Binding Authentification.User, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Text="{Binding Authentification.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  VerticalContentAlignment="Center" />
         <TextBox Grid.Row="1"
                  Grid.Column="1"
                  Margin="5"
                  Text="{Binding Authentification.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 VerticalContentAlignment="Center" />
+                 VerticalContentAlignment="Center"
+                 TextChanged="TextBox_TextChanged" />
 
         <StackPanel Grid.Row="5"
                     Orientation="Horizontal"
